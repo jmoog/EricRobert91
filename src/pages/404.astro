@@ -1,13 +1,63 @@
 ---
 export const prerender = true;
 import Layout from '../layouts/Layout.astro';
+import { company } from '../data/site';
+
+const liens = [
+  { label: 'Travaux de couverture', url: '/travaux-de-couverture/' },
+  { label: 'Rénovation de toiture', url: '/prestations/renovation-detoiture/' },
+  { label: 'Réparation & recherche de fuite', url: '/reparation-toiture-fuite-91/' },
+  { label: 'Nettoyage & démoussage', url: '/nettoyage-demoussage-toiture-91/' },
+  { label: 'Pose de Velux', url: '/installateur-de-velux-91/' },
+  { label: 'Isolation des combles', url: '/isolation-des-combles/' },
+  { label: 'Traitement de charpente', url: '/traitement-de-charpente/' },
+  { label: 'Devis gratuit', url: '/devis-gratuit/' },
+];
 ---
-<Layout title="Page introuvable — Éric Couvreur" description="La page demandée n'existe pas." noindex={true} path="/404">
+<Layout title="Page introuvable (404) — Éric Couvreur" description="La page demandée n'existe pas ou a été déplacée. Retrouvez toutes les prestations d'Éric Couvreur, artisan couvreur dans l'Essonne." noindex={true} path="/404">
+  <section class="page-hero err404">
+    <div class="container">
+      <p class="err404__code" aria-hidden="true">404</p>
+      <h1>Cette page s’est envolée</h1>
+      <p class="page-hero__artisan">Éric Couvreur</p>
+      <div class="err404__text">
+        <p>Comme une tuile après un coup de vent, la page que vous cherchez n’est plus à sa place : elle a peut-être été déplacée pendant la rénovation du site, ou l’adresse comporte une coquille.</p>
+        <p>Pas d’inquiétude — contrairement à une toiture, ici rien ne prend l’eau. Reprenez depuis l’accueil ou passez par l’une des pages ci-dessous.</p>
+      </div>
+      <div class="actions err404__actions">
+        <a class="btn btn--rouge btn--lg" href="/">Retour à l’accueil</a>
+        <a class="btn btn--ghost btn--lg" href={company.mobileHref} style="color:#fff;border-color:#fff">Appeler le {company.mobile}</a>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
-    <div class="container" style="text-align:center">
-      <h1>Page introuvable</h1>
-      <p>Désolé, cette page n'existe pas ou a été déplacée.</p>
-      <p><a class="btn btn--bleu" href="/">Retour à l'accueil</a></p>
+    <div class="container">
+      <div class="section-head">
+        <h2>Vous cherchiez peut-être…</h2>
+        <p>Toutes nos prestations de couverture dans l’Essonne, à un clic.</p>
+      </div>
+      <div class="liens-proches">
+        {liens.map((l) => (<a href={l.url}>{l.label}</a>))}
+      </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  .err404 { text-align: center; }
+  .err404__code {
+    margin: 0;
+    font-size: clamp(6rem, 22vw, 11rem);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--rouge);
+    letter-spacing: .02em;
+    text-shadow: 0 10px 40px rgba(0, 0, 0, .35);
+  }
+  .err404 h1 { max-width: none; margin-inline: auto; }
+  .err404 .page-hero__artisan { margin-bottom: 18px; }
+  .err404__text { max-width: 56ch; margin: 0 auto; }
+  .err404__text p { color: #d5e2f0; margin: 0 0 14px; }
+  .err404__actions { justify-content: center; }
+</style>

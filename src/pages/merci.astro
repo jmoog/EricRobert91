@@ -15,23 +15,44 @@ import { company } from '../data/site';
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
       </span>
       <h1>Merci, votre demande est bien reçue</h1>
-      <p class="merci-lead">Nous vous recontactons rapidement pour convenir d’une visite et étudier votre projet de toiture. Pour une urgence, vous pouvez aussi nous appeler directement.</p>
+      <p class="merci-lead">Votre message est arrivé directement chez Éric Robert — pas dans une boîte anonyme. Voici ce qui se passe maintenant.</p>
+    </div>
+  </section>
+
+  <section class="section merci-suite">
+    <div class="container">
+      <ol class="prose-etapes">
+        <li><strong>Vous êtes rappelé rapidement.</strong> Éric Robert prend connaissance de votre demande et vous recontacte, en général dans la journée (du lundi au samedi, 8 h – 20 h). Si le numéro qui s’affiche vous est inconnu, c’est sûrement lui !</li>
+        <li><strong>Visite sur place, gratuite.</strong> Il se déplace chez vous, monte voir ce que votre toit demande vraiment et prend les mesures — le déplacement est offert dans tout le département.</li>
+        <li><strong>Devis détaillé, sans engagement.</strong> Vous recevez un chiffrage clair, poste par poste, avec les aides mobilisables si vos travaux y sont éligibles. Vous décidez ensuite en toute tranquillité.</li>
+      </ol>
       <div class="merci-actions">
-        <a href={company.mobileHref} class="btn btn--rouge">Appeler le {company.mobile}</a>
+        <a href={company.mobileHref} class="btn btn--rouge btn--tel" aria-label={`Appeler le ${company.mobile}`}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 18h.01"/></svg>{company.mobile}</a>
         <a href="/" class="btn btn--ghost">Retour à l’accueil</a>
       </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container merci-inner">
+      <h2>En attendant notre appel</h2>
+      <p class="merci-lead">Une urgence qui ne peut pas attendre — fuite active, tuiles envolées ? Appelez directement le {company.mobile}, les urgences passent avant les rendez-vous.</p>
+      <p class="merci-lead">Et si vous êtes déjà client, votre retour compte : <a href={company.reviewUrl} target="_blank" rel="noopener">laissez un avis sur notre fiche Google</a> — c’est la meilleure façon d’aider un artisan local.</p>
     </div>
   </section>
 </Layout>
 
 <style>
-  .merci-inner { max-width: 40rem; margin-inline: auto; text-align: center; }
+  .merci { padding-bottom: 24px; }
+  .merci-inner { max-width: 44rem; margin-inline: auto; text-align: center; }
   .merci-check {
     display: inline-flex; align-items: center; justify-content: center;
     width: 72px; height: 72px; border-radius: 50%;
     background: rgba(22, 163, 74, .12); color: #16a34a; margin-bottom: 1.25rem;
   }
   .merci-check svg { width: 36px; height: 36px; }
-  .merci-lead { color: var(--gris); font-size: 1.05rem; max-width: 46ch; margin-inline: auto; }
+  .merci-lead { color: var(--gris); font-size: 1.05rem; max-width: 52ch; margin: 0 auto 1rem; }
+  .merci-suite { padding-top: 0; }
+  .merci-suite .prose-etapes li { text-align: left; }
   .merci-actions { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 1.75rem; }
 </style>

@@ -43,7 +43,7 @@ const {
 const hasHero = Astro.slots.has('hero');
 const hasBody = Astro.slots.has('default');
 ---
-<Layout title={`${titre} — Éric Couvreur RGE Qualibat (91)`} description={description} path={path}>
+<Layout title={`${titre} — Éric Couvreur RGE Qualibat (91)`} description={description} path={path} breadcrumbName={titre} serviceName={titre}>
   <nav class="breadcrumb" aria-label="Fil d'Ariane">
     <div class="container">
       <ol>

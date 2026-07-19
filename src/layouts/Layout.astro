@@ -11,7 +11,29 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieBanner from '../components/CookieBanner.astro';
-import { company, areaServed } from '../data/site';
+import { company } from '../data/site';
+import { communes } from '../data/communes';
+
+// Prestations (catalogue de services, avec l'URL de chaque page)
+const SITE_URL = 'https://eric-couvreur.fr';
+const servicesLd = [
+  ['Travaux de couverture', '/travaux-de-couverture/'],
+  ['Rénovation de toiture', '/prestations/renovation-detoiture/'],
+  ['Réparation de toiture et recherche de fuite', '/reparation-toiture-fuite-91/'],
+  ['Nettoyage et démoussage de toiture', '/nettoyage-demoussage-toiture-91/'],
+  ['Traitement anti-mousse de toiture', '/traitement-anti-mousse-toiture-91/'],
+  ['Traitement hydrofuge de toiture', '/traitement-hydrofuge-toiture-91/'],
+  ['Pose et remplacement de fenêtres de toit Velux (RGE)', '/installateur-de-velux-91/'],
+  ['Isolation des combles perdus (RGE)', '/isolation-des-combles/'],
+  ['Isolation des rampants (RGE)', '/isolation-des-rampants/'],
+  ['Isolation de toiture par l’extérieur — sarking (RGE)', '/prestations/isolation-de-toiture-91/'],
+  ['Traitement de charpente', '/traitement-de-charpente/'],
+  ['Ramonage', '/prestations/ramonage-91/'],
+  ['Ravalement de façade', '/prestations/ravalement-de-facade-91/'],
+].map(([name, path]) => ({
+  '@type': 'Offer',
+  itemOffered: { '@type': 'Service', name, url: `${SITE_URL}${path}` },
+}));
 
 export interface Props {
   title: string;
@@ -22,9 +44,23 @@ export interface Props {
   noindex?: boolean;
   /** true = masque le CTA « Devis gratuit » du header/footer (page devis elle-même) */
   hideQuoteCta?: boolean;
+  /** Pages villes : nom de la commune — areaServed du schema ne contient alors QUE cette ville */
+  areaServedVille?: string;
+  /** Libellé de la page dans le fil d'Ariane — ajoute un BreadcrumbList (Accueil → page) au schema */
+  breadcrumbName?: string;
+  /** Pages services : nom de la prestation — ajoute un nœud Service au schema */
+  serviceName?: string;
 }
 
-const { title, description, path = '/', noindex = false, hideQuoteCta = false } = Astro.props;
+const { title, description, path = '/', noindex = false, hideQuoteCta = false, areaServedVille, breadcrumbName, serviceName } = Astro.props;
+
+// areaServed : la ville seule (pages villes), sinon le département (91) + toutes les communes desservies
+const areaServedLd = areaServedVille
+  ? [{ '@type': 'City', name: areaServedVille }]
+  : [
+      { '@type': 'AdministrativeArea', name: 'Essonne (91)' },
+      ...communes.map((c) => ({ '@type': 'City', name: c.nom })),
+    ];
 
 const SITE = 'https://eric-couvreur.fr';
 const canonical = new URL(path, Astro.site ?? SITE).href;
@@ -72,9 +108,53 @@ const jsonLd = {
         opens: company.hours.opens,
         closes: company.hours.closes,
       },
-      areaServed,
-      sameAs: [company.googleUrl],
+      areaServed: areaServedLd,
+      knowsAbout: [
+        'Couverture', 'Zinguerie', 'Gouttières, noues et chéneaux', 'Rénovation de toiture',
+        'Réparation de fuite de toiture', 'Démoussage de toiture', 'Traitement hydrofuge',
+        'Fenêtres de toit Velux', 'Isolation de toiture', 'Isolation des combles', 'Sarking',
+        'Traitement de charpente', 'Ramonage', 'Ravalement de façade',
+        'Tuiles mécaniques', 'Tuiles plates', 'Ardoises', 'Zinc', 'Bac acier', 'Shingle',
+      ],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Prestations de couverture dans l’Essonne',
+        itemListElement: servicesLd,
+      },
+      hasCredential: {
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'certification',
+        name: 'RGE Qualibat',
+        description:
+          'Certification RGE (Reconnu Garant de l’Environnement) Qualibat — fenêtres de toit et isolation. SIREN 821 136 488.',
+        url: 'https://annuaire-entreprises.data.gouv.fr/labels-certificats/821136488#rge',
+        recognizedBy: { '@type': 'Organization', name: 'Qualibat', url: 'https://www.qualibat.com/' },
+      },
+      sameAs: [company.googleUrl, 'https://annuaire-entreprises.data.gouv.fr/entreprise/couverture-robert-eric-couvreur-821136488'],
     },
+    // Fil d'Ariane (pages internes uniquement)
+    ...(breadcrumbName
+      ? [{
+          '@type': 'BreadcrumbList',
+          '@id': `${canonical}#breadcrumb`,
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE}/` },
+            { '@type': 'ListItem', position: 2, name: breadcrumbName, item: canonical },
+          ],
+        }]
+      : []),
+    // Prestation de la page (pages services uniquement)
+    ...(serviceName
+      ? [{
+          '@type': 'Service',
+          '@id': `${canonical}#service`,
+          name: serviceName,
+          url: canonical,
+          description,
+          provider: { '@id': `${SITE}/#localbusiness` },
+          areaServed: areaServedLd,
+        }]
+      : []),
   ],
 };
 ---
