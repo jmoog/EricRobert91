@@ -575,7 +575,7 @@ html:has(.nav-toggle:checked) { overflow: hidden; }
 .cta-band p { color: #c6d3e0; max-width: 54ch; margin: 0 auto 26px; }
 .cta-band__trust { list-style: none; padding: 0; margin: 0 auto 30px; display: flex; flex-wrap: wrap; gap: 10px 12px; justify-content: center; max-width: 840px; }
 .cta-band__trust li { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); padding: 9px 16px; border-radius: 999px; color: #e6eef7; font-size: .9rem; font-weight: 600; }
-.cta-band__trust li::before { content: "✔"; color: #5ad18a; font-weight: 900; }
+.cta-band__trust li::before { content: "\2714\FE0E"; color: #5ad18a; font-weight: 900; }
 .cta-band__actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
 .cta-band__ghost { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.55); }
 .cta-band__ghost:hover { background: rgba(255,255,255,.1); }
@@ -645,7 +645,7 @@ html:has(.nav-toggle:checked) { overflow: hidden; }
 /* ---------- Contenu éditorial des pages services / villes ---------- */
 .prose-liste { padding-left: 0; margin: 18px 0; list-style: none; }
 .prose-liste li { position: relative; padding-left: 26px; margin-bottom: 10px; }
-.prose-liste li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--rouge); font-weight: 700; }
+.prose-liste li::before { content: "\2713\FE0E"; position: absolute; left: 0; top: 0; color: var(--rouge); font-weight: 700; }
 
 .prose-etapes { counter-reset: etape; padding-left: 0; margin: 18px auto; list-style: none; max-width: 820px; }
 .prose-etapes li { position: relative; padding-left: 40px; margin-bottom: 14px; counter-increment: etape; }
