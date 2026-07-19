@@ -9,3 +9,5 @@ node_modules/
 .env.production
 # macOS
 .DS_Store
+# résidu technique (à supprimer manuellement dans le Finder)
+.git-broken-backup/
