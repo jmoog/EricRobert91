@@ -27,8 +27,8 @@ export const company = {
   // Lien direct vers le formulaire de dépôt d'avis Google
   reviewUrl: 'https://g.page/r/CYTlTIwenczHEAE/review',
 
-  // Avis clients Google — À METTRE À JOUR avec les vrais chiffres
-  reviews: { rating: '4,9', count: 60 },
+  // Avis clients Google (fiche Éric Couvreur)
+  reviews: { rating: '4,2', count: 11 },
 
   priceRange: '€€',
   hours: { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], opens: '08:00', closes: '20:00' },

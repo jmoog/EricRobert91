@@ -31,6 +31,25 @@ h1, h2, h3 { line-height: 1.2; color: var(--bleu-fonce); text-wrap: balance; }
 p { text-wrap: pretty; }
 a { color: var(--bleu); text-decoration: none; }
 a:hover { text-decoration: underline; }
+
+/* Liens dans les paragraphes de contenu : gras + soulignement rouge, bien visibles */
+p a {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--rouge);
+}
+p a:hover { color: var(--rouge); text-decoration-color: var(--rouge); }
+/* Fonds sombres : le lien passe en blanc pour rester lisible */
+.media-section--dark .media-split__text a,
+.page-hero__text a,
+.cta-band p a { color: #fff; }
+.media-section--dark .media-split__text a:hover,
+.page-hero__text a:hover,
+.cta-band p a:hover { color: var(--bleu-clair); }
+/* Footer : on garde la sobriété */
+.site-footer p a { font-weight: 400; text-decoration: none; }
 img { max-width: 100%; height: auto; }
 
 .container { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: 20px; }
@@ -124,10 +143,11 @@ img { max-width: 100%; height: auto; }
     width: min(86vw, 340px); flex-direction: column; align-items: center; gap: 22px;
     background: var(--bleu-nuit); padding: 74px 28px 28px;
     box-shadow: -18px 0 44px rgba(0,0,0,.45);
-    transform: translateX(100%); transition: transform .3s ease;
+    transform: translateX(100%); visibility: hidden;
+    transition: transform .3s ease, visibility .3s ease;
     overflow-y: auto; overscroll-behavior: contain;
   }
-  .nav-toggle:checked ~ .nav-panel { transform: translateX(0); }
+  .nav-toggle:checked ~ .nav-panel { transform: translateX(0); visibility: visible; }
 
   /* Croix de fermeture — même style de barres que le burger (2px, blanc) */
   .nav-close { display: block; position: absolute; top: 22px; right: 24px; width: 28px; height: 28px; cursor: pointer; }
@@ -258,6 +278,9 @@ html:has(.nav-toggle:checked) { overflow: hidden; }
 .section-head p { color: var(--gris); margin: 0; }
 /* Variante pages de contenu : ferré à gauche, pas de césure forcée */
 .section-head--left { text-align: left; max-width: none; margin: 0 0 32px; }
+/* Bloc centré dans la page, mais texte aligné à gauche (titre centré) */
+.section-head--txt-left { text-align: left; }
+.section-head--txt-left h2 { text-align: center; }
 .section-head--left h2 { text-wrap: initial; }
 .section-head--left p { max-width: 72ch; }
 
@@ -312,6 +335,8 @@ html:has(.nav-toggle:checked) { overflow: hidden; }
 .split-feature__inner { max-width: 1180px; margin-inline: auto; display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; align-items: center; }
 .split-feature__left h2 { color: #fff; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 900; margin: 0 0 16px; line-height: 1.2; }
 .split-feature__left > p { color: #d5e2f0; font-size: 1rem; margin: 0 0 26px; max-width: 44ch; }
+.split-feature__left a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.split-feature__left a:hover { color: var(--bleu-clair); }
 .split-feature__list { list-style: none; margin: 0; padding: 0; }
 .split-feature__list li { padding: 16px 2px; border-top: 1px solid rgba(255,255,255,.22); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; font-size: .9rem; color: rgba(255,255,255,.82); cursor: pointer; transition: color .15s ease; }
 .split-feature__list li:last-child { border-bottom: 1px solid rgba(255,255,255,.22); }
@@ -346,6 +371,10 @@ html:has(.nav-toggle:checked) { overflow: hidden; }
 @media (max-width: 760px) {
   .cta-banner { grid-template-columns: 1fr; }
   .cta-banner__media { min-height: 220px; }
+  /* Mobile : titre et bouton centrés, texte du paragraphe aligné à gauche */
+  .cta-banner__panel { text-align: center; }
+  .cta-banner__panel p { text-align: left; }
+  .cta-banner__btn { align-self: center; }
 }
 
 /* ---- Hero des pages internes (gabarits service & ville) ---- */
@@ -383,6 +412,18 @@ html:has(.nav-toggle:checked) { overflow: hidden; }
   .page-hero__grid { grid-template-columns: 1fr; gap: 26px; }
   .page-hero__media { order: -1; }   /* la photo passe juste sous le H1 */
   .page-hero::before, .page-hero::after { max-width: 42%; height: 32%; }
+  .page-hero .actions { justify-content: center; }   /* boutons centrés sur mobile */
+  /* Mobile : tous les titres centrés, « Éric Couvreur » aussi */
+  h1, h2 { text-align: center; }
+  .page-hero h1 { max-width: none; }
+  .page-hero__artisan { text-align: center; font-size: clamp(1.7rem, 7vw, 2.2rem); }
+}
+
+/* Très petits écrans : boutons empilés les uns sous les autres, centrés */
+@media (max-width: 480px) {
+  .page-hero .actions,
+  .hero .actions,
+  .cta-band__actions { flex-direction: column; align-items: center; }
 }
 
 /* Liens vers d'autres villes / services */

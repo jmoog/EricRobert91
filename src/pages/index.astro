@@ -5,42 +5,38 @@ import { company } from '../data/site';
 import { prestationsRge as promos, svg } from '../data/prestations';
 import TrustBand from '../components/TrustBand.astro';
 
-// Avis clients (à remplacer par les vrais avis Google).
+// Vrais avis Google de la fiche Éric Couvreur.
 const reviews = [
-  { note: 5, date: '14 juin 2026', nom: 'Sophie M.', texte: 'Réfection complète de notre toiture : travail soigné, équipe ponctuelle et chantier laissé propre. Un grand merci à Éric et son équipe.' },
-  { note: 5, date: '2 mai 2026', nom: 'Julien R.', texte: 'Devis clair et respecté, intervention rapide après une fuite. Très professionnel, je recommande sans hésiter.' },
-  { note: 5, date: '19 avril 2026', nom: 'Nathalie B.', texte: 'Pose de fenêtres de toit impeccable. De bons conseils sur l’isolation et les aides. Résultat au top.' },
-  { note: 4, date: '28 mars 2026', nom: 'Karim D.', texte: 'Bon rapport qualité-prix pour le démoussage et le traitement de la toiture. Artisan sérieux et à l’écoute.' },
-  { note: 5, date: '9 mars 2026', nom: 'Isabelle P.', texte: 'Ravalement de façade réalisé dans les délais. Éric est de bon conseil et le rendu est superbe.' },
-  { note: 5, date: '21 février 2026', nom: 'Thomas L.', texte: 'Isolation des combles parfaite, on sent déjà la différence. Équipe RGE compétente et de confiance.' },
-  { note: 5, date: '5 février 2026', nom: 'Christophe G.', texte: 'Intervention d’urgence après la tempête, très réactif. Toiture réparée proprement. Je recommande vivement.' },
+  { note: 5, date: 'Août 2025', nom: 'Aurélia Tonnellier', texte: 'Monsieur Robert est un couvreur très disponible et au service de ses clients. Il a refait notre toiture avec son équipe. Le travail a été rapide, monsieur Robert a su s’adapter aux aléas du chantier et trouver des solutions.' },
+  { note: 5, date: 'Septembre 2024', nom: 'Claude Cornet', texte: 'Entreprise artisanale et familiale depuis 3 générations. Le père, le fils et leurs 2 ouvriers m’ont fait un travail impeccable sur le bardage bois de mon chalet de 60 ans. Le résultat est surprenant : on dirait un chalet neuf ! Et le tout pour un prix tout à fait correct.' },
+  { note: 5, date: 'Septembre 2023', nom: 'Florence Dubreuil', texte: 'Monsieur Robert est venu changer notre toiture et nos Velux à Montgeron. Le travail a été rapide et extrêmement bien fait. Son équipe a à cœur de finir le chantier dans les moindres détails. Le rapport qualité-prix est très bon. Nous recommandons vivement.' },
+  { note: 5, date: 'Novembre 2023', nom: 'Michel', texte: 'Une intervention rapide et efficace. Un travail de qualité. Je suis très satisfait de votre intervention sur mon toit.' },
+  { note: 5, date: 'Juin 2023', nom: 'Anne-Laure Thaurel', texte: 'Bravo pour votre professionnalisme et votre réactivité. Nous sommes très contents du résultat.' },
+  { note: 5, date: 'Juillet 2022', nom: 'Denis Charles', texte: 'Éric est réactif, professionnel et de bons conseils. Nous avions un projet et ses conseils ont été précieux pour nous faire faire des économies. Nous recommandons vivement.' },
 ];
 
 ---
 <Layout
-  title="Couvreur 91 — Éric Couvreur, artisan RGE Qualibat dans l'Essonne"
-  description="Éric Couvreur, artisan couvreur RGE Qualibat dans l'Essonne (91) : travaux de couverture, rénovation de toiture, isolation, ravalement, ramonage et pose de Velux. Devis gratuit."
+  title="Couvreur 91 : Éric Couvreur, RGE Qualibat"
+  description="Couvreur 91 : Éric Couvreur est à votre service pour réaliser tous vos travaux de couverture, d'isolation et de ravalement dans l'Essonne. Artisan RGE Qualibat."
   path="/"
 >
-  <section class="hero hero--center">
+  <section class="page-hero">
     <div class="container">
-      <span class="hero__eyebrow">Artisan couvreur RGE Qualibat — Essonne (91)</span>
-      <h1>Votre toiture entre les mains d’un artisan de confiance</h1>
-      <img
-        class="hero__img"
-        src="/hero-eric-couvreur.webp"
-        width="891"
-        height="706"
-        alt="Éric Couvreur et son équipe sur un chantier de rénovation de toiture dans l’Essonne"
-      />
-      <p>
-        Éric Couvreur réalise tous vos travaux de couverture, d’isolation et de ravalement dans
-        l’Essonne. Certifié RGE Qualibat, à votre service depuis {company.foundingDate}. Devis et
-        déplacements gratuits.
-      </p>
-      <div class="actions">
-        <a class="btn btn--rouge btn--lg" href={company.mobileHref}>Appeler le {company.mobile}</a>
-        <a class="btn btn--ghost btn--lg" href="/devis-gratuit/" style="color:#fff;border-color:#fff">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      <h1>Couvreur 91 : artisan couvreur RGE Qualibat dans l’Essonne</h1>
+      <p class="page-hero__artisan">Éric Couvreur</p>
+      <div class="page-hero__grid">
+        <div class="page-hero__text">
+          <p><strong>Entretien de toiture, réparation et rénovation de toiture</strong> : tous vos travaux de couverture, d’isolation et de ravalement, réalisés par un artisan certifié RGE Qualibat, à votre service depuis {company.foundingDate}.</p>
+          <p>Devis et déplacement gratuits dans tout le département.</p>
+          <div class="actions">
+            <a class="btn btn--rouge btn--tel" href={company.mobileHref} aria-label={`Appeler le ${company.mobile}`} title={`Appeler le ${company.mobile}`}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 18h.01"/></svg>{company.mobile}</a>
+            <a class="btn btn--ghost" href="/devis-gratuit/" style="color:#fff;border-color:#fff">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+          </div>
+        </div>
+        <div class="page-hero__media">
+          <img src="/hero-eric-couvreur.webp" width="891" height="706" alt="Éric Couvreur et son équipe sur un chantier de rénovation de toiture dans l’Essonne" />
+        </div>
       </div>
     </div>
   </section>
@@ -49,9 +45,10 @@ const reviews = [
 
 
   <section class="section promo-section">
-    <div class="section-head">
-      <h2>Nos prestations éligibles aux aides (RGE Qualibat)</h2>
-      <p>Artisan certifié RGE Qualibat : vos travaux d’isolation et de fenêtres de toit peuvent être financés par les aides de l’État.</p>
+    <div class="section-head section-head--txt-left">
+      <h2>Un artisan certifié RGE pour améliorer la qualité de votre toiture</h2>
+      <p><strong>Nos prestations éligibles aux aides (RGE Qualibat)</strong> : vos travaux d’isolation et de fenêtres de toit peuvent être financés par les aides de l’État.</p>
+      <p><a href="https://annuaire-entreprises.data.gouv.fr/labels-certificats/821136488#rge" target="_blank" rel="noopener">Vérifier notre certification RGE sur l’annuaire officiel des entreprises</a></p>
     </div>
     <div class="promo-grid">
       {promos.map((p) => (
@@ -72,22 +69,20 @@ const reviews = [
   <section class="split-feature">
     <div class="split-feature__inner">
       <div class="split-feature__left">
-        <h2>Lorem ipsum dolor sit amet pour les propriétaires</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, protégez votre bien.</p>
+        <h2>Le spécialiste de la rénovation de toiture dans l’Essonne</h2>
+        <p>Tuiles poreuses qui gèlent et se fendent, faîtage descellé, gouttières fatiguées : passé un certain âge, réparer une toiture coûte plus cher que la refaire. Éric Robert remplace les toitures anciennes de A à Z — dépose, reprise de charpente si besoin, écran de sous-toiture et couverture neuve posée pour cinquante ans. Découvrez notre page <a href="/prestations/renovation-detoiture/">rénovation de toiture</a>.</p>
         <ul class="split-feature__list">
-          <li class="is-active">Lorem ipsum dolor sit amet</li>
-          <li>Consectetur adipiscing elit</li>
-          <li>Sed do eiusmod tempor incididunt</li>
-          <li>Ut labore et dolore magna</li>
-          <li>Quis nostrud exercitation</li>
+          <li class="is-active">Devis gratuit</li>
+          <li>Intervention en moins de 48 heures</li>
+          <li>Garantie décennale</li>
         </ul>
       </div>
       <div class="split-feature__right">
         <img class="split-feature__photo" src="/eric-robert-portrait.webp" width="450" height="337" alt="Éric Robert, artisan couvreur dans l'Essonne" />
         <div class="split-feature__card">
-          <span class="split-feature__badge">Lorem</span>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud.</p>
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident.</p>
+          <span class="split-feature__badge">Depuis {company.foundingDate}</span>
+          <p>Des pavillons des années 60-70 de Savigny-sur-Orge, Sainte-Geneviève-des-Bois ou Massy aux maisons anciennes de l’Arpajonnais et du Hurepoix, Éric Robert, installé à Linas, rénove les toitures de tout le département — il connaît les toits de l’Essonne et leurs matériaux d’origine.</p>
+          <p><strong>Tuiles mécaniques, tuiles plates, ardoises, zinc, bac acier ou shingle</strong> : tous les matériaux de couverture sont travaillés, dans le respect du style de votre maison — du toit à faible pente couvert en bac acier au brisis ardoisé d’une meulière.</p>
         </div>
       </div>
     </div>
@@ -99,9 +94,9 @@ const reviews = [
         <img src="/cta-estimation.webp" width="1920" height="845" alt="Artisans couvreurs Éric Couvreur dans l'Essonne" />
       </div>
       <div class="cta-banner__panel">
-        <h2>Lorem ipsum dolor sit amet dans le 91</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco.</p>
-        <a class="btn cta-banner__btn" href="/devis-gratuit/">Lorem ipsum</a>
+        <h2>Votre devis toiture gratuit dans le 91</h2>
+        <p>Décrivez vos travaux, Éric Robert se déplace, constate et chiffre. Le devis est détaillé, sans engagement, et le déplacement gratuit dans tout l’Essonne — de Linas à Corbeil-Essonnes en passant par Palaiseau et Arpajon.</p>
+        <a class="btn cta-banner__btn" href="/devis-gratuit/">Demander un devis gratuit</a>
       </div>
     </div>
   </section>
@@ -111,7 +106,7 @@ const reviews = [
       <div class="reviews__head">
         <h2>Ils nous ont fait confiance</h2>
         <div class="reviews__avg">
-          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span class="stars" aria-hidden="true">★★★★☆</span>
           <strong>{company.reviews.rating}/5</strong> · {company.reviews.count} avis clients
         </div>
       </div>
@@ -140,16 +135,15 @@ const reviews = [
     <div class="container media-split">
       <div class="media-split__text">
         <h2>Nettoyage et démoussage de toiture dans l’Essonne</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris.</p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa.</p>
+        <p>La mousse retient l’humidité, ronge les tuiles et finit par ouvrir la porte aux infiltrations. Un <a href="/nettoyage-demoussage-toiture-91/">nettoyage et démoussage de toiture</a> régulier prolonge la vie de votre couverture et lui redonne son aspect d’origine.</p>
+        <p>Après le nettoyage, un <a href="/traitement-anti-mousse-toiture-91/">traitement anti-mousse</a> empêche la végétation de revenir, et un <a href="/traitement-hydrofuge-toiture-91/">traitement hydrofuge</a> ré-imperméabilise les tuiles devenues poreuses. Trois gestes complémentaires, réalisés avec des produits professionnels Dalep.</p>
         <div class="media-split__partner">
           <span>Traitements professionnels</span>
           <img class="media-split__logo" src="/logo-dalep.webp" width="113" height="40" alt="Dalep — traitements pour le bâtiment" />
         </div>
-        <a class="btn btn--rouge media-split__cta" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
       </div>
       <div class="media-split__media">
-        <img src="/photo-demoussage.webp" width="480" height="360" alt="Toiture nettoyée et démoussée par Éric Couvreur dans l'Essonne" />
+        <img src="/photo-nettoyage-toiture-1.webp" width="900" height="672" alt="Nettoyage et démoussage d'une toiture par Éric Couvreur dans l'Essonne" />
       </div>
     </div>
   </section>
@@ -158,8 +152,8 @@ const reviews = [
     <div class="container media-split media-split--reverse">
       <div class="media-split__text">
         <h2>Gouttières, noues et chéneaux dans l’Essonne</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco.</p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident.</p>
+        <p>Une gouttière qui déborde ou qui fuit, et c’est l’eau de pluie qui ruisselle sur la façade, s’infiltre dans les murs et attaque les fondations. La zinguerie n’est pas un détail : c’est elle qui évacue l’eau loin de votre maison.</p>
+        <p>Pose et remplacement de gouttières en zinc ou en aluminium, façonnage des noues, chéneaux et abergements : ces ouvrages font partie de nos <a href="/travaux-de-couverture/">travaux de couverture</a>, réalisés dans les règles de l’art sur tout le département.</p>
         <a class="btn btn--rouge media-split__cta" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
       </div>
       <div class="media-split__media">
@@ -172,8 +166,8 @@ const reviews = [
     <div class="container media-split media-split--plain">
       <div class="media-split__text">
         <h2>Traitement de charpente dans l’Essonne</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco.</p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident.</p>
+        <p>Capricornes, vrillettes, champignons : les bois de charpente vieillissent en silence, et l’on découvre souvent les dégâts trop tard. De la sciure au pied des poutres ou de petits trous dans le bois doivent vous alerter.</p>
+        <p>Après diagnostic, le <a href="/traitement-de-charpente/">traitement de charpente</a> par injection ou pulvérisation stoppe les insectes xylophages et protège le bois pour des années. Un contrôle s’impose aussi avant tout projet d’<a href="/isolation-des-combles/">isolation des combles</a> : on n’isole jamais sur une charpente malade.</p>
         <a class="btn btn--rouge media-split__cta" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
       </div>
       <div class="media-split__media">
