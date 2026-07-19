@@ -1,0 +1,116 @@
+---
+// Gabarit des pages services (hubs) : /travaux-de-couverture/, /prestations/..., etc.
+import Layout from './Layout.astro';
+import { company } from '../data/site';
+import TrustBand from '../components/TrustBand.astro';
+
+interface Props {
+  /** Libellé du fil d'Ariane + base du title */
+  titre: string;
+  /** H1 complet (par défaut : titre) */
+  h1?: string;
+  /** Chemin canonique, ex. "/travaux-de-couverture/" */
+  path: string;
+  /** Meta description */
+  description: string;
+  /** Photo principale (hero) */
+  photo?: string;
+  /** Alt de la photo hero (par défaut : titre) */
+  photoAlt?: string;
+  /** Photo de la section H2 (fallback lorem uniquement) */
+  photo2?: string;
+  /** Services proches à mettre en lien */
+  liens?: { label: string; url: string }[];
+  /** Titre de la section liens */
+  liensTitre?: string;
+  /** Intro de la section liens */
+  liensIntro?: string;
+}
+
+const {
+  titre,
+  h1 = Astro.props.titre,
+  path,
+  description,
+  photo = '/hero-eric-couvreur.webp',
+  photoAlt = Astro.props.titre,
+  photo2 = '/photo-charpente.webp',
+  liens = [],
+  liensTitre = 'Nos autres prestations dans l’Essonne',
+  liensIntro = 'Couverture, isolation, entretien : Éric Couvreur intervient sur l’ensemble de votre toiture.',
+} = Astro.props;
+
+const hasHero = Astro.slots.has('hero');
+const hasBody = Astro.slots.has('default');
+---
+<Layout title={`${titre} — Éric Couvreur RGE Qualibat (91)`} description={description} path={path}>
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol>
+        <li><a href="/">Accueil</a></li>
+        <li aria-current="page">{titre}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>{h1}</h1>
+      <p class="page-hero__artisan">{company.name}</p>
+      <div class="page-hero__grid">
+        <div class="page-hero__text">
+          {hasHero ? (
+            <slot name="hero" />
+          ) : (
+            <>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua dans tout l’Essonne.</p>
+              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </>
+          )}
+
+          <div class="actions">
+            <a class="btn btn--rouge btn--tel" href={company.mobileHref} aria-label={`Appeler le ${company.mobile}`} title={`Appeler le ${company.mobile}`}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 18h.01"/></svg>{company.mobile}</a>
+            <a class="btn btn--ghost" href="/devis-gratuit/" style="color:#fff;border-color:#fff">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+          </div>
+        </div>
+        <div class="page-hero__media">
+          <img src={photo} width="891" height="706" alt={photoAlt} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustBand showLogo />
+
+  {hasBody ? (
+    <slot />
+  ) : (
+    <section class="section">
+      <div class="container media-split media-split--plain">
+        <div class="media-split__text">
+          <h2>Lorem ipsum dolor sit amet consectetur</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris.</p>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident.</p>
+          <a class="btn btn--rouge media-split__cta" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+        </div>
+        <div class="media-split__media">
+          <img src={photo2} width="1045" height="870" alt={titre} />
+        </div>
+      </div>
+    </section>
+  )}
+
+  {liens.length > 0 && (
+    <section class="section section--gris">
+      <div class="container">
+        <div class="section-head">
+          <h2>{liensTitre}</h2>
+          <p>{liensIntro}</p>
+        </div>
+        <div class="liens-proches">
+          {liens.map((l) => (<a href={l.url}>{l.label}</a>))}
+        </div>
+      </div>
+    </section>
+  )}
+</Layout>

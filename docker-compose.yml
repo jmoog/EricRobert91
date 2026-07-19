@@ -1,0 +1,16 @@
+# docker-compose.yml — Eric Couvreur (Astro + adaptateur Node standalone)
+# Le conteneur écoute en local (127.0.0.1:4321) : le reverse proxy Coolify
+# (Traefik) fait le routage et le HTTPS, Cloudflare reste devant pour le DNS.
+services:
+  web:
+    build:
+      context: .
+      args:
+        # Clé publique Turnstile (optionnelle, gravée dans le HTML au build)
+        PUBLIC_TURNSTILE_SITE_KEY: "${PUBLIC_TURNSTILE_SITE_KEY:-}"
+    image: eric-couvreur:latest
+    container_name: eric-couvreur
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "127.0.0.1:4321:4321"

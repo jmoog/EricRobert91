@@ -1,0 +1,161 @@
+---
+// Page service RGE : isolation des combles perdus (soufflage) — le geste le plus rentable.
+// Mot-clé principal : « isolation des combles » + variantes (isolation combles perdus 91, soufflage).
+export const prerender = true;
+import PageService from '../layouts/PageService.astro';
+import { company } from '../data/site';
+
+const liens = [
+  { label: 'Isolation des rampants (RGE)', url: '/isolation-des-rampants/' },
+  { label: 'Isolation de toiture (RGE)', url: '/prestations/isolation-de-toiture-91/' },
+  { label: 'Pose de Velux (RGE)', url: '/installateur-de-velux-91/' },
+  { label: 'Travaux de couverture', url: '/travaux-de-couverture/' },
+  { label: 'Traitement de charpente', url: '/traitement-de-charpente/' },
+  { label: 'Ramonage', url: '/prestations/ramonage-91/' },
+];
+---
+<PageService
+  titre="Isolation des combles dans l'Essonne"
+  h1="Isolation des combles perdus dans l’Essonne : artisan certifié RGE Qualibat"
+  path="/isolation-des-combles/"
+  description="Isolation des combles perdus dans l'Essonne par un artisan certifié RGE Qualibat : soufflage rapide, factures réduites, aides MaPrimeRénov' et CEE. Devis gratuit."
+  photo="/isolation-combles-perdus.webp"
+  photoAlt="Isolation de combles perdus par soufflage réalisée par Éric Couvreur dans l'Essonne"
+  liens={liens}
+>
+  <Fragment slot="hero">
+    <p>Des factures de chauffage qui grimpent alors que le grenier ne sert qu’à stocker des cartons ? C’est le cas de figure le plus fréquent — et le plus simple à corriger. L’<strong>isolation des combles perdus</strong> est le geste de rénovation énergétique le plus rentable d’une maison : un chantier d’une demi-journée, amorti en quelques années.</p>
+    <p>Éric Robert, couvreur à Linas, est certifié <strong>RGE Qualibat</strong> pour l’isolation des combles perdus. La certification conditionne l’accès aux aides de l’État, qui couvrent une part importante de la dépense. Devis et déplacement gratuits dans tout le département.</p>
+  </Fragment>
+
+  <section class="section">
+    <div class="container media-split media-split--plain">
+      <div class="media-split__text">
+        <h2>Le soufflage : une demi-journée pour isoler tout le plancher des combles</h2>
+        <p>Pour des combles non aménagés, la technique reine est le soufflage : la laine minérale est projetée à la machine sur le plancher, en une couche continue de 30 à 40 cm qui épouse les moindres recoins. Aucun découpage, aucun pont thermique, un chantier propre et rapide — la maison reste habitable pendant l’intervention.</p>
+        <p>Quand le plancher est accessible et régulier, la pose de rouleaux déroulés en deux couches croisées est une alternative solide. Dans les deux cas, nous préparons les points singuliers avant de commencer : trappe isolée, conduits de cheminée protégés, spots encastrés capotés, ventilation préservée.</p>
+        <a class="btn btn--rouge media-split__cta" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+      <div class="media-split__media">
+        <img src="/photo-isolation-combles-chantier.webp" width="1688" height="1055" alt="Soufflage de laine minérale dans des combles perdus dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Pourquoi commencer par les combles ?</h2>
+        <p>Parce que c’est là que le rapport coût/gain est imbattable. Les chiffres parlent d’eux-mêmes.</p>
+      </div>
+      <table class="tableau">
+        <thead>
+          <tr><th>Critère</th><th>Combles perdus (soufflage)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Part des déperditions traitée</td><td>Jusqu’à 30 % de la chaleur d’une maison s’échappe par le toit.</td></tr>
+          <tr><td>Durée du chantier</td><td>Une demi-journée à une journée pour un pavillon courant.</td></tr>
+          <tr><td>Coût indicatif</td><td>25 à 45 € par m² pose comprise, avant déduction des aides.</td></tr>
+          <tr><td>Performance visée</td><td>R ≥ 7 m².K/W, le seuil exigé pour les aides.</td></tr>
+        </tbody>
+      </table>
+      <p>Le chantier est aussi l’occasion d’un coup d’œil d’expert sur la charpente : repérer une pièce de bois attaquée avant de la recouvrir d’isolant évite de gros travaux plus tard. En cas de doute, notre <a href="/traitement-de-charpente/">traitement de charpente dans l’Essonne</a> s’intercale avant le soufflage.</p>
+    </div>
+  </section>
+
+  <section class="split-feature">
+    <div class="split-feature__inner">
+      <div class="split-feature__left">
+        <h2>Combles perdus : un domaine certifié RGE Qualibat</h2>
+        <p>L’isolation des combles perdus est l’un des quatre domaines pour lesquels l’entreprise d’Éric Robert est <strong>certifiée RGE Qualibat</strong>. En visant une résistance thermique R ≥ 7 m².K/W, votre chantier peut mobiliser :</p>
+        <ul class="split-feature__list">
+          <li class="is-active">MaPrimeRénov’</li>
+          <li>Prime CEE (fournisseurs d’énergie)</li>
+          <li>TVA réduite à 5,5 %</li>
+        </ul>
+      </div>
+      <div class="split-feature__right">
+        <div class="split-feature__card">
+          <span class="split-feature__badge">RGE Qualibat</span>
+          <p>Sans entreprise RGE, pas d’aides : c’est la règle. La certification d’Éric Robert est vérifiable en ligne sur l’Annuaire des Entreprises (SIREN 821 136 488) — un réflexe à avoir avant de signer quoi que ce soit, ici comme ailleurs.</p>
+          <p>Les montants dépendent de vos ressources et de la surface à isoler. Le devis chiffre les aides mobilisables et Éric Robert fournit les attestations du dossier, à déposer avant la signature.</p>
+        </div>
+        <img class="split-feature__photo" src="/placeholder-combles-rge.svg" width="1063" height="709" alt="Combles perdus isolés à la laine soufflée par un artisan RGE dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Comment se déroule l’isolation de vos combles ?</h2>
+        <p>Du diagnostic au certificat d’aides, en cinq étapes concrètes.</p>
+      </div>
+      <ol class="prose-etapes">
+        <li><strong>Visite technique gratuite</strong> : inspection du plancher, de la charpente et de la ventilation, mesure de l’isolant existant.</li>
+        <li><strong>Devis détaillé</strong> : technique retenue (soufflage ou rouleaux), épaisseur, R atteint, estimation des aides.</li>
+        <li><strong>Préparation des combles</strong> : rehausse et isolation de la trappe, écarts au feu autour des conduits, repérage des boîtiers électriques.</li>
+        <li><strong>Soufflage</strong> : projection de la laine en couche continue, piges de contrôle d’épaisseur réparties sur toute la surface.</li>
+        <li><strong>Réception</strong> : fiche de chantier avec épaisseur et R atteints, attestation remise pour vos dossiers d’aides.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="cta-banner-section">
+    <div class="cta-banner">
+      <div class="cta-banner__media">
+        <img src="/eric-robert-portrait.webp" width="450" height="337" alt="Éric Robert, artisan couvreur RGE dans l'Essonne" />
+      </div>
+      <div class="cta-banner__panel">
+        <h2>Une demi-journée de chantier, des années d’économies</h2>
+        <p>Éric Robert se déplace, mesure vos combles et vous remet un devis avec l’estimation des aides RGE. Sans frais, partout dans l’Essonne.</p>
+        <a class="btn cta-banner__btn" href="/devis-gratuit/">Demander une intervention<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Isolation des combles dans le Val d’Orge, le Val d’Yerres et tout le 91</h2>
+        <p>Depuis Linas, Éric Robert intervient dans tout le département — devis et déplacement gratuits.</p>
+      </div>
+      <div class="liens-proches">
+        <a href="/couvreur-sainte-genevieve-des-bois/">Sainte-Geneviève-des-Bois</a>
+        <a href="/couvreur-savigny-sur-orge/">Savigny-sur-Orge</a>
+        <a href="/couvreur-morsang-sur-orge/">Morsang-sur-Orge</a>
+        <a href="/couvreur-draveil/">Draveil</a>
+        <a href="/couvreur-montgeron/">Montgeron</a>
+        <a href="/couvreur-corbeil-essonnes/">Corbeil-Essonnes</a>
+        <a href="/couvreur-evry/">Évry-Courcouronnes</a>
+        <a href="/couvreur-linas/">Linas</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Prix, ancien isolant, aides : vos questions sur l’isolation des combles</h2>
+      </div>
+      <div class="faq">
+        <div class="faq__item">
+          <h3>Combien coûte l’isolation des combles perdus dans l’Essonne ?</h3>
+          <p>À titre indicatif : 25 à 45 € par m² pose comprise pour un soufflage, selon l’épaisseur et l’accès. Après MaPrimeRénov’ et prime CEE, le reste à charge devient très raisonnable — c’est le chantier au retour sur investissement le plus court de la maison.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Faut-il retirer l’ancien isolant ?</h3>
+          <p>Pas systématiquement. S’il est sain et bien posé, on peut souffler par-dessus. S’il est tassé, moisi ou souillé par des rongeurs, nous le déposons et l’évacuons avant de souffler — le devis le précise après la visite.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Et si je veux aménager mes combles un jour ?</h3>
+          <p>Le soufflage au sol condamne l’usage du plancher. Si un aménagement est envisagé, mieux vaut isoler les pentes du toit : c’est le rôle de l’<a href="/isolation-des-rampants/">isolation des rampants de toiture</a>, un autre domaine RGE d’Éric Robert, et l’occasion d’apporter la lumière avec une <a href="/installateur-de-velux-91/">pose de Velux dans l’Essonne</a>.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Le soufflage suffit-il si ma couverture est en fin de vie ?</h3>
+          <p>Non : isoler sous un toit qui prend l’eau, c’est jeter son argent. Si la couverture doit être refaite à moyen terme, étudiez plutôt l’<a href="/prestations/isolation-de-toiture-91/">isolation de toiture par l’extérieur</a>, qui combine réfection et isolation en un seul chantier.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageService>

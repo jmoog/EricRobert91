@@ -1,0 +1,141 @@
+---
+// Page service : ramonage — fort gisement villes (Linas 126, Draveil 77, Montgeron 70 impr).
+// Mot-clé principal : « ramonage » + {ville} (essonne, 91).
+export const prerender = true;
+import PageService from '../../layouts/PageService.astro';
+import { company } from '../../data/site';
+
+const liens = [
+  { label: 'Réparation & recherche de fuite', url: '/reparation-toiture-fuite-91/' },
+  { label: 'Travaux de couverture', url: '/travaux-de-couverture/' },
+  { label: 'Nettoyage & démoussage', url: '/nettoyage-demoussage-toiture-91/' },
+  { label: 'Traitement de charpente', url: '/traitement-de-charpente/' },
+  { label: 'Rénovation de toiture', url: '/prestations/renovation-detoiture/' },
+];
+---
+<PageService
+  titre="Ramonage dans l'Essonne"
+  h1="Ramonage de cheminée et de poêle dans l’Essonne : certificat remis le jour même"
+  path="/prestations/ramonage-91/"
+  description="Ramonage de cheminées, inserts et poêles à bois dans le 91 par Éric Couvreur : conduit propre, certificat pour votre assurance, conseils d'artisan. Devis gratuit."
+  photo="/photo-ramonage-hero.webp"
+  photoAlt="Ramonage d'un conduit de cheminée par Éric Couvreur dans l'Essonne"
+  liensTitre="Votre cheminée passe aussi par le toit"
+  liensIntro="Souche, solins, abergements : le conduit traverse la couverture, et Éric Robert connaît les deux."
+  liens={liens}
+>
+  <Fragment slot="hero">
+    <p>Votre assureur demande un certificat, la cheminée tire mal, ou la saison de chauffe approche : le <strong>ramonage</strong> n’est pas une option. Le règlement sanitaire de l’Essonne l’impose une à deux fois par an pour les conduits à bois, et un conduit encrassé, c’est un tirage médiocre, une surconsommation et des dépôts inflammables qui s’accumulent.</p>
+    <p>Éric Robert, couvreur à Linas, ramone cheminées à foyer ouvert, inserts et poêles à bois dans toute l’Essonne, et vous remet le <strong>certificat de ramonage</strong> le jour même — le document que votre assurance exigera en cas de sinistre. Intervention propre, créneaux rapides.</p>
+  </Fragment>
+
+  <section class="section">
+    <div class="container media-split media-split--plain">
+      <div class="media-split__text">
+        <h2>Un ramonage dans les règles, du foyer à la souche</h2>
+        <p>Le ramonage mécanique reste la seule technique reconnue : le hérisson, monté sur cannes, frotte toute la hauteur du conduit pour décoller suies et dépôts. Bûches dites « de ramonage » et aspirateurs à cendres ne remplacent pas ce passage mécanique — et ne donnent droit à aucun certificat.</p>
+        <p>L’avantage de confier le geste à un couvreur : le conduit est contrôlé sur toute sa traversée, y compris la partie que personne ne regarde — la souche en toiture, son chapeau et ses solins. Une souche descellée ou un abergement fuyard se repèrent à ce moment-là, et une <a href="/reparation-toiture-fuite-91/">réparation ciblée en toiture</a> s’organise avant que l’eau ne s’invite dans le conduit.</p>
+        <a class="btn btn--rouge btn--tel media-split__cta" href={company.mobileHref} aria-label={`Appeler le ${company.mobile}`} title={`Appeler le ${company.mobile}`}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 18h.01"/></svg>{company.mobile}</a>
+      </div>
+      <div class="media-split__media">
+        <img src="/photo-ramonage-herisson.webp" width="950" height="675" alt="Passage du hérisson dans un conduit de cheminée dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Ce que dit la réglementation — et ce que veut votre assureur</h2>
+        <p>Deux obligations distinctes, souvent confondues, qui se règlent en une seule visite.</p>
+      </div>
+      <table class="tableau">
+        <thead>
+          <tr><th>Installation</th><th>Fréquence de ramonage</th><th>À retenir</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cheminée à foyer ouvert (bois)</td><td>2 fois par an, dont 1 pendant la période de chauffe</td><td>Certificat exigé par la plupart des assurances habitation.</td></tr>
+          <tr><td>Insert et poêle à bois</td><td>2 fois par an, dont 1 pendant la période de chauffe</td><td>Un conduit propre améliore nettement le rendement.</td></tr>
+          <tr><td>Poêle à granulés</td><td>1 à 2 fois par an selon l’usage</td><td>À coupler avec l’entretien annuel de l’appareil.</td></tr>
+          <tr><td>Conduit gaz</td><td>1 fois par an</td><td>Vérification d’usage lors de l’entretien chaudière.</td></tr>
+        </tbody>
+      </table>
+      <p>En cas de feu de cheminée, l’assureur demande systématiquement le dernier certificat : sans lui, l’indemnisation peut être réduite, voire refusée. Le nôtre est remis sur place, daté et signé, à archiver avec votre contrat.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Comment se déroule le ramonage chez vous ?</h2>
+        <p>Comptez 30 à 45 minutes pour un conduit courant, sans salissures.</p>
+      </div>
+      <ol class="prose-etapes">
+        <li><strong>Protection du foyer</strong> : bâche au sol, obturation de l’âtre — la suie reste dans le conduit, pas sur votre tapis.</li>
+        <li><strong>Ramonage mécanique</strong> : passage du hérisson adapté au diamètre, sur toute la hauteur du conduit.</li>
+        <li><strong>Récupération des suies</strong> : aspiration complète, évacuation des dépôts avec nos déchets.</li>
+        <li><strong>Contrôle</strong> : tirage, état du conduit et de la souche, recherche de fissures ou de bistre.</li>
+        <li><strong>Certificat de ramonage</strong> : remis immédiatement, avec nos observations éventuelles.</li>
+      </ol>
+      <p>Si le contrôle révèle du bistre — ce goudron dur qui tapisse les conduits trop peu ramonés — un débistrage mécanique s’impose avant de refaire du feu. Nous vous le signalons sur le certificat et le chiffrons séparément, sans surprise.</p>
+    </div>
+  </section>
+
+  <section class="cta-banner-section">
+    <div class="cta-banner">
+      <div class="cta-banner__media">
+        <img src="/eric-robert-portrait.webp" width="450" height="337" alt="Éric Robert, artisan couvreur et ramoneur dans l'Essonne" />
+      </div>
+      <div class="cta-banner__panel">
+        <h2>Prêt pour la saison de chauffe ?</h2>
+        <p>Réservez votre créneau de ramonage : intervention propre, certificat remis sur place, et un œil de couvreur sur votre souche de cheminée. Partout dans l’Essonne.</p>
+        <a class="btn cta-banner__btn" href="/devis-gratuit/">Demander une intervention<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Ramoneur à Linas, Draveil, Montgeron et dans tout le 91</h2>
+        <p>Les tournées de ramonage couvrent l’ensemble du département — regroupez-vous entre voisins pour un créneau commun.</p>
+      </div>
+      <div class="liens-proches">
+        <a href="/couvreur-linas/">Linas</a>
+        <a href="/couvreur-draveil/">Draveil</a>
+        <a href="/couvreur-montgeron/">Montgeron</a>
+        <a href="/couvreur-savigny-sur-orge/">Savigny-sur-Orge</a>
+        <a href="/couvreur-sainte-genevieve-des-bois/">Sainte-Geneviève-des-Bois</a>
+        <a href="/couvreur-corbeil-essonnes/">Corbeil-Essonnes</a>
+        <a href="/couvreur-arpajon/">Arpajon</a>
+        <a href="/couvreur-etrechy/">Étréchy</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Prix, période, obligations : vos questions sur le ramonage</h2>
+      </div>
+      <div class="faq">
+        <div class="faq__item">
+          <h3>Combien coûte un ramonage dans l’Essonne ?</h3>
+          <p>À titre indicatif : 60 à 90 € pour un conduit courant, certificat compris. Un débistrage, s’il s’avère nécessaire, se chiffre à part après contrôle du conduit. Pas de frais de déplacement dans le 91.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Quelle est la meilleure période pour ramoner ?</h3>
+          <p>Avant la saison de chauffe, entre juin et septembre : les créneaux sont plus souples et votre installation est prête pour l’automne. Le second passage, pour le bois, se fait pendant la période d’utilisation.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Le certificat est-il obligatoire pour louer ou vendre ?</h3>
+          <p>Le locataire a la charge du ramonage courant, le propriétaire celle du conduit en bon état. Lors d’une vente, le certificat rassure l’acquéreur et le notaire. Dans tous les cas, il fait foi auprès de l’assurance.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Ma cheminée refoule la fumée : le ramonage suffit-il ?</h3>
+          <p>Souvent, oui — un conduit encrassé tire mal. Si le refoulement persiste après ramonage, la cause se cherche plus haut : chapeau de souche inadapté, conduit sous-dimensionné, souche dégradée. Le diagnostic se fait depuis le toit, et la reprise éventuelle relève de nos <a href="/travaux-de-couverture/">travaux de couverture</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageService>

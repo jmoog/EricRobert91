@@ -1,0 +1,163 @@
+---
+// Page service (hub de cocon) : nettoyage et démoussage de toiture.
+// Mot-clé principal : « nettoyage toiture » / « démoussage toiture » + {ville}.
+// Cocon sémantique : ce hub pointe vers les satellites traitement anti-mousse
+// et traitement hydrofuge (pages à produire), qui renverront vers lui.
+// ⚠️ Page NON RGE : aucun argument d'aides (MaPrimeRénov'/CEE) ici.
+export const prerender = true;
+import PageService from '../layouts/PageService.astro';
+import { company } from '../data/site';
+
+const liens = [
+  { label: 'Traitement anti-mousse', url: '/traitement-anti-mousse-toiture-91/' },
+  { label: 'Traitement hydrofuge', url: '/traitement-hydrofuge-toiture-91/' },
+  { label: 'Travaux de couverture', url: '/travaux-de-couverture/' },
+  { label: 'Traitement de charpente', url: '/traitement-de-charpente/' },
+  { label: 'Rénovation de toiture', url: '/prestations/renovation-detoiture/' },
+  { label: 'Ramonage', url: '/prestations/ramonage-91/' },
+];
+---
+<PageService
+  titre="Nettoyage et démoussage de toiture dans l'Essonne"
+  h1="Nettoyage et démoussage de toiture dans l’Essonne par votre artisan couvreur"
+  path="/nettoyage-demoussage-toiture-91/"
+  description="Nettoyage et démoussage de toiture dans l'Essonne par Éric Couvreur : brossage manuel, traitement anti-mousse et hydrofuge Dalep. Devis gratuit au 06 60 40 43 12."
+  photo="/photo-nettoyage-hero.webp"
+  photoAlt="Toiture nettoyée et démoussée par Éric Couvreur dans l'Essonne"
+  liens={liens}
+  liensTitre="Le toit propre, et après ? Nos prestations liées"
+  liensIntro="Traitements, entretien, réparations : tout ce qui prolonge la vie de votre couverture."
+>
+  <Fragment slot="hero">
+    <p>Des plaques de mousse sur les tuiles, des traînées noires ou verdâtres, des gouttières qui débordent de débris : votre toit vous envoie des signaux. Au-delà de l’aspect, la mousse s’ancre dans la tuile, la rend poreuse et finit par ouvrir la porte aux infiltrations. Un <strong>nettoyage de toiture</strong> fait dans les règles stoppe ce cycle avant les dégâts coûteux.</p>
+    <p>Éric Robert, couvreur à Linas, réalise le <strong>démoussage de toiture</strong> à la main ou en basse pression — jamais au nettoyeur haute pression, qui décape la surface des tuiles — puis applique les traitements professionnels adaptés. Devis et déplacement gratuits dans toute l’Essonne.</p>
+  </Fragment>
+
+  <section class="section">
+    <div class="container media-split media-split--plain">
+      <div class="media-split__text">
+        <h2>Pourquoi la mousse abîme votre couverture</h2>
+        <p>Les mousses et lichens ne se contentent pas de verdir le toit : leurs racines s’incrustent dans le grain de la tuile et l’écaillent, les plaques soulèvent les tuiles au niveau des recouvrements, et les débris qui se détachent bouchent gouttières et noues. Une couverture envahie vieillit deux fois plus vite — et son remplacement coûte vingt fois le prix d’un entretien.</p>
+        <p>Le nettoyage relève d’un couvreur, pas d’une entreprise de nettoyage généraliste : il faut savoir circuler sur un toit sans casser de tuiles, repérer une fissure ou un liteau fatigué sous la mousse, et remettre en état ce qui doit l’être. Quand une reprise s’impose, nos <a href="/travaux-de-couverture/">travaux de couverture dans l’Essonne</a> s’enchaînent dans la même intervention.</p>
+        <a class="btn btn--rouge media-split__cta" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+      <div class="media-split__media">
+        <img src="/photo-nettoyage-avant.webp" width="900" height="672" alt="Toiture avant et après démoussage dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container media-split media-split--reverse">
+      <div class="media-split__text">
+        <h2>Brossage manuel et basse pression : le geste juste selon la tuile</h2>
+        <p>Tuile mécanique, tuile plate, ardoise : les couvertures ne se nettoient pas toutes de la même façon. Sur les matériaux fragiles ou anciens, le brossage manuel reste la référence ; sur les tuiles béton ou mécaniques en bon état, un lavage basse pression accélère le travail sans agresser la surface. Dans tous les cas, les mousses délogées sont évacuées et les gouttières vidées avant de partir.</p>
+        <p>Le nettoyage seul ne suffit pas : sans traitement, les spores repartent dès la saison suivante. C’est là qu’intervient le <a href="/traitement-anti-mousse-toiture-91/">traitement anti-mousse de toiture</a>, appliqué par pulvérisation sur couverture propre — il neutralise ce que la brosse ne voit pas.</p>
+        <div class="media-split__partner">
+          <span>Traitements professionnels</span>
+          <img class="media-split__logo" src="/logo-dalep.webp" width="113" height="40" alt="Dalep — traitements professionnels pour le bâtiment" />
+        </div>
+      </div>
+      <div class="media-split__media">
+        <img src="/photo-nettoyage-toiture-1.webp" width="900" height="672" alt="Brossage manuel des tuiles lors d'un démoussage dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Nettoyer, traiter, protéger : les trois temps d’un entretien complet</h2>
+        <p>Un toit propre est un point de départ. Pour que le résultat dure, chaque étape a son rôle.</p>
+      </div>
+      <table class="tableau">
+        <thead>
+          <tr><th>Étape</th><th>Ce qu’elle apporte</th><th>Fréquence indicative</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Nettoyage / démoussage</td><td>Élimine mousses, lichens et débris ; libère gouttières et noues.</td><td>Tous les 5 à 10 ans selon l’exposition</td></tr>
+          <tr><td>Traitement anti-mousse</td><td>Détruit les spores restantes et retarde la repousse pendant plusieurs années.</td><td>À chaque nettoyage</td></tr>
+          <tr><td>Traitement hydrofuge</td><td>Imperméabilise la tuile poreuse et lui redonne son effet perlant.</td><td>Sur tuiles vieillissantes, après traitement</td></tr>
+        </tbody>
+      </table>
+      <p>La protection finale mérite sa propre décision : sur une tuile devenue poreuse, le <a href="/traitement-hydrofuge-toiture-91/">traitement hydrofuge de toiture</a> — incolore ou coloré — referme le grain du matériau et prolonge la couverture de plusieurs années. Éric Robert vous dit honnêtement, tuiles en main, s’il se justifie chez vous ou non.</p>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container media-split media-split--plain">
+      <div class="media-split__text">
+        <h2>Comment se déroule un démoussage de toiture ?</h2>
+        <p>Une intervention type, d’une demi-journée à une journée selon la surface — et le résultat ci-contre, sur le même toit que celui présenté en haut de page.</p>
+        <ol class="prose-etapes">
+          <li><strong>Visite et devis gratuits</strong> : état de la couverture, nature des tuiles, ampleur de la colonisation, points à réparer.</li>
+          <li><strong>Protection du chantier</strong> : bâchage des abords, protection des plantations sous les descentes de gouttières.</li>
+          <li><strong>Nettoyage</strong> : brossage manuel ou basse pression selon la tuile, dégagement des noues, faîtage et rives.</li>
+          <li><strong>Vidage des gouttières</strong> : évacuation des mousses et débris, contrôle des descentes.</li>
+          <li><strong>Traitements</strong> : pulvérisation de l’anti-mousse sur couverture sèche, hydrofuge en option — produits professionnels Dalep.</li>
+        </ol>
+      </div>
+      <div class="media-split__media">
+        <img src="/photo-nettoyage-resultat.webp" width="900" height="675" alt="Résultat après nettoyage et démoussage de la toiture dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner-section">
+    <div class="cta-banner">
+      <div class="cta-banner__media">
+        <img src="/eric-robert-portrait.webp" width="450" height="337" alt="Éric Robert, artisan couvreur dans l'Essonne" />
+      </div>
+      <div class="cta-banner__panel">
+        <h2>Un toit propre, traité et inspecté par un couvreur</h2>
+        <p>Éric Robert examine votre couverture, vous montre ce qui doit être nettoyé, traité ou repris, et vous remet un devis clair. Sans frais, partout dans l’Essonne.</p>
+        <a class="btn cta-banner__btn" href="/devis-gratuit/">Demander une intervention<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Démoussage de toiture dans toute l’Essonne</h2>
+        <p>Depuis Linas, Éric Robert intervient dans tout le département — devis et déplacement gratuits.</p>
+      </div>
+      <div class="liens-proches">
+        <a href="/couvreur-draveil/">Draveil</a>
+        <a href="/couvreur-montgeron/">Montgeron</a>
+        <a href="/couvreur-savigny-sur-orge/">Savigny-sur-Orge</a>
+        <a href="/couvreur-morsang-sur-orge/">Morsang-sur-Orge</a>
+        <a href="/couvreur-sainte-genevieve-des-bois/">Sainte-Geneviève-des-Bois</a>
+        <a href="/couvreur-palaiseau/">Palaiseau</a>
+        <a href="/couvreur-igny/">Igny</a>
+        <a href="/couvreur-linas/">Linas</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Prix, fréquence, haute pression : vos questions sur le nettoyage de toiture</h2>
+      </div>
+      <div class="faq">
+        <div class="faq__item">
+          <h3>Combien coûte un démoussage de toiture dans l’Essonne ?</h3>
+          <p>À titre indicatif : 15 à 30 € par m², traitement anti-mousse compris, selon la surface, la pente, l’accès et l’état de la couverture. L’hydrofuge, en option, s’ajoute selon la porosité des tuiles. Le devis gratuit détaille chaque poste.</p>
+        </div>
+        <div class="faq__item">
+          <h3>À quelle fréquence faut-il nettoyer son toit ?</h3>
+          <p>Tous les 5 à 10 ans en moyenne : un toit ombragé par de grands arbres ou orienté nord se recouvre plus vite qu’un toit dégagé plein sud. Le bon indicateur reste visuel — dès que les plaques de mousse s’installent, il est temps.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Pourquoi pas un coup de nettoyeur haute pression ?</h3>
+          <p>Parce qu’il décape la couche de surface des tuiles et les rend poreuses : le toit paraît propre, mais il vieillit plus vite et la mousse revient de plus belle. Brossage et basse pression nettoient sans agresser — c’est plus long, et c’est le prix d’un toit qui dure.</p>
+        </div>
+        <div class="faq__item">
+          <h3>La mousse peut-elle cacher d’autres problèmes ?</h3>
+          <p>Oui, c’est fréquent : tuiles fissurées, solins fatigués, bois de charpente attaqué sous les zones les plus envahies. C’est tout l’intérêt de confier le nettoyage à un couvreur — au moindre doute sur la structure, notre <a href="/traitement-de-charpente/">traitement de charpente dans l’Essonne</a> prend le relais avant que le mal ne s’étende.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageService>

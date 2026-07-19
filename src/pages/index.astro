@@ -1,0 +1,217 @@
+---
+export const prerender = true;
+import Layout from '../layouts/Layout.astro';
+import { company } from '../data/site';
+import { prestationsRge as promos, svg } from '../data/prestations';
+import TrustBand from '../components/TrustBand.astro';
+
+// Avis clients (à remplacer par les vrais avis Google).
+const reviews = [
+  { note: 5, date: '14 juin 2026', nom: 'Sophie M.', texte: 'Réfection complète de notre toiture : travail soigné, équipe ponctuelle et chantier laissé propre. Un grand merci à Éric et son équipe.' },
+  { note: 5, date: '2 mai 2026', nom: 'Julien R.', texte: 'Devis clair et respecté, intervention rapide après une fuite. Très professionnel, je recommande sans hésiter.' },
+  { note: 5, date: '19 avril 2026', nom: 'Nathalie B.', texte: 'Pose de fenêtres de toit impeccable. De bons conseils sur l’isolation et les aides. Résultat au top.' },
+  { note: 4, date: '28 mars 2026', nom: 'Karim D.', texte: 'Bon rapport qualité-prix pour le démoussage et le traitement de la toiture. Artisan sérieux et à l’écoute.' },
+  { note: 5, date: '9 mars 2026', nom: 'Isabelle P.', texte: 'Ravalement de façade réalisé dans les délais. Éric est de bon conseil et le rendu est superbe.' },
+  { note: 5, date: '21 février 2026', nom: 'Thomas L.', texte: 'Isolation des combles parfaite, on sent déjà la différence. Équipe RGE compétente et de confiance.' },
+  { note: 5, date: '5 février 2026', nom: 'Christophe G.', texte: 'Intervention d’urgence après la tempête, très réactif. Toiture réparée proprement. Je recommande vivement.' },
+];
+
+---
+<Layout
+  title="Couvreur 91 — Éric Couvreur, artisan RGE Qualibat dans l'Essonne"
+  description="Éric Couvreur, artisan couvreur RGE Qualibat dans l'Essonne (91) : travaux de couverture, rénovation de toiture, isolation, ravalement, ramonage et pose de Velux. Devis gratuit."
+  path="/"
+>
+  <section class="hero hero--center">
+    <div class="container">
+      <span class="hero__eyebrow">Artisan couvreur RGE Qualibat — Essonne (91)</span>
+      <h1>Votre toiture entre les mains d’un artisan de confiance</h1>
+      <img
+        class="hero__img"
+        src="/hero-eric-couvreur.webp"
+        width="891"
+        height="706"
+        alt="Éric Couvreur et son équipe sur un chantier de rénovation de toiture dans l’Essonne"
+      />
+      <p>
+        Éric Couvreur réalise tous vos travaux de couverture, d’isolation et de ravalement dans
+        l’Essonne. Certifié RGE Qualibat, à votre service depuis {company.foundingDate}. Devis et
+        déplacements gratuits.
+      </p>
+      <div class="actions">
+        <a class="btn btn--rouge btn--lg" href={company.mobileHref}>Appeler le {company.mobile}</a>
+        <a class="btn btn--ghost btn--lg" href="/devis-gratuit/" style="color:#fff;border-color:#fff">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <TrustBand showLogo />
+
+
+  <section class="section promo-section">
+    <div class="section-head">
+      <h2>Nos prestations éligibles aux aides (RGE Qualibat)</h2>
+      <p>Artisan certifié RGE Qualibat : vos travaux d’isolation et de fenêtres de toit peuvent être financés par les aides de l’État.</p>
+    </div>
+    <div class="promo-grid">
+      {promos.map((p) => (
+        <a class:list={['promo-card', p.accent && 'promo-card--accent', p.feature && 'promo-card--feature']} href={p.url}>
+          <h3>{p.titre}</h3>
+          <p>{p.desc}</p>
+          {p.photo && <img class="promo-card__photo" src={p.photo} width="1063" height="709" alt={`${p.titre} posée par Éric Couvreur`} />}
+          <span class="promo-card__brand">
+            {p.brand === 'velux' && <img class="promo-velux" src="/logo-velux.webp" width="106" height="40" alt="Installateur Velux" />}
+            {p.brand === 'icon' && !p.photo && <span class="promo-icon" set:html={svg(p.icon)} />}
+            <span class="promo-card__more" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="split-feature">
+    <div class="split-feature__inner">
+      <div class="split-feature__left">
+        <h2>Lorem ipsum dolor sit amet pour les propriétaires</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, protégez votre bien.</p>
+        <ul class="split-feature__list">
+          <li class="is-active">Lorem ipsum dolor sit amet</li>
+          <li>Consectetur adipiscing elit</li>
+          <li>Sed do eiusmod tempor incididunt</li>
+          <li>Ut labore et dolore magna</li>
+          <li>Quis nostrud exercitation</li>
+        </ul>
+      </div>
+      <div class="split-feature__right">
+        <img class="split-feature__photo" src="/eric-robert-portrait.webp" width="450" height="337" alt="Éric Robert, artisan couvreur dans l'Essonne" />
+        <div class="split-feature__card">
+          <span class="split-feature__badge">Lorem</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud.</p>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner-section">
+    <div class="cta-banner">
+      <div class="cta-banner__media">
+        <img src="/cta-estimation.webp" width="1920" height="845" alt="Artisans couvreurs Éric Couvreur dans l'Essonne" />
+      </div>
+      <div class="cta-banner__panel">
+        <h2>Lorem ipsum dolor sit amet dans le 91</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco.</p>
+        <a class="btn cta-banner__btn" href="/devis-gratuit/">Lorem ipsum</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reviews">
+    <div class="container">
+      <div class="reviews__head">
+        <h2>Ils nous ont fait confiance</h2>
+        <div class="reviews__avg">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <strong>{company.reviews.rating}/5</strong> · {company.reviews.count} avis clients
+        </div>
+      </div>
+      <div class="reviews__carousel">
+        <button type="button" class="reviews__arrow" data-dir="-1" aria-label="Avis précédents">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <div class="reviews__track" id="reviews-track">
+          {reviews.map((r) => (
+            <article class="review-card">
+              <div class="stars" aria-label={`Note : ${r.note} sur 5`}>{'★'.repeat(r.note)}{'☆'.repeat(5 - r.note)}</div>
+              <time class="review-card__date">{r.date}</time>
+              <p class="review-card__text">{r.texte}</p>
+              <div class="review-card__name">{r.nom}</div>
+            </article>
+          ))}
+        </div>
+        <button type="button" class="reviews__arrow" data-dir="1" aria-label="Avis suivants">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container media-split">
+      <div class="media-split__text">
+        <h2>Nettoyage et démoussage de toiture dans l’Essonne</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa.</p>
+        <div class="media-split__partner">
+          <span>Traitements professionnels</span>
+          <img class="media-split__logo" src="/logo-dalep.webp" width="113" height="40" alt="Dalep — traitements pour le bâtiment" />
+        </div>
+        <a class="btn btn--rouge media-split__cta" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+      <div class="media-split__media">
+        <img src="/photo-demoussage.webp" width="480" height="360" alt="Toiture nettoyée et démoussée par Éric Couvreur dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section media-section--dark">
+    <div class="container media-split media-split--reverse">
+      <div class="media-split__text">
+        <h2>Gouttières, noues et chéneaux dans l’Essonne</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident.</p>
+        <a class="btn btn--rouge media-split__cta" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+      <div class="media-split__media">
+        <img src="/photo-gouttieres-2.webp" width="400" height="400" alt="Pose de gouttières, noues et chéneaux par Éric Couvreur dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container media-split media-split--plain">
+      <div class="media-split__text">
+        <h2>Traitement de charpente dans l’Essonne</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident.</p>
+        <a class="btn btn--rouge media-split__cta" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+      <div class="media-split__media">
+        <img src="/photo-charpente.webp" width="1045" height="870" alt="Traitement de charpente réalisé par Éric Couvreur dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>Confiez votre toiture à un artisan de confiance</h2>
+      <p>Devis clair et gratuit, sans engagement. Éric Couvreur vous rappelle et se déplace chez vous dans tout l’Essonne.</p>
+      <ul class="cta-band__trust">
+        <li>Certifié RGE Qualibat</li>
+        <li>Artisan local, basé à {company.city}</li>
+        <li>À votre service depuis {company.foundingDate}</li>
+        <li>Devis &amp; déplacement gratuits</li>
+      </ul>
+      <div class="cta-band__actions">
+        <a class="btn btn--rouge btn--lg" href={company.mobileHref}>Appeler le {company.mobile}</a>
+        <a class="btn btn--lg cta-band__ghost" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    (() => {
+      const track = document.getElementById('reviews-track');
+      if (!track) return;
+      document.querySelectorAll('.reviews__arrow').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const dir = Number(btn.getAttribute('data-dir'));
+          const first = track.querySelector('.review-card');
+          const step = first ? first.getBoundingClientRect().width + 20 : track.clientWidth;
+          track.scrollBy({ left: dir * step, behavior: 'smooth' });
+        });
+      });
+    })();
+  </script>
+</Layout>

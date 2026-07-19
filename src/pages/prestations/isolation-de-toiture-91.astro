@@ -1,0 +1,160 @@
+---
+// Page service RGE : isolation de toiture par l'extérieur (sarking) et toitures-terrasses.
+// Mot-clé principal : « isolation de toiture » + variantes (sarking, isolation toiture par l'extérieur essonne).
+export const prerender = true;
+import PageService from '../../layouts/PageService.astro';
+import { company } from '../../data/site';
+
+const liens = [
+  { label: 'Isolation des rampants (RGE)', url: '/isolation-des-rampants/' },
+  { label: 'Isolation des combles (RGE)', url: '/isolation-des-combles/' },
+  { label: 'Pose de Velux (RGE)', url: '/installateur-de-velux-91/' },
+  { label: 'Travaux de couverture', url: '/travaux-de-couverture/' },
+  { label: 'Rénovation de toiture', url: '/prestations/renovation-detoiture/' },
+  { label: 'Traitement de charpente', url: '/traitement-de-charpente/' },
+];
+---
+<PageService
+  titre="Isolation de toiture dans l'Essonne"
+  h1="Isolation de toiture par l’extérieur dans l’Essonne : sarking et toitures-terrasses, artisan RGE"
+  path="/prestations/isolation-de-toiture-91/"
+  description="Isolation de toiture par l'extérieur (sarking) et toitures-terrasses dans l'Essonne, par un couvreur certifié RGE Qualibat. Aides MaPrimeRénov' et CEE. Devis gratuit."
+  photo="/photo-sarking.webp"
+  photoAlt="Isolation de toiture par l'extérieur (sarking) réalisée par Éric Couvreur dans l'Essonne"
+  liens={liens}
+>
+  <Fragment slot="hero">
+    <p>Votre couverture arrive en fin de vie et vos plafonds sous pente sont déjà finis ? C’est exactement le cas où l’<strong>isolation de toiture</strong> par l’extérieur prend tout son sens : l’isolant se pose au-dessus des chevrons, pendant la réfection de la couverture — sans toucher à vos pièces, sans perdre un centimètre habitable.</p>
+    <p>Éric Robert, couvreur à Linas, est certifié <strong>RGE Qualibat</strong> pour l’isolation des toitures-terrasses et des toitures par l’extérieur. Deux métiers en un seul chantier — couverture et isolation — et l’accès aux aides de l’État. Devis et déplacement gratuits dans tout le département.</p>
+  </Fragment>
+
+  <section class="section">
+    <div class="container media-split media-split--plain">
+      <div class="media-split__text">
+        <h2>Le sarking : isoler pendant la réfection de la couverture</h2>
+        <p>Le principe du <strong>sarking</strong> : une fois la couverture déposée, des panneaux isolants rigides (fibre de bois, polyuréthane ou laine de roche) sont posés en continu sur les chevrons, puis contre-lattés et recouverts de la nouvelle couverture. L’enveloppe isolante est ininterrompue : pas de pont thermique aux jonctions, un confort d’été remarquable sous les tuiles.</p>
+        <p>C’est un chantier de couvreur avant tout : reprise des raccords, gouttières rehaussées, rives et faîtage adaptés à la nouvelle épaisseur. Si vous hésitez entre réparer et refaire, notre page <a href="/prestations/renovation-detoiture/">rénovation de toiture dans l’Essonne</a> détaille les critères qui font pencher la balance.</p>
+        <a class="btn btn--rouge media-split__cta" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+      <div class="media-split__media">
+        <img src="/photo-isolation-toiture-ext.webp" width="570" height="535" alt="Panneaux de sarking posés sur chevrons lors d'une réfection de toiture dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Toiture en pente ou toiture-terrasse : deux techniques, un même objectif</h2>
+        <p>La certification d’Éric Robert couvre les deux configurations. Le choix dépend de votre toit.</p>
+      </div>
+      <table class="tableau">
+        <thead>
+          <tr><th>Configuration</th><th>Technique</th><th>Ce qu’il faut savoir</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Toiture en pente (tuiles, ardoises)</td><td>Sarking — panneaux rigides sur chevrons</td><td>Se combine à la réfection de couverture ; R ≥ 6 m².K/W visé pour les aides.</td></tr>
+          <tr><td>Toiture-terrasse</td><td>Isolation sur l’élément porteur, sous la membrane d’étanchéité</td><td>Panneaux haute résistance à la compression ; l’étanchéité est refaite dans la foulée.</td></tr>
+          <tr><td>Combles aménagés, couverture récente</td><td>Isolation par l’intérieur</td><td>Si la couverture n’est pas à refaire, l’<a href="/isolation-des-rampants/">isolation des rampants par l’intérieur</a> est plus économique.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="split-feature">
+    <div class="split-feature__inner">
+      <div class="split-feature__left">
+        <h2>Toitures par l’extérieur : un domaine certifié RGE Qualibat</h2>
+        <p>L’isolation des toitures-terrasses et des toitures par l’extérieur est l’un des quatre domaines pour lesquels l’entreprise d’Éric Robert est <strong>certifiée RGE Qualibat</strong>. Votre chantier peut ainsi mobiliser :</p>
+        <ul class="split-feature__list">
+          <li class="is-active">MaPrimeRénov’</li>
+          <li>Prime CEE (fournisseurs d’énergie)</li>
+          <li>TVA réduite à 5,5 %</li>
+        </ul>
+      </div>
+      <div class="split-feature__right">
+        <div class="split-feature__card">
+          <span class="split-feature__badge">RGE Qualibat</span>
+          <p>Les aides ne s’appliquent qu’à la part isolation du chantier, et uniquement si l’entreprise est certifiée RGE — la qualification d’Éric Robert se vérifie en ligne sur l’Annuaire des Entreprises (SIREN 821 136 488).</p>
+          <p>Sur un sarking, cette part est loin d’être symbolique : MaPrimeRénov’ et la prime CEE, calculées au m² isolé selon vos ressources, allègent sensiblement une réfection complète. Le devis distingue clairement couverture et isolation pour votre dossier, et la demande se dépose avant signature.</p>
+        </div>
+        <img class="split-feature__photo" src="/placeholder-sarking-rge.svg" width="1063" height="709" alt="Toiture isolée par l'extérieur par un couvreur RGE dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Comment se déroule un chantier d’isolation par l’extérieur ?</h2>
+        <p>Un sarking type, mené par une seule équipe du début à la fin.</p>
+      </div>
+      <ol class="prose-etapes">
+        <li><strong>Visite technique gratuite</strong> : état de la couverture, de la charpente et des points singuliers (cheminée, lucarnes, gouttières).</li>
+        <li><strong>Devis détaillé</strong> : isolant, épaisseur, R atteint, nouvelle couverture, part éligible aux aides chiffrée séparément.</li>
+        <li><strong>Dépose de la couverture</strong> : tri des matériaux, contrôle de la charpente, reprises éventuelles avant isolation.</li>
+        <li><strong>Pose de l’isolant et contre-lattage</strong> : panneaux continus sur chevrons, écran de sous-toiture, liteaunage adapté.</li>
+        <li><strong>Nouvelle couverture et finitions</strong> : tuiles ou ardoises, zinguerie, rives, faîtage — réception avec attestations pour vos aides.</li>
+      </ol>
+      <p>Refaire le toit, c’est aussi le moment idéal pour créer des ouvertures : la <a href="/installateur-de-velux-91/">pose de fenêtres de toit Velux</a> s’intègre au chantier sans surcoût de dépose, et elle relève du même artisan RGE.</p>
+    </div>
+  </section>
+
+  <section class="cta-banner-section">
+    <div class="cta-banner">
+      <div class="cta-banner__media">
+        <img src="/eric-robert-portrait.webp" width="450" height="337" alt="Éric Robert, artisan couvreur RGE dans l'Essonne" />
+      </div>
+      <div class="cta-banner__panel">
+        <h2>Une toiture neuve et isolée, en un seul chantier</h2>
+        <p>Éric Robert examine votre couverture, chiffre le sarking et la part d’aides RGE, puis vous remet un devis détaillé. Sans frais, partout dans l’Essonne.</p>
+        <a class="btn cta-banner__btn" href="/devis-gratuit/">Demander une intervention<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Isolation de toiture du nord au sud de l’Essonne</h2>
+        <p>Depuis Linas, Éric Robert intervient dans tout le département — devis et déplacement gratuits.</p>
+      </div>
+      <div class="liens-proches">
+        <a href="/couvreur-arpajon/">Arpajon</a>
+        <a href="/couvreur-etrechy/">Étréchy</a>
+        <a href="/couvreur-milly-la-foret/">Milly-la-Forêt</a>
+        <a href="/couvreur-mereville/">Méréville</a>
+        <a href="/couvreur-saclas/">Saclas</a>
+        <a href="/couvreur-pecqueuse/">Pecqueuse</a>
+        <a href="/couvreur-montgeron/">Montgeron</a>
+        <a href="/couvreur-linas/">Linas</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Prix, épaisseur, choix de la technique : vos questions sur l’isolation de toiture</h2>
+      </div>
+      <div class="faq">
+        <div class="faq__item">
+          <h3>Combien coûte une isolation de toiture par l’extérieur dans l’Essonne ?</h3>
+          <p>À titre indicatif : 180 à 280 € par m² pose comprise, couverture neuve incluse. Le sarking coûte plus cher qu’une isolation intérieure, mais il remplace deux chantiers en un — comparez-le au prix cumulé d’une réfection de couverture plus une isolation, pas à l’isolation seule.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Ma couverture est récente : le sarking a-t-il un intérêt ?</h3>
+          <p>Non, déposer une couverture en bon état pour isoler serait un gâchis. Tant que le toit tient, l’<a href="/isolation-des-combles/">isolation des combles perdus</a> ou celle des rampants offre un bien meilleur rapport coût/gain. Le sarking se réserve au moment où la couverture doit être refaite.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Quelle épaisseur d’isolant sur les chevrons ?</h3>
+          <p>Pour atteindre R ≥ 6 m².K/W, comptez 14 à 22 cm selon le matériau — le polyuréthane atteint la performance avec moins d’épaisseur, la fibre de bois apporte le meilleur confort d’été. La rehausse du toit est intégrée aux finitions (rives, gouttières, raccords).</p>
+        </div>
+        <div class="faq__item">
+          <h3>Et pour une toiture-terrasse qui fuit ?</h3>
+          <p>C’est le bon moment : l’isolation se pose sous la nouvelle membrane d’étanchéité, en un seul chantier certifié RGE. Vous traitez la fuite et les déperditions d’un coup, avec les aides à la clé.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageService>

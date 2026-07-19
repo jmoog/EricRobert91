@@ -1,0 +1,76 @@
+---
+import { company } from '../data/site';
+const waNumber = company.phoneE164.replace('+', '');
+interface Props { hideQuoteCta?: boolean }
+const { hideQuoteCta = false } = Astro.props;
+---
+<div class="topbar">
+  <div class="container">
+    <span class="topbar__left">
+      <span class="stars" aria-hidden="true">★★★★★</span>
+      Avis clients · Certifié RGE Qualibat
+    </span>
+    <span class="topbar__right">Artisan couvreur de confiance dans l’Essonne (91)</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="/" aria-label="Accueil — Éric Couvreur">
+      <img src="/eric-couvreur-logo.png" alt="Éric Couvreur, artisan couvreur RGE dans l'Essonne" width="60" height="60" />
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden />
+    <label for="nav-toggle" class="nav-burger" aria-label="Ouvrir le menu"><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+
+    <div class="nav-panel">
+      <label for="nav-toggle" class="nav-close" aria-label="Fermer le menu"></label>
+      <img class="nav-panel__logo" src="/eric-couvreur-logo-blanc.png" width="140" height="140" alt="Éric Couvreur, artisan couvreur RGE dans l'Essonne" />
+      <nav class="site-nav" aria-label="Navigation principale">
+        <a href="/travaux-de-couverture/">Couverture</a>
+        <a href="/installateur-de-velux-91/">Velux</a>
+        <a href="/isolation-des-combles/">Isolation</a>
+        <a href="/nettoyage-demoussage-toiture-91/">Démoussage</a>
+        <a href="/prestations/ramonage-91/">Ramonage</a>
+        <a href="/a-propos/">À propos</a>
+      </nav>
+      <div class="header-right">
+        {!hideQuoteCta && (
+          <a class="btn-menu btn-menu--rouge" href="/devis-gratuit/">
+            Devis gratuit
+            <span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span>
+          </a>
+        )}
+        <a class="btn-menu btn-menu--wa" href={`https://wa.me/${waNumber}`} target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
+          <svg viewBox="0 0 32 32" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.4 2 7.7L.5 31.5l8-2.1c2.2 1.2 4.8 1.9 7.5 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.3c-2.5 0-4.8-.7-6.8-1.9l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.3-2.1-2-4.5-2-7 0-7.2 5.9-13.1 13.1-13.1S29.1 8.8 29.1 16 23.2 28.8 16 28.8zm7.2-9.8c-.4-.2-2.3-1.1-2.7-1.3-.4-.1-.6-.2-.9.2s-1 1.3-1.3 1.5c-.2.2-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1.1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.9-.7h-.8c-.3 0-.7.1-1.1.5-.4.4-1.4 1.4-1.4 3.4s1.5 3.9 1.7 4.2c.2.3 2.9 4.5 7.1 6.3 1 .4 1.8.7 2.4.9 1 .3 1.9.3 2.6.2.8-.1 2.3-.9 2.7-1.9.3-1 .3-1.8.2-1.9-.1-.2-.3-.3-.7-.5z"/></svg>
+          WhatsApp
+        </a>
+        <a class="btn-menu btn-menu--phone" href={company.mobileHref}>
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2" width="11" height="20" rx="2.5"/><line x1="10.5" y1="18.5" x2="13.5" y2="18.5"/></svg>
+          {company.mobile}
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Barre d'action fixe (mobile) : apparaît après 1000px de scroll -->
+<div class="mobile-cta-bar">
+  {!hideQuoteCta && (
+    <a class="btn-menu btn-menu--rouge" href="/devis-gratuit/">
+      Devis gratuit
+      <span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span>
+    </a>
+  )}
+  <a class="btn-menu btn-menu--bleu" href={company.mobileHref}>
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2" width="11" height="20" rx="2.5"/><line x1="10.5" y1="18.5" x2="13.5" y2="18.5"/></svg>
+    {company.mobile}
+  </a>
+</div>
+
+<script>
+  const onScroll = () => document.body.classList.toggle('scrolled-past', window.scrollY > 1000);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>

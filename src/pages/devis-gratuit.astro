@@ -1,0 +1,224 @@
+---
+export const prerender = true;
+import Layout from '../layouts/Layout.astro';
+import { company } from '../data/site';
+import { prestationsRge as promos, svg } from '../data/prestations';
+
+// Carte OpenStreetMap (sans cookie, contrairement à l'embed Google Maps)
+const { lat, lng } = company.geo;
+const d = 0.02;
+const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${lng - d}%2C${lat - d}%2C${lng + d}%2C${lat + d}&layer=mapnik&marker=${lat}%2C${lng}`;
+
+// Clé publique Turnstile (variable de BUILD). Si vide, le formulaire marche
+// quand même (le honeypot + le time-trap restent actifs).
+const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+
+// value = clé attendue par /api/devis (PRESTATION_LABELS) ; label = affichage
+const prestationsOptions = [
+  { v: 'couverture', l: 'Travaux de couverture' },
+  { v: 'renovation', l: 'Rénovation de toiture' },
+  { v: 'reparation', l: 'Réparation & recherche de fuites' },
+  { v: 'nettoyage-demoussage', l: 'Nettoyage & démoussage' },
+  { v: 'gouttieres', l: 'Gouttières, noues & chéneaux' },
+  { v: 'velux', l: 'Fenêtres de toit Velux' },
+  { v: 'isolation', l: 'Isolation de toiture (RGE)' },
+  { v: 'ravalement', l: 'Ravalement de façade' },
+  { v: 'ramonage', l: 'Ramonage' },
+  { v: 'charpente', l: 'Traitement de charpente' },
+  { v: 'autre', l: 'Autre / à préciser' },
+];
+---
+<Layout
+  title="Devis gratuit — Éric Couvreur, artisan RGE Qualibat dans l'Essonne"
+  description="Demandez votre devis gratuit à Éric Couvreur, artisan couvreur RGE Qualibat dans l'Essonne (91). Réponse rapide, déplacement offert."
+  path="/devis-gratuit/"
+  hideQuoteCta={true}
+>
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol>
+        <li><a href="/">Accueil</a></li>
+        <li aria-current="page">Devis gratuit</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="section devis-top">
+    <div class="container devis-grid">
+      <div class="devis-intro">
+        <h1>Lorem ipsum dolor sit amet devis gratuit</h1>
+        <p class="devis-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
+
+        <a class="devis-notes" href={company.googleUrl} target="_blank" rel="noopener">
+          <svg class="g-logo" viewBox="0 0 48 48" width="26" height="26" aria-hidden="true">
+            <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
+            <path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/>
+            <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.211 35.091 26.715 36 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/>
+            <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-.792 2.237-2.231 4.166-4.087 5.571l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/>
+          </svg>
+          <span>
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <span class="devis-notes__meta"><strong>{company.reviews.rating}/5</strong> · {company.reviews.count} avis clients</span>
+          </span>
+        </a>
+
+        <div class="devis-texte">
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis.</p>
+        </div>
+
+        <img class="devis-photo" src="/hero-eric-couvreur.webp" width="891" height="706" alt="Chantier de rénovation de toiture par Éric Couvreur dans l'Essonne" />
+      </div>
+
+      <aside class="devis-form-card">
+        <h2>Votre devis gratuit</h2>
+        <p class="devis-form-card__lead">Quelques informations pour vous rappeler avec un premier retour, sans engagement.</p>
+        <form id="devis-form" class="devis-form" method="post" action="/api/devis">
+          <!-- Anti-spam : ne pas remplir -->
+          <p class="hp" aria-hidden="true">
+            <label>Ne pas remplir <input name="website" tabindex="-1" autocomplete="off" /></label>
+          </p>
+
+          <div class="field">
+            <label for="nom">Nom et prénom *</label>
+            <input type="text" id="nom" name="nom" autocomplete="name" required />
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="tel">Téléphone *</label>
+              <input type="tel" id="tel" name="tel" autocomplete="tel" required />
+            </div>
+            <div class="field">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" autocomplete="email" required />
+            </div>
+          </div>
+          <div class="field">
+            <label for="ville">Ville du chantier *</label>
+            <input type="text" id="ville" name="ville" autocomplete="address-level2" required />
+          </div>
+          <div class="field">
+            <label for="prestation">Type de travaux</label>
+            <select id="prestation" name="prestation">
+              <option value="">— Sélectionnez —</option>
+              {prestationsOptions.map((p) => <option value={p.v}>{p.l}</option>)}
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Votre projet *</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+
+          {turnstileKey && (
+            <div class="cf-turnstile" data-sitekey={turnstileKey} data-theme="light" style="margin-bottom:1rem;"></div>
+          )}
+
+          <button type="submit" class="btn btn--rouge devis-form__submit" id="devis-submit">
+            Envoyer ma demande
+            <span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span>
+          </button>
+          <p id="devis-status" role="status" aria-live="polite" class="devis-form__status"></p>
+          <p class="devis-form__note">* Champs obligatoires. Vos données servent uniquement à traiter votre demande.</p>
+        </form>
+      </aside>
+    </div>
+  </section>
+
+  {turnstileKey && (
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
+  )}
+  <script is:inline>
+    (function () {
+      var loadedAt = Date.now();
+      var form = document.getElementById('devis-form');
+      if (!form) return;
+      var status = document.getElementById('devis-status');
+      var submit = document.getElementById('devis-submit');
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        submit.disabled = true;
+        status.style.color = '';
+        status.textContent = 'Envoi en cours…';
+        try {
+          var fd = new FormData(form);
+          var payload = {};
+          fd.forEach(function (v, k) { payload[k] = v; });
+          payload.ts = String(loadedAt);
+          var res = await fetch('/api/devis', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json', accept: 'application/json' },
+            body: JSON.stringify(payload),
+          });
+          var data = await res.json().catch(function () { return {}; });
+          if (res.ok && data.ok) {
+            window.location.href = '/merci/';
+            return;
+          }
+          status.style.color = '#e4141b';
+          status.textContent =
+            data.error || "Une erreur est survenue. Merci de réessayer ou de m'appeler au 06 60 40 43 12.";
+          submit.disabled = false;
+          if (window.turnstile) window.turnstile.reset();
+        } catch (err) {
+          status.style.color = '#e4141b';
+          status.textContent = "Erreur réseau. Merci de réessayer ou de m'appeler au 06 60 40 43 12.";
+          submit.disabled = false;
+          if (window.turnstile) window.turnstile.reset();
+        }
+      });
+    })();
+  </script>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head">
+        <h2>Lorem ipsum notre zone d’intervention</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
+      </div>
+      <div class="devis-map">
+        <iframe
+          src={mapSrc}
+          title="Carte de la zone d'intervention d'Éric Couvreur"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <p class="devis-map__adresse">{company.street} — {company.postalCode} {company.city}</p>
+    </div>
+  </section>
+
+  <section class="section promo-section">
+    <div class="section-head">
+      <h2>Lorem ipsum prestations éligibles aux aides (RGE Qualibat)</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.</p>
+    </div>
+    <div class="promo-grid">
+      {promos.map((p) => (
+        <a class:list={['promo-card', p.accent && 'promo-card--accent', p.feature && 'promo-card--feature']} href={p.url}>
+          <h3>{p.titre}</h3>
+          <p>{p.desc}</p>
+          {p.photo && <img class="promo-card__photo" src={p.photo} width="1063" height="709" alt={p.titre} />}
+          <span class="promo-card__brand">
+            {p.brand === 'velux' && <img class="promo-velux" src="/logo-velux.webp" width="106" height="40" alt="Installateur Velux" />}
+            {p.brand === 'icon' && !p.photo && <span class="promo-icon" set:html={svg(p.icon ?? '')} />}
+            <span class="promo-card__more" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container media-split media-split--reverse media-split--plain">
+      <div class="media-split__text">
+        <h2>Lorem ipsum dolor sit amet Éric Robert</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam quis nostrud.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident.</p>
+        <a class="btn btn--rouge media-split__cta" href={company.mobileHref}>Appeler le {company.mobile}</a>
+      </div>
+      <div class="media-split__media">
+        <img src="/eric-robert-portrait.webp" width="450" height="337" alt="Éric Robert, artisan couvreur RGE Qualibat dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+</Layout>

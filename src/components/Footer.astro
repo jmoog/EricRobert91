@@ -1,0 +1,79 @@
+---
+import { company } from '../data/site';
+import { communes, urlVille } from '../data/communes';
+
+interface Props { hideQuoteCta?: boolean }
+const { hideQuoteCta = false } = Astro.props;
+
+const prestations = [
+  { label: 'Travaux de couverture', url: '/travaux-de-couverture/' },
+  { label: 'Rénovation de toiture', url: '/prestations/renovation-detoiture/' },
+  { label: 'Réparation & recherche de fuite', url: '/reparation-toiture-fuite-91/' },
+  { label: 'Nettoyage & démoussage', url: '/nettoyage-demoussage-toiture-91/' },
+  { label: 'Traitement anti-mousse', url: '/traitement-anti-mousse-toiture-91/' },
+  { label: 'Traitement hydrofuge', url: '/traitement-hydrofuge-toiture-91/' },
+  { label: 'Fenêtres de toit Velux (RGE)', url: '/installateur-de-velux-91/' },
+  { label: 'Isolation de toiture (RGE)', url: '/prestations/isolation-de-toiture-91/' },
+  { label: 'Isolation des combles (RGE)', url: '/isolation-des-combles/' },
+  { label: 'Isolation des rampants (RGE)', url: '/isolation-des-rampants/' },
+  { label: 'Ravalement de façade', url: '/prestations/ravalement-de-facade-91/' },
+  { label: 'Ramonage', url: '/prestations/ramonage-91/' },
+  { label: 'Traitement de charpente', url: '/traitement-de-charpente/' },
+];
+
+const infos = [
+  { label: 'À propos', url: '/a-propos/' },
+  ...(hideQuoteCta ? [] : [{ label: 'Devis gratuit', url: '/devis-gratuit/' }]),
+  { label: 'Mentions légales', url: '/mentions-legales/' },
+];
+
+const cookieLink = { label: 'Gérer les cookies', attr: 'data-cookie-settings' };
+
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-cols">
+      <div class="footer-brand">
+        <span class="footer-logo-badge"><img src="/eric-couvreur-logo.png" width="150" height="150" alt="Éric Couvreur, artisan couvreur RGE dans l'Essonne" /></span>
+        <p class="footer-brand__name">{company.name}</p>
+        <p>Artisan couvreur RGE Qualibat dans l’Essonne (91)</p>
+        <p>{company.street}<br />{company.postalCode} {company.city}</p>
+        <p class="footer-rating"><span class="stars" aria-hidden="true">★★★★★</span> <strong>{company.reviews.rating}/5</strong> · {company.reviews.count} avis Google</p>
+        <a class="footer-review-link" href={company.reviewUrl} target="_blank" rel="noopener">Laisser un avis</a>
+        <div class="footer-actions">
+          <a class="btn-menu btn-menu--rouge footer-cta__btn" href={company.mobileHref}>
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>
+            {company.mobile}
+          </a>
+          {!hideQuoteCta && (
+            <a class="btn-menu footer-cta__quote footer-cta__btn" href="/devis-gratuit/">Devis gratuit</a>
+          )}
+        </div>
+      </div>
+
+      <div>
+        <h4>Nos prestations</h4>
+        <ul>
+          {prestations.map((p) => (<li><a href={p.url}>{p.label}</a></li>))}
+        </ul>
+      </div>
+
+      <div>
+        <h4>Essonne &amp; alentours</h4>
+        <ul class="footer-villes">
+          {communes.map((c) => (<li><a href={urlVille(c)}>{c.nom}</a></li>))}
+        </ul>
+      </div>
+
+      <div>
+        <h4>Informations</h4>
+        <ul>
+          {infos.map((i) => (<li><a href={i.url}>{i.label}</a></li>))}
+          <li><a href="#" data-cookie-settings={true}>{cookieLink.label}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">{company.name} — Artisan couvreur RGE Qualibat dans l’Essonne (91). Devis gratuit et déplacement offert.</div>
+  </div>
+</footer>

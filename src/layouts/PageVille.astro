@@ -1,0 +1,145 @@
+---
+// Gabarit des pages villes : /couvreur-{slug}/
+// La page ville LOCALISE (preuves locales, silo vers les piliers) — elle ne
+// re-décrit pas les services. Contenu unique par commune : src/data/villes-contenu.ts
+import Layout from './Layout.astro';
+import { company } from '../data/site';
+import { communes, libelleVille, urlVille, type Commune } from '../data/communes';
+import { villesContenu } from '../data/villes-contenu';
+import TrustBand from '../components/TrustBand.astro';
+
+interface Props { commune: Commune }
+const { commune } = Astro.props;
+
+const titre = libelleVille(commune); // ex. « Couvreur à Arpajon »
+const contenu = villesContenu[commune.slug];
+
+// Communes voisines réelles si définies, sinon les 8 premières autres communes.
+const voisines = contenu
+  ? contenu.voisines
+      .map((slug) => communes.find((c) => c.slug === slug))
+      .filter((c): c is Commune => Boolean(c))
+  : communes.filter((c) => c.slug !== commune.slug).slice(0, 8);
+
+const h1 = contenu ? `${titre} : ${contenu.h1tag}` : titre;
+
+// Photo de la section travaux : alternance entre 2 vraies photos de chantier
+// (une ville sur deux, ordre stable basé sur la position dans communes.ts).
+const idx = communes.findIndex((c) => c.slug === commune.slug);
+const photoTravaux = idx % 2 === 0
+  ? { src: '/photo-travaux-couverture-1.webp', w: 900, h: 675 }
+  : { src: '/photo-travaux-couverture-2.webp', w: 900, h: 672 };
+const description = contenu
+  ? contenu.meta
+  : `Couvreur ${commune.prep} ${commune.nom} (${commune.cp}) : Éric Couvreur, artisan RGE Qualibat. Devis gratuit et déplacement offert.`;
+---
+<Layout
+  title={`${titre} (${commune.cp}) — Éric Couvreur RGE Qualibat`}
+  description={description}
+  path={urlVille(commune)}
+>
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol>
+        <li><a href="/">Accueil</a></li>
+        <li aria-current="page">{titre}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>{h1}</h1>
+      <p class="page-hero__artisan">{company.name}</p>
+      <div class="page-hero__grid">
+        <div class="page-hero__text">
+          {contenu ? (
+            <>
+              <p>{contenu.hero[0]}</p>
+              <p>{contenu.hero[1]}</p>
+            </>
+          ) : (
+            <>
+              <p>Éric Robert, artisan couvreur basé à Linas, intervient {commune.prep} {commune.nom} ({commune.cp}) pour tous vos travaux de toiture : couverture, entretien, réparations, isolation.</p>
+              <p>Devis et déplacement gratuits dans toute l’Essonne.</p>
+            </>
+          )}
+
+          <div class="actions">
+            <a class="btn btn--rouge btn--tel" href={company.mobileHref} aria-label={`Appeler le ${company.mobile}`} title={`Appeler le ${company.mobile}`}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 18h.01"/></svg>{company.mobile}</a>
+            <a class="btn btn--ghost" href="/devis-gratuit/" style="color:#fff;border-color:#fff">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+          </div>
+        </div>
+        <div class="page-hero__media">
+          <img src="/hero-eric-couvreur.webp" width="891" height="706" alt={`Chantier de couverture ${commune.prep} ${commune.nom} par Éric Couvreur`} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustBand showLogo />
+
+  {contenu && (
+    <section class="section">
+      <div class="container media-split media-split--plain">
+        <div class="media-split__text">
+          <h2>Vos travaux de toiture {commune.prep} {commune.nom}</h2>
+          <p set:html={contenu.corps[0]} />
+          <p set:html={contenu.corps[1]} />
+          <a class="btn btn--rouge media-split__cta" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+        </div>
+        <div class="media-split__media">
+          <img src={photoTravaux.src} width={photoTravaux.w} height={photoTravaux.h} alt={`Chantier de couverture mené par Éric Robert ${commune.prep} ${commune.nom}`} />
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="split-feature">
+    <div class="split-feature__inner">
+      <div class="split-feature__left">
+        <h2>Couvreur RGE Qualibat {commune.prep} {commune.nom}</h2>
+        <p>Faire appel à un artisan certifié RGE, c’est la condition pour toucher les aides de l’État sur les travaux éligibles. {commune.prep === 'à' ? `À ${commune.nom}` : `${commune.prep.charAt(0).toUpperCase()}${commune.prep.slice(1)} ${commune.nom}`} comme partout dans l’Essonne, Éric Robert est certifié pour quatre domaines :</p>
+        <ul class="split-feature__list">
+          <li class="is-active">Fenêtres de toit (Velux)</li>
+          <li>Isolation des rampants</li>
+          <li>Isolation des combles perdus</li>
+          <li>Isolation de toiture par l’extérieur</li>
+        </ul>
+      </div>
+      <div class="split-feature__right">
+        <div class="split-feature__card">
+          <span class="split-feature__badge">RGE Qualibat</span>
+          <p>Sur ces quatre familles de travaux, MaPrimeRénov’, les primes CEE et la TVA à 5,5 % peuvent s’appliquer — la <a href="/installateur-de-velux-91/">pose de Velux</a> et l’<a href="/isolation-des-combles/">isolation des combles</a> sont les plus demandées {commune.prep} {commune.nom}.</p>
+          <p>La certification se vérifie en ligne sur l’Annuaire des Entreprises (SIREN 821 136 488). Le devis, gratuit, chiffre les aides mobilisables pour votre projet.</p>
+        </div>
+        <img class="split-feature__photo" src="/photo-velux.webp" width="1063" height="709" alt={`Travaux certifiés RGE Qualibat ${commune.prep} ${commune.nom}`} />
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner-section">
+    <div class="cta-banner">
+      <div class="cta-banner__media">
+        <img src="/eric-robert-portrait.webp" width="450" height="337" alt="Éric Robert, artisan couvreur dans l'Essonne" />
+      </div>
+      <div class="cta-banner__panel">
+        <h2>Besoin d’un couvreur {commune.prep} {commune.nom} ?</h2>
+        <p>Éric Robert se déplace gratuitement, examine votre couverture et vous remet un devis clair — réparation, entretien ou rénovation, selon ce que votre toit demande vraiment.</p>
+        <a class="btn cta-banner__btn" href="/devis-gratuit/">Demander une intervention<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Éric Couvreur intervient aussi autour de {commune.nom}</h2>
+        <p>Le déplacement reste gratuit dans les communes voisines — et dans tout le département.</p>
+      </div>
+      <div class="liens-proches">
+        {voisines.map((c) => (<a href={urlVille(c)}>{libelleVille(c)}</a>))}
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,159 @@
+---
+// Page service : ravalement de façade (20 impr, pos 31,4).
+// Mot-clé principal : « ravalement de façade » + variantes (ravalement façade 91, enduit façade).
+export const prerender = true;
+import PageService from '../../layouts/PageService.astro';
+import { company } from '../../data/site';
+
+const liens = [
+  { label: 'Nettoyage & démoussage', url: '/nettoyage-demoussage-toiture-91/' },
+  { label: 'Travaux de couverture', url: '/travaux-de-couverture/' },
+  { label: 'Réparation & recherche de fuite', url: '/reparation-toiture-fuite-91/' },
+  { label: 'Traitement hydrofuge', url: '/traitement-hydrofuge-toiture-91/' },
+  { label: 'Rénovation de toiture', url: '/prestations/renovation-detoiture/' },
+];
+---
+<PageService
+  titre="Ravalement de façade dans l'Essonne"
+  h1="Ravalement de façade dans l’Essonne : des murs propres, sains et protégés"
+  path="/prestations/ravalement-de-facade-91/"
+  description="Enduit fissuré, façade noircie ? Éric Couvreur ravale vos façades dans le 91 : nettoyage, reprise des fissures, enduit et peinture. Devis gratuit et détaillé."
+  photo="/photo-ravalement-1.webp"
+  photoAlt="Ravalement de façade d'un pavillon par Éric Couvreur dans l'Essonne"
+  liensTitre="Façade et toiture, même combat"
+  liensIntro="Les murs et le toit se protègent ensemble — nos prestations se complètent."
+  liens={liens}
+>
+  <Fragment slot="hero">
+    <p>Un enduit qui cloque, des microfissures qui se ramifient, des traînées noires sous les appuis de fenêtres : la façade encaisse tout, et le montre. Au-delà de l’aspect, une fissure ouverte laisse l’eau s’installer dans le mur — et les désordres migrent vite vers l’intérieur.</p>
+    <p>Éric Robert, couvreur à Linas, réalise le <strong>ravalement de façade dans l’Essonne</strong> : nettoyage, reprise des fissures, enduit et finition. L’habitude du travail en hauteur et la connaissance du circuit de l’eau — du faîtage au soubassement — font des couvreurs des façadiers naturels. Devis et déplacement gratuits.</p>
+  </Fragment>
+
+  <section class="section">
+    <div class="container media-split media-split--plain">
+      <div class="media-split__text">
+        <h2>Nettoyer, réparer, protéger : les trois temps d’un ravalement</h2>
+        <p>Un <strong>ravalement</strong> sérieux commence par un lavage adapté au support — basse pression ou nébulisation sur les enduits fragiles — puis traite les causes : fissures ouvertes à reboucher au mastic ou à l’enduit souple, appuis de fenêtres à reprendre, joints de dilatation à refaire. La finition vient en dernier : enduit taloché, peinture pliolite ou siloxane selon le support et l’aspect recherché.</p>
+        <p>Le diagnostic remonte toujours vers le haut du mur : des salissures concentrées sous la corniche trahissent souvent une gouttière qui déborde. Dans ce cas, la <a href="/reparation-toiture-fuite-91/">réparation de la zinguerie en toiture</a> précède le ravalement — sinon les coulures reviennent dans l’année.</p>
+        <a class="btn btn--rouge media-split__cta" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+      <div class="media-split__media">
+        <img src="/photo-ravalement-2.webp" width="900" height="675" alt="Application d'enduit de façade sur un pavillon dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Quelle finition pour votre façade ?</h2>
+        <p>Le choix dépend de l’état du support, du style de la maison et des règles locales d’urbanisme.</p>
+      </div>
+      <table class="tableau">
+        <thead>
+          <tr><th>Finition</th><th>Pour quel cas</th><th>À savoir</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Enduit monocouche taloché ou gratté</td><td>Façade à rénover en profondeur, support maçonné</td><td>Teinté dans la masse, sans entretien de peinture.</td></tr>
+          <tr><td>Peinture pliolite</td><td>Enduit sain à rafraîchir</td><td>Microporeuse, bonne accroche sur supports anciens.</td></tr>
+          <tr><td>Revêtement siloxane</td><td>Façades exposées aux salissures</td><td>Effet perlant, encrassement ralenti.</td></tr>
+          <tr><td>Revêtement semi-épais (RSE)</td><td>Réseau de microfissures</td><td>Pontage des fissures fines, aspect uniforme.</td></tr>
+        </tbody>
+      </table>
+      <p>Sur les soubassements et les murs poreux, un traitement complémentaire referme le grain du matériau — le même principe que notre <a href="/traitement-hydrofuge-toiture-91/">traitement hydrofuge appliqué en toiture</a>, décliné pour la façade.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Votre ravalement, étape par étape</h2>
+        <p>Comptez une à deux semaines pour un pavillon, selon la surface et les reprises.</p>
+      </div>
+      <ol class="prose-etapes">
+        <li><strong>Visite et devis gratuits</strong> : diagnostic des fissures et des supports, choix de la finition, vérification des règles d’urbanisme de votre commune.</li>
+        <li><strong>Déclaration préalable</strong> : obligatoire en cas de changement d’aspect — nous préparons les références de teintes pour le dossier.</li>
+        <li><strong>Préparation</strong> : échafaudage, protection des menuiseries et des abords, lavage du support.</li>
+        <li><strong>Reprises</strong> : traitement des fissures, reprise des appuis et des angles, rebouchage.</li>
+        <li><strong>Finition</strong> : enduit ou peinture en deux passes, dépose de l’échafaudage, réception avec vous.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Nos ravalements de façade dans l’Essonne</h2>
+        <p>Quelques chantiers récents — enduits, reprises de fissures et finitions réalisés par Éric Robert.</p>
+      </div>
+      <div class="galerie">
+        <img src="/photo-ravalement-avant.webp" width="900" height="675" loading="lazy" alt="Façade avant ravalement — enduit encrassé et fissuré, dans l'Essonne" />
+        <img src="/photo-ravalement-apres.webp" width="900" height="675" loading="lazy" alt="La même façade après ravalement complet par Éric Couvreur" />
+        <img src="/photo-ravalement-3.webp" width="900" height="675" loading="lazy" alt="Ravalement de façade d'un pavillon dans l'Essonne — chantier Éric Couvreur" />
+        <img src="/photo-ravalement-4.webp" width="900" height="675" loading="lazy" alt="Façade rénovée après reprise des fissures dans l'Essonne" />
+        <img src="/photo-ravalement-5.webp" width="900" height="675" loading="lazy" alt="Enduit de façade terminé sur une maison de l'Essonne" />
+        <img src="/photo-ravalement-6.webp" width="900" height="675" loading="lazy" alt="Ravalement en cours sur échafaudage dans l'Essonne" />
+        <img src="/photo-ravalement-7.webp" width="900" height="675" loading="lazy" alt="Finition talochée d'une façade de pavillon dans l'Essonne" />
+        <img src="/photo-ravalement-8.webp" width="900" height="675" loading="lazy" alt="Façade de maison ravalée par Éric Couvreur dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner-section">
+    <div class="cta-banner">
+      <div class="cta-banner__media">
+        <img src="/eric-robert-portrait.webp" width="450" height="337" alt="Éric Robert, artisan couvreur dans l'Essonne" />
+      </div>
+      <div class="cta-banner__panel">
+        <h2>Redonnez dix ans à votre façade</h2>
+        <p>Éric Robert examine vos murs, identifie l’origine des désordres et vous propose la finition adaptée. Devis gratuit, partout dans l’Essonne.</p>
+        <a class="btn cta-banner__btn" href="/devis-gratuit/">Demander une intervention<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Ravalement de façade dans tout le 91</h2>
+        <p>Pavillons meulières, maisons de bourg, constructions récentes : à chacune sa finition.</p>
+      </div>
+      <div class="liens-proches">
+        <a href="/couvreur-palaiseau/">Palaiseau</a>
+        <a href="/couvreur-savigny-sur-orge/">Savigny-sur-Orge</a>
+        <a href="/couvreur-sainte-genevieve-des-bois/">Sainte-Geneviève-des-Bois</a>
+        <a href="/couvreur-draveil/">Draveil</a>
+        <a href="/couvreur-corbeil-essonnes/">Corbeil-Essonnes</a>
+        <a href="/couvreur-arpajon/">Arpajon</a>
+        <a href="/couvreur-etrechy/">Étréchy</a>
+        <a href="/couvreur-linas/">Linas</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Prix, obligations, fissures : vos questions sur le ravalement</h2>
+      </div>
+      <div class="faq">
+        <div class="faq__item">
+          <h3>Combien coûte un ravalement de façade dans l’Essonne ?</h3>
+          <p>À titre indicatif : 45 à 90 € par m² selon l’état du support et la finition (simple peinture ou enduit complet), échafaudage compris. Les reprises de fissures profondes se chiffrent à part. Le devis gratuit détaille chaque poste.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Le ravalement est-il obligatoire ?</h3>
+          <p>Le Code de la construction impose des façades en bon état d’entretien ; certaines communes d’Île-de-France peuvent enjoindre un ravalement tous les dix ans. Au-delà de l’obligation, c’est l’état du mur qui commande : une fissure traitée tôt coûte dix fois moins qu’une reprise de maçonnerie.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Toutes les fissures sont-elles graves ?</h3>
+          <p>Non : le faïençage superficiel de l’enduit est esthétique, une microfissure se ponte au revêtement. Les fissures en escalier ou traversantes, elles, demandent un avis structure avant toute finition. Le diagnostic fait la différence — et il est gratuit.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Peut-on coupler ravalement et travaux de toiture ?</h3>
+          <p>C’est même la configuration idéale : l’échafaudage sert deux fois. Beaucoup de nos clients profitent du ravalement pour un <a href="/nettoyage-demoussage-toiture-91/">nettoyage et démoussage de la toiture</a> ou une reprise de zinguerie — un seul chantier, une seule installation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageService>

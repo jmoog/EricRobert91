@@ -1,0 +1,154 @@
+---
+// Page service : traitement de charpente (127 impr GSC).
+// Absorbe l'ancien /diagnostic-de-charpentes/ (301 → ici) : section diagnostic intégrée.
+// Mot-clé principal : « traitement de charpente » + variantes (insectes xylophages, capricorne, vrillette).
+export const prerender = true;
+import PageService from '../layouts/PageService.astro';
+import { company } from '../data/site';
+
+const liens = [
+  { label: 'Travaux de couverture', url: '/travaux-de-couverture/' },
+  { label: 'Réparation & recherche de fuite', url: '/reparation-toiture-fuite-91/' },
+  { label: 'Isolation des combles (RGE)', url: '/isolation-des-combles/' },
+  { label: 'Rénovation de toiture', url: '/prestations/renovation-detoiture/' },
+  { label: 'Nettoyage & démoussage', url: '/nettoyage-demoussage-toiture-91/' },
+];
+---
+<PageService
+  titre="Traitement de charpente dans l'Essonne"
+  h1="Capricornes, vrillettes, champignons : traitement de charpente dans l’Essonne"
+  path="/traitement-de-charpente/"
+  description="Bois vermoulu, sciure suspecte ? Diagnostic gratuit et traitement de charpente par injection et pulvérisation dans tout le 91, par Éric Couvreur. Produits certifiés."
+  photo="/photo-charpente.webp"
+  photoAlt="Traitement de charpente par injection réalisé par Éric Couvreur dans l'Essonne"
+  liensTitre="Une charpente saine, et tout ce qui va au-dessus"
+  liensIntro="La structure porte la couverture : nos autres prestations prennent le relais."
+  liens={liens}
+>
+  <Fragment slot="hero">
+    <p>De la sciure fine au pied d’un poteau, des petits trous ronds dans les poutres, un bois qui s’effrite sous le tournevis : les insectes à larves xylophages ne préviennent pas, ils mangent. Capricornes, grosses et petites vrillettes creusent la charpente de l’intérieur pendant des années avant que les dégâts ne se voient — et une structure affaiblie finit par se déformer sous le poids de la couverture.</p>
+    <p>Éric Robert, couvreur à Linas, réalise le <strong>traitement de charpente dans l’Essonne</strong> : diagnostic gratuit, traitement par injection et pulvérisation avec des produits certifiés, et remplacement des pièces trop atteintes. La structure est assainie, le toit repart sur des bases saines.</p>
+  </Fragment>
+
+  <section class="section">
+    <div class="container media-split media-split--plain">
+      <div class="media-split__text">
+        <h2>Le diagnostic de charpente : sonder avant de traiter</h2>
+        <p>Tout commence par un <strong>diagnostic de charpente</strong> complet, offert avec le devis : examen visuel de toutes les pièces accessibles, sondage au poinçon des zones suspectes, repérage des galeries, des vermoulures fraîches et des traces de champignons. Ce relevé identifie l’insecte en cause, l’étendue réelle de l’attaque et — le point qui change tout — si elle est encore active.</p>
+        <p>Le diagnostic distingue aussi l’attaque d’insectes du problème d’origine : un bois attaqué est souvent un bois resté longtemps mouillé. Dans ce cas, traiter sans réparer ne servirait à rien — la <a href="/reparation-toiture-fuite-91/">recherche de fuite en toiture</a> s’impose d’abord, pour couper l’eau à la source.</p>
+        <a class="btn btn--rouge media-split__cta" href="/devis-gratuit/">Demander un diagnostic gratuit<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+      <div class="media-split__media">
+        <img src="/photo-charpente.webp" width="1045" height="870" alt="Diagnostic de charpente au poinçon dans des combles dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Reconnaître l’envahisseur : à chaque bois son ennemi</h2>
+        <p>Le traitement dépend de l’espèce en cause et de la profondeur de l’attaque.</p>
+      </div>
+      <table class="tableau">
+        <thead>
+          <tr><th>Nuisible</th><th>Indices caractéristiques</th><th>Traitement adapté</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Capricorne des maisons</td><td>Galeries ovales sous une fine pellicule de bois, vermoulure grossière</td><td>Bûchage, injection en profondeur + pulvérisation</td></tr>
+          <tr><td>Petite et grosse vrillette</td><td>Trous ronds de 1 à 3 mm, sciure fine et fraîche</td><td>Injection ciblée + pulvérisation générale</td></tr>
+          <tr><td>Termites</td><td>Cordonnets terreux, bois feuilleté de l’intérieur</td><td>Traitement spécifique + déclaration en mairie</td></tr>
+          <tr><td>Champignons lignivores (dont mérule)</td><td>Filaments blancs, bois brunâtre qui se casse en cubes</td><td>Assèchement de la cause, bûchage, traitement fongicide</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container media-split media-split--reverse">
+      <div class="media-split__text">
+        <h2>Injection et pulvérisation : traiter à cœur, pas en surface</h2>
+        <p>Sur les pièces de forte section, le produit est injecté sous pression dans des puits percés en quinconce : il diffuse au cœur du bois, là où vivent les larves. Les surfaces et les pièces plus fines reçoivent une double pulvérisation après bûchage — le retrait des parties vermoulues jusqu’au bois sain. Les pièces trop atteintes pour être conservées sont renforcées ou remplacées, un travail de couvreur-charpentier que nous menons dans la foulée.</p>
+        <p>Un traitement bien conduit protège la structure pour une dizaine d’années. Et des combles assainis sont le prérequis d’un autre chantier rentable : l’<a href="/isolation-des-combles/">isolation des combles perdus</a>, qu’on ne pose jamais sur un bois douteux — l’isolant cacherait la reprise de l’attaque.</p>
+        <a class="btn btn--rouge btn--tel media-split__cta" href={company.mobileHref} aria-label={`Appeler le ${company.mobile}`} title={`Appeler le ${company.mobile}`}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 18h.01"/></svg>{company.mobile}</a>
+      </div>
+      <div class="media-split__media">
+        <img src="/placeholder-charpente-injection.svg" width="1063" height="709" alt="Injection de produit de traitement dans une poutre de charpente dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Les étapes de votre traitement de charpente</h2>
+        <p>Un chantier type dure un à trois jours selon la surface et l’état des bois.</p>
+      </div>
+      <ol class="prose-etapes">
+        <li><strong>Diagnostic gratuit</strong> : sondage des bois, identification du nuisible, cartographie des zones atteintes.</li>
+        <li><strong>Devis détaillé</strong> : technique retenue, produits utilisés, pièces à renforcer ou remplacer.</li>
+        <li><strong>Préparation</strong> : bûchage des parties vermoulues, dépoussiérage, dégagement des bois à traiter.</li>
+        <li><strong>Traitement</strong> : injection dans les sections porteuses, double pulvérisation sur l’ensemble.</li>
+        <li><strong>Rapport de fin de chantier</strong> : produits appliqués, zones traitées, conseils de surveillance.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="cta-banner-section">
+    <div class="cta-banner">
+      <div class="cta-banner__media">
+        <img src="/eric-robert-portrait.webp" width="450" height="337" alt="Éric Robert, artisan couvreur dans l'Essonne" />
+      </div>
+      <div class="cta-banner__panel">
+        <h2>Un doute sur vos poutres ? Faites sonder.</h2>
+        <p>Le diagnostic de charpente est gratuit : Éric Robert monte dans vos combles, sonde les bois et vous dit exactement où vous en êtes. Partout dans l’Essonne.</p>
+        <a class="btn cta-banner__btn" href="/devis-gratuit/">Demander une intervention<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Traitement de charpente aux quatre coins du 91</h2>
+        <p>Pavillons, longères, granges réaménagées : les charpentes du département n’ont pas de secret pour un couvreur local.</p>
+      </div>
+      <div class="liens-proches">
+        <a href="/couvreur-etrechy/">Étréchy</a>
+        <a href="/couvreur-mereville/">Méréville</a>
+        <a href="/couvreur-saclas/">Saclas</a>
+        <a href="/couvreur-milly-la-foret/">Milly-la-Forêt</a>
+        <a href="/couvreur-arpajon/">Arpajon</a>
+        <a href="/couvreur-la-ville-du-bois/">La Ville-du-Bois</a>
+        <a href="/couvreur-pecqueuse/">Pecqueuse</a>
+        <a href="/couvreur-linas/">Linas</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Prix, efficacité, urgence : vos questions sur le traitement de charpente</h2>
+      </div>
+      <div class="faq">
+        <div class="faq__item">
+          <h3>Combien coûte un traitement de charpente dans l’Essonne ?</h3>
+          <p>À titre indicatif : 25 à 50 € par m² de surface au sol traitée, selon la technique (pulvérisation seule ou injection) et l’accès aux combles. Le remplacement de pièces se chiffre à part. Diagnostic et devis restent gratuits.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Comment savoir si l’attaque est encore active ?</h3>
+          <p>Vermoulure fraîche et claire, trous aux arêtes nettes, bruits de grignotage l’été : autant d’indices d’activité. Le sondage tranche — une galerie ancienne et vide n’appelle pas le même traitement qu’une colonie en pleine action.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Le traitement est-il compatible avec une maison habitée ?</h3>
+          <p>Oui : les produits certifiés que nous utilisons s’appliquent combles fermés, avec un délai de réoccupation de la zone traitée de 24 à 48 h. Le reste de la maison reste accessible pendant le chantier.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Ma charpente se déforme déjà : traiter suffira-t-il ?</h3>
+          <p>Si des pièces porteuses ont perdu leur section, le traitement seul ne redressera rien : il faut renforcer ou remplacer, parfois déposer une partie de la couverture. Le sujet bascule alors vers une <a href="/prestations/renovation-detoiture/">rénovation de toiture</a> — nous chiffrons les deux scénarios pour comparer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageService>

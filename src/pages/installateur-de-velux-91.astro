@@ -1,0 +1,192 @@
+---
+// Page service (pilier) : pose et remplacement de Velux — domaine certifié RGE Qualibat.
+// Mot-clé principal : « pose de velux » + variantes (installateur velux 91, pose velux essonne).
+export const prerender = true;
+import PageService from '../layouts/PageService.astro';
+import { company } from '../data/site';
+
+const liens = [
+  { label: 'Isolation des rampants (RGE)', url: '/isolation-des-rampants/' },
+  { label: 'Isolation des combles (RGE)', url: '/isolation-des-combles/' },
+  { label: 'Travaux de couverture', url: '/travaux-de-couverture/' },
+  { label: 'Rénovation de toiture', url: '/prestations/renovation-detoiture/' },
+  { label: 'Isolation de toiture (RGE)', url: '/prestations/isolation-de-toiture-91/' },
+  { label: 'Traitement de charpente', url: '/traitement-de-charpente/' },
+];
+---
+<PageService
+  titre="Pose de Velux dans l'Essonne"
+  h1="Pose et remplacement de Velux dans l’Essonne : votre installateur certifié RGE Qualibat"
+  path="/installateur-de-velux-91/"
+  description="Pose et remplacement de Velux dans l'Essonne par un installateur certifié RGE Qualibat. Aides MaPrimeRénov' et CEE, devis gratuit au 06 60 40 43 12."
+  photo="/photo-velux.webp"
+  photoAlt="Fenêtre de toit Velux posée par Éric Couvreur, installateur RGE dans l'Essonne"
+  liens={liens}
+>
+  <Fragment slot="hero">
+    <p>Des combles sombres que personne n’utilise, un Velux d’origine qui laisse filer la chaleur, une pièce sous les toits à aménager : la solution tient souvent en une <strong>fenêtre de toit</strong> bien posée. Bien posée, car une fenêtre de toit mal raccordée à la couverture finit par fuir — c’est un travail de couvreur, pas de poseur généraliste.</p>
+    <p>Éric Robert, couvreur installé à Linas, est certifié <strong>RGE Qualibat</strong> pour la pose de fenêtres de toit. Vous obtenez un raccord d’étanchéité réalisé dans les règles de l’art et, dans de nombreux cas, des aides de l’État pour financer le projet. Devis et déplacement gratuits dans tout le département.</p>
+  </Fragment>
+
+  <section class="section">
+    <div class="container media-split media-split--plain">
+      <div class="media-split__text">
+        <h2>Créer une ouverture de toit : un chantier de couvreur</h2>
+        <p>La <strong>pose de Velux</strong> en création commence dans la charpente : nous réalisons un chevêtre pour recevoir la fenêtre, puis nous découpons la couverture — tuile mécanique, tuile plate ou ardoise, les toits les plus courants dans l’Essonne. Vient ensuite le cœur du métier : la collerette d’étanchéité et le raccordement à la couverture, qui font la différence entre une fenêtre qui tient trente ans et une fenêtre qui s’infiltre au bout de deux hivers.</p>
+        <p>Couvreur de formation, Éric Robert traite l’ensemble du chantier : ouverture, pose, raccords zinc si nécessaire, habillage intérieur et finitions. Une tuile fendue ou un liteau fatigué repérés au passage ? Nos <a href="/travaux-de-couverture/">travaux de couverture dans l’Essonne</a> se traitent dans la même intervention — un seul interlocuteur, du devis à la réception.</p>
+        <a class="btn btn--rouge media-split__cta" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+      <div class="media-split__media">
+        <img src="/placeholder-velux-creation.svg" width="1063" height="709" alt="Création d'une ouverture de toit et pose d'un Velux dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Quel modèle de Velux pour votre projet ?</h2>
+        <p>Le choix dépend de la pièce, de la hauteur sous plafond et de l’usage. Nous vous conseillons sur place, puis commandons le modèle adapté.</p>
+      </div>
+      <table class="tableau">
+        <thead>
+          <tr><th>Type de fenêtre de toit</th><th>Pour quel usage</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Ouverture par rotation</td><td>Le grand classique, économique, adapté à la plupart des combles aménagés.</td></tr>
+          <tr><td>Ouverture par projection</td><td>Vue dégagée et passage libre sous la fenêtre — idéale quand le pied de la fenêtre est bas.</td></tr>
+          <tr><td>Motorisée (Velux Integra, solaire ou électrique)</td><td>Fenêtres en hauteur difficiles d’accès ; ouverture et fermeture par télécommande, programmables.</td></tr>
+          <tr><td>Options : vitrage « tout confort », store, volet roulant solaire</td><td>Confort thermique et phonique renforcé, obscurcissement complet des chambres.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="split-feature">
+    <div class="split-feature__inner">
+      <div class="split-feature__left">
+        <h2>Fenêtres de toit : un domaine certifié RGE Qualibat, des aides à la clé</h2>
+        <p>La pose de fenêtres de toit est l’un des quatre domaines pour lesquels l’entreprise d’Éric Robert est <strong>certifiée RGE Qualibat</strong>. Concrètement, en remplaçant une vieille fenêtre de toit par un modèle plus performant, vous pouvez mobiliser :</p>
+        <ul class="split-feature__list">
+          <li class="is-active">MaPrimeRénov’</li>
+          <li>Prime CEE (fournisseurs d’énergie)</li>
+          <li>TVA réduite à 5,5 %</li>
+        </ul>
+      </div>
+      <div class="split-feature__right">
+        <div class="split-feature__card">
+          <span class="split-feature__badge">RGE Qualibat</span>
+          <p>Sans installateur certifié RGE, pas d’aides de l’État : c’est la condition d’accès à MaPrimeRénov’ et aux primes CEE. La qualification d’Éric Robert est vérifiable en ligne sur l’Annuaire des Entreprises (SIREN 821 136 488).</p>
+          <p>Les montants dépendent de vos ressources et du vitrage retenu. Lors du devis, Éric Robert vous indique ce à quoi votre projet peut prétendre et fournit les attestations du dossier. Pensez à déposer la demande d’aide avant de signer le devis : c’est la condition pour qu’elle soit acceptée.</p>
+        </div>
+        <img class="split-feature__photo" src="/placeholder-velux-rge.svg" width="1063" height="709" alt="Fenêtre de toit Velux ouverte, posée par un installateur RGE dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container media-split media-split--reverse">
+      <div class="media-split__text">
+        <h2>Remplacement d’un Velux vieillissant</h2>
+        <p>Un Velux a une durée de vie de 20 à 30 ans. Passé ce cap, les signes ne trompent pas : condensation entre les vitres, joints durcis, manœuvre qui force, sensation de paroi froide en hiver. Le <strong>remplacement de Velux</strong> à dimensions équivalentes se fait alors en une journée, sans toucher à la couverture au-delà du raccord.</p>
+        <p>C’est aussi le bon moment pour passer à un vitrage plus performant, ajouter un volet roulant solaire ou motoriser l’ouverture — et pour bénéficier des aides liées à la certification RGE. Si vous aménagez la pièce dans la foulée, l’<a href="/isolation-des-rampants/">isolation des rampants de toiture</a> relève du même artisan RGE : deux chantiers coordonnés, un seul dossier d’aides.</p>
+        <a class="btn btn--rouge btn--tel media-split__cta" href={company.mobileHref} aria-label={`Appeler le ${company.mobile}`} title={`Appeler le ${company.mobile}`}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 18h.01"/></svg>{company.mobile}</a>
+      </div>
+      <div class="media-split__media">
+        <img src="/placeholder-velux-remplacement.svg" width="1063" height="709" alt="Remplacement d'un ancien Velux par un modèle récent dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Comment se déroule la pose de votre Velux ?</h2>
+        <p>Du premier appel à la réception du chantier, voici les étapes concrètes.</p>
+      </div>
+      <ol class="prose-etapes">
+        <li><strong>Visite technique gratuite</strong> : nous examinons la charpente, la couverture et la pièce concernée, puis définissons ensemble l’emplacement, la taille et le modèle.</li>
+        <li><strong>Devis détaillé</strong> : fourniture, pose, finitions et, le cas échéant, estimation des aides mobilisables.</li>
+        <li><strong>Commande du matériel</strong> : fenêtre, collerette d’étanchéité adaptée à votre couverture, accessoires (store, volet).</li>
+        <li><strong>Intervention</strong> : dépose de l’ancienne fenêtre ou création du chevêtre, pose, raccordement à la couverture, contrôle de l’étanchéité.</li>
+        <li><strong>Finitions et réception</strong> : habillage intérieur, réglages, démonstration des commandes, chantier laissé propre.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="cta-banner-section">
+    <div class="cta-banner">
+      <div class="cta-banner__media">
+        <img src="/eric-robert-portrait.webp" width="450" height="337" alt="Éric Robert, artisan couvreur, devant son camion dans l'Essonne" />
+      </div>
+      <div class="cta-banner__panel">
+        <h2>Votre projet Velux commence par une visite gratuite</h2>
+        <p>Éric Robert se déplace chez vous, examine la charpente et la couverture, puis vous remet un devis détaillé — fourniture, pose et estimation des aides RGE. Sans frais, partout dans l’Essonne.</p>
+        <a class="btn cta-banner__btn" href="/devis-gratuit/">Demander une intervention<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Un installateur de Velux qui se déplace dans toute l’Essonne</h2>
+        <p>Basé à Linas, au carrefour de la N20 et de la Francilienne, votre <strong>installateur de Velux dans l’Essonne</strong> intervient rapidement dans tout le département — devis et déplacement gratuits.</p>
+      </div>
+      <div class="liens-proches">
+        <a href="/couvreur-linas/">Linas</a>
+        <a href="/couvreur-arpajon/">Arpajon</a>
+        <a href="/couvreur-palaiseau/">Palaiseau</a>
+        <a href="/couvreur-evry/">Évry-Courcouronnes</a>
+        <a href="/couvreur-corbeil-essonnes/">Corbeil-Essonnes</a>
+        <a href="/couvreur-savigny-sur-orge/">Savigny-sur-Orge</a>
+        <a href="/couvreur-sainte-genevieve-des-bois/">Sainte-Geneviève-des-Bois</a>
+        <a href="/couvreur-draveil/">Draveil</a>
+        <a href="/couvreur-montgeron/">Montgeron</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Prix, délais, entretien : vos questions sur la pose de Velux</h2>
+      </div>
+      <div class="faq">
+        <div class="faq__item">
+          <h3>Combien coûte la pose d’un Velux dans l’Essonne ?</h3>
+          <p>À titre indicatif : de 900 à 1 800 € pose comprise pour un remplacement à dimensions égales, et de 1 900 à 4 000 € pour une création complète d’ouverture, selon la taille de la fenêtre, le type de couverture et les options choisies. La TVA à 5,5 % et les aides peuvent réduire nettement la facture. Le devis gratuit détaille fourniture et main-d’œuvre.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Combien de temps dure l’intervention ?</h3>
+          <p>Une journée suffit pour un remplacement à dimensions équivalentes. Comptez un à deux jours pour une création d’ouverture avec chevêtre et habillage intérieur, selon la couverture et l’accès.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Les aides sont-elles cumulables ?</h3>
+          <p>Oui : MaPrimeRénov’ et la prime CEE se cumulent, en plus de la TVA réduite. Condition indispensable : faire réaliser les travaux par une entreprise certifiée RGE, et déposer la demande d’aide avant de signer le devis.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Quand faut-il remplacer plutôt que réparer ?</h3>
+          <p>Un joint ou un store se remplacent à l’unité. En revanche, si le double vitrage est embué de l’intérieur, si le cadre a pris du jeu ou si la fenêtre a plus de 25 ans, le remplacement complet est plus rentable : vous repartez pour des décennies avec un vitrage aux performances actuelles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>Faites entrer la lumière : demandez votre devis Velux</h2>
+      <p>Décrivez votre projet — création, remplacement, motorisation — et Éric Robert vous rappelle pour convenir d’une visite technique gratuite, partout dans l’Essonne.</p>
+      <ul class="cta-band__trust">
+        <li>Certifié RGE Qualibat — fenêtres de toit</li>
+        <li>Artisan local, basé à {company.city}</li>
+        <li>À votre service depuis {company.foundingDate}</li>
+        <li>Devis &amp; déplacement gratuits</li>
+      </ul>
+      <div class="cta-band__actions">
+        <a class="btn btn--rouge btn--lg btn--tel" href={company.mobileHref} aria-label={`Appeler le ${company.mobile}`} title={`Appeler le ${company.mobile}`}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 18h.01"/></svg>{company.mobile}</a>
+        <a class="btn btn--lg cta-band__ghost" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+</PageService>

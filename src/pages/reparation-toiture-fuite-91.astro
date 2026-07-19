@@ -1,0 +1,143 @@
+---
+// Page service : réparation de toiture & recherche de fuite — intention chaude (urgence).
+// Mot-clé principal : « réparation toiture » + variantes (fuite toiture, infiltration, réparation cheminée).
+export const prerender = true;
+import PageService from '../layouts/PageService.astro';
+import { company } from '../data/site';
+
+const liens = [
+  { label: 'Travaux de couverture', url: '/travaux-de-couverture/' },
+  { label: 'Rénovation de toiture', url: '/prestations/renovation-detoiture/' },
+  { label: 'Nettoyage & démoussage', url: '/nettoyage-demoussage-toiture-91/' },
+  { label: 'Traitement de charpente', url: '/traitement-de-charpente/' },
+  { label: 'Ramonage', url: '/prestations/ramonage-91/' },
+  { label: 'Ravalement de façade', url: '/prestations/ravalement-de-facade-91/' },
+];
+---
+<PageService
+  titre="Réparation de toiture & fuite dans l'Essonne"
+  h1="Fuite, infiltration, tuiles cassées : réparation de toiture rapide dans l’Essonne"
+  path="/reparation-toiture-fuite-91/"
+  description="Une tache au plafond, une tuile cassée ? Éric Couvreur intervient vite pour réparer votre toiture et rechercher la fuite, partout dans le 91. Devis gratuit."
+  photo="/photo-travaux-couverture-2.webp"
+  photoAlt="Éric Robert répare une toiture après une fuite dans l'Essonne"
+  liensTitre="Après la réparation, pensez à la suite"
+  liensIntro="Entretenir et surveiller son toit, c'est espacer les dépannages."
+  liens={liens}
+>
+  <Fragment slot="hero">
+    <p>Une auréole qui s’élargit au plafond, des gouttes dans les combles, une tuile en morceaux dans l’allée : quand le toit laisse passer l’eau, attendre coûte cher. Charpente, isolant, plafonds — tout ce qui se trouve sous la fuite se dégrade en silence, bien au-delà du point d’entrée.</p>
+    <p>Éric Robert, couvreur à Linas, intervient rapidement pour la <strong>réparation de toiture dans l’Essonne</strong> : recherche de fuite, remplacement de tuiles, reprise de solins et de zinguerie. Un diagnostic honnête, un devis clair, et une réparation qui règle la cause — pas seulement le symptôme.</p>
+  </Fragment>
+
+  <section class="section">
+    <div class="container media-split media-split--plain">
+      <div class="media-split__text">
+        <h2>Recherche de fuite : trouver le vrai point d’entrée</h2>
+        <p>L’eau est retorse : elle entre par un solin fatigué, chemine le long d’un chevron et ressort trois mètres plus loin — là où vous voyez la tache. Réparer au droit de l’auréole ne sert souvent à rien. La <strong>recherche de fuite</strong> commence sur le toit : examen des tuiles, des faîtages, des noues, des abergements de cheminée et des lucarnes, puis contrôle depuis les combles pour suivre le trajet de l’eau jusqu’à sa source.</p>
+        <p>Ce travail d’enquête est celui d’un couvreur expérimenté : connaître les points faibles de la plupart des couvertures du 91 fait gagner un temps précieux — et vous évite de payer deux interventions pour la même fuite.</p>
+        <a class="btn btn--rouge btn--tel media-split__cta" href={company.mobileHref} aria-label={`Appeler le ${company.mobile}`} title={`Appeler le ${company.mobile}`}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 18h.01"/></svg>{company.mobile}</a>
+      </div>
+      <div class="media-split__media">
+        <img src="/placeholder-recherche-fuite.svg" width="1063" height="709" alt="Recherche de fuite sur une toiture en tuiles dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Les réparations de toiture les plus courantes</h2>
+        <p>La plupart des dépannages se règlent en une demi-journée, dès lors qu’ils sont pris à temps.</p>
+      </div>
+      <table class="tableau">
+        <thead>
+          <tr><th>Problème</th><th>Réparation</th><th>Ordre de prix indicatif</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Tuiles cassées, fendues ou déplacées</td><td>Remplacement à l’identique, recalage du rang</td><td>150 à 400 €</td></tr>
+          <tr><td>Solin ou abergement de cheminée fuyard</td><td>Reprise du solin, mortier ou bande à noyer neuve</td><td>200 à 600 €</td></tr>
+          <tr><td>Faîtage descellé</td><td>Rescellement ou pose d’un closoir sec</td><td>300 à 900 €</td></tr>
+          <tr><td>Gouttière percée ou déboîtée</td><td>Remplacement de l’élément, reprise des pentes</td><td>100 à 400 €</td></tr>
+          <tr><td>Écran de sous-toiture déchiré</td><td>Reprise localisée par l’extérieur</td><td>Sur devis après inspection</td></tr>
+        </tbody>
+      </table>
+      <p>Si les réparations se multiplient d’année en année, le calcul change : passé un certain seuil, une <a href="/prestations/renovation-detoiture/">rénovation de toiture</a> partielle ou complète devient plus économique que l’accumulation de dépannages. Nous vous donnons le point de bascule, chiffres en main.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Comment se passe une intervention de dépannage ?</h2>
+        <p>De votre appel à la réparation, le circuit est court.</p>
+      </div>
+      <ol class="prose-etapes">
+        <li><strong>Premier contact</strong> : décrivez le problème au {company.mobile}, photos à l’appui si possible — cela nous aide à préparer la bonne intervention.</li>
+        <li><strong>Mise hors d’eau si nécessaire</strong> : en cas de fuite active, un bâchage provisoire protège l’intérieur en attendant la réparation.</li>
+        <li><strong>Diagnostic sur le toit</strong> : localisation de la cause réelle, photos avant/après à l’appui.</li>
+        <li><strong>Devis et réparation</strong> : accord sur le prix, puis remplacement des éléments en cause — tuiles, solins, zinguerie.</li>
+        <li><strong>Contrôle</strong> : vérification du point réparé et des zones voisines, conseils d’entretien pour éviter la récidive.</li>
+      </ol>
+      <p>La récidive, justement, se joue souvent en amont : un toit envahi de végétation retient l’eau et masque les défauts. Un <a href="/nettoyage-demoussage-toiture-91/">démoussage de toiture régulier</a> permet de repérer les faiblesses avant qu’elles ne deviennent des fuites.</p>
+    </div>
+  </section>
+
+  <section class="cta-banner-section">
+    <div class="cta-banner">
+      <div class="cta-banner__media">
+        <img src="/eric-robert-portrait.webp" width="450" height="337" alt="Éric Robert, artisan couvreur dans l'Essonne" />
+      </div>
+      <div class="cta-banner__panel">
+        <h2>Une fuite n’attend pas. Nous non plus.</h2>
+        <p>Décrivez votre problème, Éric Robert vous rappelle et se déplace au plus vite pour mettre votre toiture hors d’eau, partout dans l’Essonne.</p>
+        <a class="btn cta-banner__btn" href="/devis-gratuit/">Demander une intervention<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Dépannage toiture dans tout le département</h2>
+        <p>Depuis Linas, les délais d’intervention restent courts aux quatre coins du 91.</p>
+      </div>
+      <div class="liens-proches">
+        <a href="/couvreur-savigny-sur-orge/">Savigny-sur-Orge</a>
+        <a href="/couvreur-morsang-sur-orge/">Morsang-sur-Orge</a>
+        <a href="/couvreur-draveil/">Draveil</a>
+        <a href="/couvreur-corbeil-essonnes/">Corbeil-Essonnes</a>
+        <a href="/couvreur-arpajon/">Arpajon</a>
+        <a href="/couvreur-orsay/">Orsay</a>
+        <a href="/couvreur-wissous/">Wissous</a>
+        <a href="/couvreur-linas/">Linas</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Urgence, assurance, prix : vos questions sur la réparation de toiture</h2>
+      </div>
+      <div class="faq">
+        <div class="faq__item">
+          <h3>Que faire en attendant le couvreur ?</h3>
+          <p>Écartez les meubles, posez une bassine, et si l’eau atteint un luminaire, coupez le circuit concerné. N’allez pas sur le toit vous-même : un bâchage provisoire posé par nos soins protège l’intérieur en attendant la réparation définitive.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Mon assurance prend-elle en charge la réparation ?</h3>
+          <p>Le dégât des eaux intérieur relève souvent de votre assurance habitation ; la réparation du toit lui-même dépend de la cause et de votre contrat. Nous fournissons photos, rapport et devis détaillé — les pièces que votre assureur demandera pour instruire le dossier.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Combien coûte une recherche de fuite ?</h3>
+          <p>Le diagnostic est inclus dans le devis gratuit : vous ne payez que la réparation, dont les ordres de prix figurent dans le tableau ci-dessus. Un bâchage d’attente se chiffre entre 150 et 400 € selon la surface.</p>
+        </div>
+        <div class="faq__item">
+          <h3>La fuite a mouillé les bois : est-ce grave ?</h3>
+          <p>Un bois resté longtemps détrempé devient un terrain favorable aux champignons et aux insectes. Après la réparation, un contrôle s’impose — c’est le rôle de notre <a href="/traitement-de-charpente/">traitement de charpente dans l’Essonne</a>, qui assainit la structure avant de refermer les combles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageService>

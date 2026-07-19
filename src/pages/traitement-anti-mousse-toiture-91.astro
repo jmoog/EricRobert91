@@ -1,0 +1,122 @@
+---
+// Satellite du cocon nettoyage : traitement anti-mousse de toiture.
+// Renvoie vers le hub /nettoyage-demoussage-toiture-91/ et le satellite hydrofuge.
+// Page NON RGE : aucun argument d'aides.
+export const prerender = true;
+import PageService from '../layouts/PageService.astro';
+import { company } from '../data/site';
+
+const liens = [
+  { label: 'Nettoyage & démoussage', url: '/nettoyage-demoussage-toiture-91/' },
+  { label: 'Traitement hydrofuge', url: '/traitement-hydrofuge-toiture-91/' },
+  { label: 'Travaux de couverture', url: '/travaux-de-couverture/' },
+  { label: 'Réparation & recherche de fuite', url: '/reparation-toiture-fuite-91/' },
+];
+---
+<PageService
+  titre="Traitement anti-mousse de toiture dans l'Essonne"
+  h1="Traitement anti-mousse : stopper la repousse sur votre toiture, durablement"
+  path="/traitement-anti-mousse-toiture-91/"
+  description="Éric Couvreur applique un traitement anti-mousse professionnel Dalep sur les toitures du 91 : spores neutralisées, repousse retardée de plusieurs années. Devis gratuit."
+  photo="/photo-eric-travail.webp"
+  photoAlt="Pulvérisation d'un traitement anti-mousse sur une toiture dans l'Essonne"
+  liensTitre="Le traitement s'inscrit dans un entretien complet"
+  liensIntro="Nettoyer, traiter, protéger, réparer : chaque geste a sa page."
+  liens={liens}
+>
+  <Fragment slot="hero">
+    <p>Vous avez fait nettoyer votre toit — ou vous vous apprêtez à le faire — et vous voulez que ça dure ? Le brossage retire les mousses visibles, mais les spores, elles, restent accrochées au grain de la tuile. Sans <strong>traitement anti-mousse</strong>, la colonisation repart en un à deux ans ; avec, la couverture reste nette plusieurs années.</p>
+    <p>Éric Robert, couvreur à Linas, applique sur les toitures de l’Essonne des traitements professionnels concentrés — la gamme <strong>Dalep</strong>, référence du bâtiment — dosés selon le matériau et le degré de colonisation. Application comprise dans nos forfaits d’entretien, ou en prestation seule sur toit déjà propre.</p>
+  </Fragment>
+
+  <section class="section">
+    <div class="container media-split media-split--plain">
+      <div class="media-split__text">
+        <h2>Curatif ou préventif : deux usages, un même produit bien dosé</h2>
+        <p>En curatif, le produit s’applique sur les zones encore colonisées après brossage : il pénètre les organismes restants — mousses résiduelles, lichens incrustés, algues qui verdissent les versants nord — et les détruit en quelques semaines, racines comprises. Les résidus secs se détachent ensuite naturellement.</p>
+        <p>En préventif, une application sur couverture saine crée un film biocide qui retarde toute nouvelle installation. C’est le geste malin après un <a href="/nettoyage-demoussage-toiture-91/">nettoyage et démoussage de toiture complet</a> : le toit repart de zéro, le traitement le maintient dans cet état.</p>
+        <a class="btn btn--rouge media-split__cta" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+      <div class="media-split__media">
+        <img src="/photo-nettoyage-toiture-2.webp" width="900" height="675" alt="Application d'anti-mousse au pulvérisateur sur tuiles dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Pourquoi un produit professionnel change tout</h2>
+        <p>Entre le bidon de grande surface et le concentré de métier, l’écart se voit dès la deuxième année.</p>
+      </div>
+      <table class="tableau">
+        <thead>
+          <tr><th>Critère</th><th>Produit grand public</th><th>Concentré professionnel (Dalep)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Concentration en matière active</td><td>Prête à l’emploi, faiblement dosée</td><td>Concentré dilué au juste dosage selon le support</td></tr>
+          <tr><td>Tenue dans le temps</td><td>1 à 2 ans</td><td>3 à 5 ans selon l’exposition du toit</td></tr>
+          <tr><td>Application</td><td>Arrosoir ou pulvérisateur à main</td><td>Pulvérisation basse pression, couverture homogène</td></tr>
+          <tr><td>Respect du support</td><td>Variable</td><td>Formulations adaptées tuile, ardoise, fibrociment</td></tr>
+        </tbody>
+      </table>
+      <p>L’application compte autant que le produit : passes croisées, du faîtage vers les gouttières, par temps sec et sans rinçage — le produit doit agir, pas partir dans les descentes. C’est aussi le moment où l’œil du couvreur repère une tuile fendue ; la <a href="/reparation-toiture-fuite-91/">réparation ponctuelle de la toiture</a> se règle alors dans la même visite.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>L’application, dans les règles de l’art</h2>
+        <p>Une intervention rapide — comptez une demi-journée pour un pavillon.</p>
+      </div>
+      <ol class="prose-etapes">
+        <li><strong>Contrôle du support</strong> : la couverture doit être propre et sèche — sinon, nettoyage préalable.</li>
+        <li><strong>Protection des abords</strong> : plantations et récupérateurs d’eau isolés des égouttements.</li>
+        <li><strong>Dosage</strong> : dilution du concentré selon le matériau et le niveau de colonisation.</li>
+        <li><strong>Pulvérisation</strong> : passes croisées sur toute la surface, y compris rives et faîtage.</li>
+        <li><strong>Consignes de suivi</strong> : temps d’action, comportement des résidus, date conseillée du prochain passage.</li>
+      </ol>
+      <p>Pour une protection maximale, l’étape d’après consiste à imperméabiliser la tuile elle-même : le <a href="/traitement-hydrofuge-toiture-91/">traitement hydrofuge de toiture</a> s’applique sur couverture traitée et referme le grain du matériau — mousse et eau n’ont plus de prise.</p>
+    </div>
+  </section>
+
+  <section class="cta-banner-section">
+    <div class="cta-banner">
+      <div class="cta-banner__media">
+        <img src="/eric-robert-portrait.webp" width="450" height="337" alt="Éric Robert, artisan couvreur dans l'Essonne" />
+      </div>
+      <div class="cta-banner__panel">
+        <h2>Gardez un toit net pendant des années</h2>
+        <p>Éric Robert évalue la colonisation de votre couverture et vous propose le traitement adapté — curatif, préventif, ou couplé à un nettoyage complet. Devis gratuit dans toute l’Essonne.</p>
+        <a class="btn cta-banner__btn" href="/devis-gratuit/">Demander une intervention<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Efficacité, période, prix : vos questions sur l’anti-mousse</h2>
+      </div>
+      <div class="faq">
+        <div class="faq__item">
+          <h3>Combien coûte un traitement anti-mousse dans l’Essonne ?</h3>
+          <p>À titre indicatif : 5 à 10 € par m² en application seule sur toit propre, produit professionnel compris. Couplé à un démoussage complet, le traitement est inclus dans le forfait — reportez-vous au devis détaillé, gratuit dans les deux cas.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Combien de temps le traitement reste-t-il efficace ?</h3>
+          <p>Trois à cinq ans selon l’exposition du toit : un versant sous de grands arbres se recolonise plus vite qu’un toit dégagé. Un passage d’entretien tous les 3-4 ans maintient la protection sans nouveau nettoyage lourd.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Peut-on appliquer le produit sur un toit encore moussu ?</h3>
+          <p>Sur une colonisation légère, oui — c’est l’usage curatif. Sur des plaques épaisses, non : le produit n’atteindrait pas la tuile. Il faut d’abord passer par le <a href="/nettoyage-demoussage-toiture-91/">démoussage mécanique de la toiture</a>, puis traiter.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Le produit est-il dangereux pour les plantations ?</h3>
+          <p>Les formulations que nous utilisons sont conçues pour le bâtiment et appliquées sans excès ni ruissellement. Nous protégeons systématiquement massifs et récupérateurs d’eau, et déconnectons les descentes le temps du séchage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageService>

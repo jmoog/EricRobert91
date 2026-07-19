@@ -1,0 +1,161 @@
+---
+// Page service : rénovation de toiture (34 impr, pos 40,5 — requête « rénovation toiture {ville} »).
+// Mot-clé principal : « rénovation de toiture » + variantes (réfection toiture, refaire sa toiture 91).
+export const prerender = true;
+import PageService from '../../layouts/PageService.astro';
+import { company } from '../../data/site';
+
+const liens = [
+  { label: 'Travaux de couverture', url: '/travaux-de-couverture/' },
+  { label: 'Isolation de toiture (RGE)', url: '/prestations/isolation-de-toiture-91/' },
+  { label: 'Pose de Velux (RGE)', url: '/installateur-de-velux-91/' },
+  { label: 'Traitement de charpente', url: '/traitement-de-charpente/' },
+  { label: 'Réparation & recherche de fuite', url: '/reparation-toiture-fuite-91/' },
+  { label: 'Ravalement de façade', url: '/prestations/ravalement-de-facade-91/' },
+];
+---
+<PageService
+  titre="Rénovation de toiture dans l'Essonne"
+  h1="Refaire sa toiture dans l’Essonne : réfection partielle ou complète, au juste prix"
+  path="/prestations/renovation-detoiture/"
+  description="Toit en fin de vie ? Éric Couvreur rénove votre toiture dans le 91 : dépose, écran de sous-toiture, couverture neuve, zinguerie. Devis gratuit et détaillé."
+  photo="/photo-renovation-hero.webp"
+  photoAlt="Rénovation complète d'une toiture de pavillon par Éric Couvreur dans l'Essonne"
+  liensTitre="Autour de la rénovation, les bons compléments"
+  liensIntro="Un toit refait est l'occasion de tout remettre à niveau en une fois."
+  liens={liens}
+>
+  <Fragment slot="hero">
+    <p>Des tuiles qui se délitent, des réparations qui reviennent tous les ans, un grenier où l’on voit le jour entre les liteaux : à un moment, rafistoler coûte plus cher que refaire. La <strong>rénovation de toiture</strong> est le chantier le plus important de la vie d’une maison — celui qui protège tous les autres.</p>
+    <p>Éric Robert, couvreur à Linas, mène des réfections partielles et complètes dans toute l’Essonne : dépose, reprise du support, écran de sous-toiture, couverture neuve et zinguerie. Un interlocuteur unique, un chiffrage poste par poste, et un chantier tenu du premier au dernier jour.</p>
+  </Fragment>
+
+  <section class="section">
+    <div class="container media-split media-split--plain">
+      <div class="media-split__text">
+        <h2>Réparer encore, ou refaire ? Les critères qui tranchent</h2>
+        <p>Un toit se rénove rarement sur un coup de tête : la décision se prend sur des faits. L’âge de la couverture (au-delà de 30 à 40 ans pour la tuile mécanique), la porosité des tuiles qui s’effritent au toucher, la multiplication des <a href="/reparation-toiture-fuite-91/">réparations et recherches de fuite</a> sur les dernières années, l’absence d’écran de sous-toiture : quand plusieurs de ces signaux s’additionnent, la réfection devient le choix économique.</p>
+        <p>La visite tranche entre trois scénarios — remaniement (les tuiles saines sont reposées, les défectueuses remplacées), réfection partielle (un versant), ou réfection complète. Le devis chiffre le scénario adapté, pas le plus cher.</p>
+        <a class="btn btn--rouge media-split__cta" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+      <div class="media-split__media">
+        <img src="/photo-renovation-chantier.webp" width="900" height="675" alt="Chantier de réfection de toiture avec échafaudage dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Ce que comprend une rénovation de toiture complète</h2>
+        <p>Refaire un toit, c’est bien plus que changer les tuiles. Le devis détaille chaque couche.</p>
+      </div>
+      <table class="tableau">
+        <thead>
+          <tr><th>Poste</th><th>Ce qu’on y fait</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Dépose</td><td>Retrait de l’ancienne couverture, tri et évacuation des gravats en filière agréée.</td></tr>
+          <tr><td>Charpente</td><td>Contrôle systématique des bois ; reprise ou remplacement des pièces douteuses.</td></tr>
+          <tr><td>Écran de sous-toiture</td><td>Membrane HPV posée sur les chevrons : seconde barrière contre les infiltrations.</td></tr>
+          <tr><td>Liteaunage</td><td>Liteaux neufs, calepinage adapté au modèle de tuile ou d’ardoise choisi.</td></tr>
+          <tr><td>Couverture</td><td>Tuiles, ardoises ou zinc, avec faîtage, rives et points singuliers.</td></tr>
+          <tr><td>Zinguerie</td><td>Gouttières, noues, abergements neufs — le circuit de l’eau repart de zéro.</td></tr>
+        </tbody>
+      </table>
+      <p>C’est aussi le moment unique où l’isolation par l’extérieur ne coûte que son surcoût matière : la couverture étant déposée, le <a href="/prestations/isolation-de-toiture-91/">sarking certifié RGE</a> s’intercale sans chantier supplémentaire — et les aides s’appliquent sur cette part des travaux.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Votre rénovation, semaine par semaine</h2>
+        <p>Pour un pavillon courant, comptez une à trois semaines selon la surface et les options.</p>
+      </div>
+      <ol class="prose-etapes">
+        <li><strong>Visite et devis gratuits</strong> : relevé complet, photos, chiffrage par scénario (remaniement, partiel, complet).</li>
+        <li><strong>Démarches</strong> : déclaration préalable en mairie si l’aspect change — nous préparons les pièces techniques du dossier.</li>
+        <li><strong>Installation</strong> : échafaudage, protection des abords et des accès, livraison des matériaux.</li>
+        <li><strong>Dépose et reprise du support</strong> : contrôle charpente, écran de sous-toiture, liteaunage neuf.</li>
+        <li><strong>Couverture et zinguerie</strong> : pose de la couverture choisie, gouttières et finitions, réception avec vous.</li>
+      </ol>
+      <p>Envie de transformer les combles en vraie pièce pendant qu’on y est ? L’ajout d’une <a href="/installateur-de-velux-91/">fenêtre de toit posée par un installateur RGE</a> pendant la réfection évite la double intervention — le chevêtre se prépare charpente ouverte.</p>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Nos rénovations de toiture dans l’Essonne</h2>
+        <p>Quelques chantiers récents — réfections partielles et complètes menées par Éric Robert.</p>
+      </div>
+      <div class="galerie">
+        <img src="/photo-renovation-g1.webp" width="900" height="675" loading="lazy" alt="Toiture rénovée en tuiles mécaniques dans l'Essonne — chantier Éric Couvreur" />
+        <img src="/photo-renovation-g2.webp" width="900" height="675" loading="lazy" alt="Réfection de toiture en cours sur un pavillon de l'Essonne" />
+        <img src="/photo-renovation-g3.webp" width="900" height="675" loading="lazy" alt="Couverture neuve posée lors d'une rénovation de toiture dans l'Essonne" />
+        <img src="/photo-renovation-g4.webp" width="900" height="675" loading="lazy" alt="Toiture refaite avec zinguerie neuve dans l'Essonne" />
+        <img src="/photo-renovation-g5.webp" width="900" height="675" loading="lazy" alt="Chantier de rénovation de toiture mené par Éric Couvreur dans l'Essonne" />
+        <img src="/photo-renovation-g6.webp" width="900" height="675" loading="lazy" alt="Vue d'ensemble d'une toiture rénovée dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner-section">
+    <div class="cta-banner">
+      <div class="cta-banner__media">
+        <img src="/eric-robert-portrait.webp" width="450" height="337" alt="Éric Robert, artisan couvreur dans l'Essonne" />
+      </div>
+      <div class="cta-banner__panel">
+        <h2>Un toit neuf, un budget maîtrisé</h2>
+        <p>Éric Robert compare avec vous remaniement, réfection partielle et complète — chiffres à l’appui, sans pousser au chantier inutile. Visite gratuite dans toute l’Essonne.</p>
+        <a class="btn cta-banner__btn" href="/devis-gratuit/">Demander une intervention<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Rénovation de toiture près de chez vous</h2>
+        <p>Du Val d’Orge au Hurepoix, Éric Robert rénove les toits de tout le département.</p>
+      </div>
+      <div class="liens-proches">
+        <a href="/couvreur-morsang-sur-orge/">Morsang-sur-Orge</a>
+        <a href="/couvreur-savigny-sur-orge/">Savigny-sur-Orge</a>
+        <a href="/couvreur-igny/">Igny</a>
+        <a href="/couvreur-orsay/">Orsay</a>
+        <a href="/couvreur-gif-sur-yvette/">Gif-sur-Yvette</a>
+        <a href="/couvreur-champlan/">Champlan</a>
+        <a href="/couvreur-evry/">Évry-Courcouronnes</a>
+        <a href="/couvreur-linas/">Linas</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Budget, démarches, calendrier : vos questions sur la rénovation de toiture</h2>
+      </div>
+      <div class="faq">
+        <div class="faq__item">
+          <h3>Combien coûte une rénovation de toiture dans l’Essonne ?</h3>
+          <p>À titre indicatif : 180 à 280 € par m² pour une réfection complète en tuile mécanique (dépose, écran, liteaux, couverture, zinguerie comprises), davantage en ardoise ou avec sarking. Un remaniement se situe autour de 60 à 100 € par m². Le devis gratuit détaille le scénario retenu.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Peut-on habiter la maison pendant les travaux ?</h3>
+          <p>Oui : la maison n’est jamais à découvert — les zones déposées sont remises hors d’eau chaque soir. Le chantier se vit surtout par le bruit en journée et l’emprise de l’échafaudage.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Quelles démarches en mairie ?</h3>
+          <p>Une déclaration préalable de travaux si la teinte, le matériau ou les ouvertures changent ; certaines communes du 91 imposent des matériaux précis près des secteurs protégés. Nous fournissons les fiches techniques et plans nécessaires au dossier.</p>
+        </div>
+        <div class="faq__item">
+          <h3>La charpente est-elle vérifiée pendant la réfection ?</h3>
+          <p>Systématiquement : c’est le seul moment où elle est entièrement visible. Une pièce attaquée par les insectes part en <a href="/traitement-de-charpente/">traitement de charpente</a> ou au remplacement avant la pose de la couverture neuve — jamais l’inverse.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageService>

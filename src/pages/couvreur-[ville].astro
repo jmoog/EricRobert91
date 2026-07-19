@@ -1,0 +1,13 @@
+---
+export const prerender = true;
+import PageVille from '../layouts/PageVille.astro';
+import { communes, type Commune } from '../data/communes';
+
+export function getStaticPaths() {
+  return communes.map((c) => ({ params: { ville: c.slug }, props: { commune: c } }));
+}
+
+interface Props { commune: Commune }
+const { commune } = Astro.props;
+---
+<PageVille commune={commune} />

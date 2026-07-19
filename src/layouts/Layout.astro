@@ -1,0 +1,121 @@
+---
+// Layout de base eric-couvreur.fr
+// <head> + données structurées (SEO local + logo de marque en SERP).
+// Déposer le logo carré dans public/eric-couvreur-logo.png (≥ 512×512, fond clair).
+import '@fontsource/roboto/latin-300.css';
+import '@fontsource/roboto/latin-400.css';
+import '@fontsource/roboto/latin-500.css';
+import '@fontsource/roboto/latin-700.css';
+import '@fontsource/roboto/latin-900.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import { company, areaServed } from '../data/site';
+
+export interface Props {
+  title: string;
+  description: string;
+  /** Chemin canonique, ex : "/travaux-de-couverture/" */
+  path?: string;
+  /** true = page en noindex */
+  noindex?: boolean;
+  /** true = masque le CTA « Devis gratuit » du header/footer (page devis elle-même) */
+  hideQuoteCta?: boolean;
+}
+
+const { title, description, path = '/', noindex = false, hideQuoteCta = false } = Astro.props;
+
+const SITE = 'https://eric-couvreur.fr';
+const canonical = new URL(path, Astro.site ?? SITE).href;
+const logoUrl = `${SITE}/eric-couvreur-logo.png`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE}/#website`,
+      url: `${SITE}/`,
+      name: 'Éric Couvreur',
+      alternateName: 'Couvreur 91 RGE Qualibat — Éric Couvreur',
+      inLanguage: 'fr-FR',
+      publisher: { '@id': `${SITE}/#localbusiness` },
+    },
+    {
+      '@type': 'RoofingContractor',
+      '@id': `${SITE}/#localbusiness`,
+      name: company.name,
+      alternateName: 'Couvreur 91 RGE Qualibat — Éric Couvreur',
+      description:
+        'Artisan couvreur RGE Qualibat dans l’Essonne (91). Travaux de couverture, rénovation et réparation de toiture, isolation, ravalement de façade, ramonage et pose de Velux.',
+      url: `${SITE}/`,
+      image: logoUrl,
+      logo: logoUrl,
+      telephone: company.phoneE164,
+      email: company.email,
+      priceRange: company.priceRange,
+      founder: { '@type': 'Person', name: company.founder },
+      foundingDate: company.foundingDate,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: company.street,
+        postalCode: company.postalCode,
+        addressLocality: company.city,
+        addressRegion: company.region_admin,
+        addressCountry: 'FR',
+      },
+      geo: { '@type': 'GeoCoordinates', latitude: company.geo.lat, longitude: company.geo.lng },
+      openingHoursSpecification: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: company.hours.days,
+        opens: company.hours.opens,
+        closes: company.hours.closes,
+      },
+      areaServed,
+      sameAs: [company.googleUrl],
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
+
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="google-site-verification" content="YkbEXhKmWFoJgum0U-9IuBcHgakFaIWk2wZNp1REIS8" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Éric Couvreur — Couvreur 91 RGE Qualibat" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={logoUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="Logo Éric Couvreur, artisan couvreur RGE dans l’Essonne" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:image" content={logoUrl} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <Header hideQuoteCta={hideQuoteCta} />
+    <main id="contenu">
+      <slot />
+    </main>
+    <Footer hideQuoteCta={hideQuoteCta} />
+    <CookieBanner />
+  </body>
+</html>

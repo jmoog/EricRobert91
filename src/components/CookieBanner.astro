@@ -1,0 +1,151 @@
+---
+// Bandeau de consentement cookies (RGPD/CNIL) — apparaît après 100px de scroll,
+// tant que l'utilisateur n'a pas fait de choix. Google Analytics (GA4) n'est
+// chargé qu'après acceptation explicite ("consentement préalable").
+const GA_ID = 'G-ZXV4JPQY5D';
+---
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Gestion des cookies" hidden>
+  <div class="cookie-banner__card">
+    <p class="cookie-banner__text">
+      🍪 Nous utilisons des cookies de mesure d'audience (Google Analytics) pour améliorer votre expérience sur ce site. Vous pouvez accepter ou refuser leur dépôt.
+      <a href="/mentions-legales/#cookies">En savoir plus</a>
+    </p>
+    <div class="cookie-banner__actions">
+      <button type="button" class="btn cookie-banner__decline" id="cookie-decline">Refuser</button>
+      <button type="button" class="btn btn--rouge cookie-banner__accept" id="cookie-accept">Tout accepter</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    transform: translateY(130%);
+    opacity: 0;
+    transition: transform .45s ease, opacity .45s ease;
+    pointer-events: none;
+  }
+  .cookie-banner.is-visible { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .cookie-banner[hidden] { display: flex; } /* on pilote la visibilité via is-visible, pas [hidden] une fois initialisé */
+
+  .cookie-banner__card {
+    width: 100%;
+    max-width: 720px;
+    background: var(--blanc);
+    border: 1px solid var(--bordure);
+    border-radius: var(--radius);
+    box-shadow: 0 12px 34px rgba(16, 39, 63, .22);
+    padding: 20px 22px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+  }
+  .cookie-banner__text {
+    flex: 1 1 340px;
+    margin: 0;
+    font-size: .92rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .cookie-banner__text a { font-weight: 600; }
+  .cookie-banner__actions {
+    display: flex;
+    gap: 10px;
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+  .cookie-banner__decline {
+    background: var(--gris-clair);
+    color: var(--ink);
+    border: 1px solid var(--bordure);
+  }
+  .cookie-banner__accept, .cookie-banner__decline { padding: 10px 18px; font-size: .92rem; }
+
+  @media (max-width: 560px) {
+    .cookie-banner__card { flex-direction: column; align-items: stretch; }
+    .cookie-banner__actions { margin-left: 0; justify-content: stretch; }
+    .cookie-banner__actions .btn { flex: 1; justify-content: center; }
+  }
+</style>
+
+<script define:vars={{ GA_ID }}>
+  const CONSENT_KEY = 'ec-cookie-consent'; // 'accepted' | 'declined'
+  const banner = document.getElementById('cookie-banner');
+
+  function loadGA() {
+    if (window.__gaLoaded) return;
+    window.__gaLoaded = true;
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_ID);
+  }
+
+  function showBanner() {
+    banner.hidden = false;
+    // reflow avant transition
+    requestAnimationFrame(() => banner.classList.add('is-visible'));
+  }
+
+  function hideBanner() {
+    banner.classList.remove('is-visible');
+    setTimeout(() => { banner.hidden = true; }, 450);
+  }
+
+  function initConsent() {
+    const consent = localStorage.getItem(CONSENT_KEY);
+
+    if (consent === 'accepted') {
+      loadGA();
+      return;
+    }
+    if (consent === 'declined') {
+      return;
+    }
+
+    // Pas de choix encore fait : on affiche le bandeau après 100px de scroll.
+    const onScroll = () => {
+      if (window.scrollY > 100) {
+        showBanner();
+        window.removeEventListener('scroll', onScroll);
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  document.getElementById('cookie-accept').addEventListener('click', () => {
+    localStorage.setItem(CONSENT_KEY, 'accepted');
+    loadGA();
+    hideBanner();
+  });
+
+  document.getElementById('cookie-decline').addEventListener('click', () => {
+    localStorage.setItem(CONSENT_KEY, 'declined');
+    hideBanner();
+  });
+
+  // Permet de rouvrir le bandeau depuis n'importe quelle page
+  // via un lien/bouton portant l'attribut data-cookie-settings.
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-cookie-settings]');
+    if (!trigger) return;
+    e.preventDefault();
+    showBanner();
+  });
+
+  initConsent();
+</script>

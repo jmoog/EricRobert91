@@ -1,0 +1,120 @@
+---
+// Satellite du cocon nettoyage : traitement hydrofuge de toiture.
+// Renvoie vers le hub /nettoyage-demoussage-toiture-91/ et le satellite anti-mousse.
+// Page NON RGE : aucun argument d'aides.
+export const prerender = true;
+import PageService from '../layouts/PageService.astro';
+import { company } from '../data/site';
+
+const liens = [
+  { label: 'Nettoyage & démoussage', url: '/nettoyage-demoussage-toiture-91/' },
+  { label: 'Traitement anti-mousse', url: '/traitement-anti-mousse-toiture-91/' },
+  { label: 'Rénovation de toiture', url: '/prestations/renovation-detoiture/' },
+  { label: 'Travaux de couverture', url: '/travaux-de-couverture/' },
+];
+---
+<PageService
+  titre="Traitement hydrofuge de toiture dans l'Essonne"
+  h1="Hydrofuge de toiture : redonner aux tuiles poreuses leur effet perlant"
+  path="/traitement-hydrofuge-toiture-91/"
+  description="Tuiles poreuses, toit qui boit l'eau ? Éric Couvreur applique un hydrofuge professionnel incolore ou coloré sur les toitures du 91 et prolonge leur vie. Devis gratuit."
+  photo="/photo-nettoyage-toiture-3.webp"
+  photoAlt="Application d'un traitement hydrofuge sur toiture par Éric Couvreur dans l'Essonne"
+  liensTitre="L'hydrofuge vient en dernier — voici ce qui vient avant"
+  liensIntro="Un toit se protège dans l'ordre : propre, traité, réparé, puis imperméabilisé."
+  liens={liens}
+>
+  <Fragment slot="hero">
+    <p>Passez la main sur une tuile de vingt ans : si elle laisse une poussière granuleuse et fonce dès qu’elle est mouillée, elle boit l’eau. Une tuile poreuse s’alourdit, se fragilise et devient le terrain préféré des mousses. Le <strong>traitement hydrofuge de toiture</strong> referme le grain du matériau et lui rend son effet perlant — l’eau glisse au lieu de pénétrer.</p>
+    <p>Éric Robert, couvreur à Linas, applique sur les couvertures de l’Essonne des <strong>hydrofuges professionnels</strong>, incolores ou colorés, après préparation complète du support. Un geste de fin de chantier qui prolonge la couverture de plusieurs années — quand il est justifié, et nous vous le dirons honnêtement.</p>
+  </Fragment>
+
+  <section class="section">
+    <div class="container media-split media-split--plain">
+      <div class="media-split__text">
+        <h2>Incolore ou coloré : deux façons de protéger la tuile</h2>
+        <p>L’hydrofuge incolore imprègne la tuile sans en changer l’aspect : il déperle l’eau, freine l’encrassement et laisse le matériau respirer. L’hydrofuge coloré ajoute une dimension esthétique : appliqué en deux couches, il redonne une teinte uniforme à une couverture passée — l’effet « toit neuf » sans changer une seule tuile.</p>
+        <p>Dans les deux cas, le produit ne fait pas de miracle sur un support abîmé : une tuile fissurée reste fissurée. C’est pourquoi l’application n’intervient qu’après contrôle complet — et, si besoin, après les <a href="/travaux-de-couverture/">reprises de couverture nécessaires</a>, remplacements de tuiles en tête.</p>
+        <a class="btn btn--rouge media-split__cta" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+      <div class="media-split__media">
+        <img src="/photo-nettoyage-toiture-4.webp" width="900" height="675" alt="Effet perlant de l'eau sur une tuile hydrofugée dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Quand l’hydrofuge se justifie — et quand il ne sert à rien</h2>
+        <p>Le bon conseil commence par savoir dire non. Voici notre grille de lecture.</p>
+      </div>
+      <table class="tableau">
+        <thead>
+          <tr><th>État de la couverture</th><th>Hydrofuge ?</th><th>Pourquoi</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Tuiles de 15-30 ans, poreuses mais saines</td><td>Oui, recommandé</td><td>Le grain se referme, la couverture gagne des années.</td></tr>
+          <tr><td>Toit terni, envie d’unifier la teinte</td><td>Oui, en version colorée</td><td>Protection + aspect rénové en une application.</td></tr>
+          <tr><td>Couverture récente (moins de 10 ans)</td><td>Inutile</td><td>La tuile neuve est déjà imperméable — gardez votre budget.</td></tr>
+          <tr><td>Tuiles fissurées, gélives, en fin de vie</td><td>Non</td><td>Le sujet relève d’une <a href="/prestations/renovation-detoiture/">rénovation de toiture</a>, pas d’un produit.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Une application qui se prépare</h2>
+        <p>L’hydrofuge est la dernière couche d’un processus — jamais la première.</p>
+      </div>
+      <ol class="prose-etapes">
+        <li><strong>Diagnostic gratuit</strong> : test de porosité, contrôle des tuiles, verdict honnête sur l’utilité du traitement.</li>
+        <li><strong>Préparation du support</strong> : la couverture doit être propre et débarrassée de toute végétation — le <a href="/nettoyage-demoussage-toiture-91/">nettoyage et démoussage du toit</a> précède systématiquement.</li>
+        <li><strong>Assainissement</strong> : application d’un <a href="/traitement-anti-mousse-toiture-91/">traitement anti-mousse</a> pour neutraliser les spores avant de sceller la surface.</li>
+        <li><strong>Application de l’hydrofuge</strong> : deux couches croisées au pulvérisateur, sur support sec, du faîtage vers l’égout.</li>
+        <li><strong>Contrôle final</strong> : vérification de l’uniformité, consignes — l’effet perlant atteint son plein rendement après quelques jours de séchage.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="cta-banner-section">
+    <div class="cta-banner">
+      <div class="cta-banner__media">
+        <img src="/eric-robert-portrait.webp" width="450" height="337" alt="Éric Robert, artisan couvreur dans l'Essonne" />
+      </div>
+      <div class="cta-banner__panel">
+        <h2>Vos tuiles boivent l’eau ? Faites tester leur porosité.</h2>
+        <p>Éric Robert monte sur votre toit, teste les tuiles et vous dit si l’hydrofuge se justifie — ou s’il vous ferait dépenser pour rien. Diagnostic gratuit dans toute l’Essonne.</p>
+        <a class="btn cta-banner__btn" href="/devis-gratuit/">Demander une intervention<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Tenue, teintes, prix : vos questions sur l’hydrofuge de toiture</h2>
+      </div>
+      <div class="faq">
+        <div class="faq__item">
+          <h3>Combien coûte un traitement hydrofuge dans l’Essonne ?</h3>
+          <p>À titre indicatif : 8 à 15 € par m² en incolore et 12 à 20 € par m² en coloré, application en deux couches comprise — hors nettoyage préalable si le toit n’est pas prêt. Le devis gratuit détaille l’ensemble de la préparation.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Combien de temps dure la protection ?</h3>
+          <p>Une dizaine d’années pour un hydrofuge appliqué sur support bien préparé. L’effet perlant s’estompe progressivement ; un test de porosité, réalisable à chaque démoussage, indique le bon moment pour renouveler.</p>
+        </div>
+        <div class="faq__item">
+          <h3>L’hydrofuge coloré ressemble-t-il à une peinture ?</h3>
+          <p>Non : c’est une imprégnation teintée qui laisse le matériau microporeux, pas un film qui s’écaille. La teinte se choisit sur nuancier — l’occasion d’harmoniser une couverture réparée par touches au fil des ans.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Peut-on tout faire en une seule intervention ?</h3>
+          <p>Oui, c’est notre formule la plus demandée : démoussage, anti-mousse puis hydrofuge s’enchaînent sur deux à trois jours selon le séchage. Un seul devis, un seul échafaudage, et un toit reparti pour dix ans.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageService>

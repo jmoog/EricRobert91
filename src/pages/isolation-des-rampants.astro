@@ -1,0 +1,161 @@
+---
+// Page service RGE : isolation des rampants (par l'intérieur) — combles aménagés.
+// Mot-clé principal : « isolation des rampants » + variantes (isolation rampants toiture essonne, isolation sous pente).
+export const prerender = true;
+import PageService from '../layouts/PageService.astro';
+import { company } from '../data/site';
+
+const liens = [
+  { label: 'Isolation des combles (RGE)', url: '/isolation-des-combles/' },
+  { label: 'Isolation de toiture (RGE)', url: '/prestations/isolation-de-toiture-91/' },
+  { label: 'Pose de Velux (RGE)', url: '/installateur-de-velux-91/' },
+  { label: 'Travaux de couverture', url: '/travaux-de-couverture/' },
+  { label: 'Traitement de charpente', url: '/traitement-de-charpente/' },
+  { label: 'Rénovation de toiture', url: '/prestations/renovation-detoiture/' },
+];
+---
+<PageService
+  titre="Isolation des rampants dans l'Essonne"
+  h1="Isolation des rampants de toiture dans l’Essonne : artisan certifié RGE Qualibat"
+  path="/isolation-des-rampants/"
+  description="Isolation des rampants de toiture dans l'Essonne par un artisan certifié RGE Qualibat : combles aménagés confortables, aides MaPrimeRénov' et CEE. Devis gratuit."
+  photo="/photo-isolation-interieur.webp"
+  photoAlt="Isolation des rampants de toiture par l'intérieur réalisée par Éric Couvreur dans l'Essonne"
+  liens={liens}
+>
+  <Fragment slot="hero">
+    <p>Une chambre sous les toits étouffante l’été, glaciale l’hiver, un chauffage qui tourne pour rien : quand les pièces mansardées sont invivables, le problème vient presque toujours des rampants. L’<strong>isolation des rampants</strong> — la face intérieure des pentes de toit — transforme ces mètres carrés perdus en vraies pièces à vivre.</p>
+    <p>Éric Robert, couvreur à Linas, est certifié <strong>RGE Qualibat</strong> pour l’isolation par l’intérieur des murs, rampants de toitures et plafonds. C’est précisément ce domaine de certification qui vous ouvre les aides de l’État. Devis et déplacement gratuits dans tout le département.</p>
+  </Fragment>
+
+  <section class="section">
+    <div class="container media-split media-split--plain">
+      <div class="media-split__text">
+        <h2>Isoler les rampants : le confort des combles aménagés</h2>
+        <p>Le toit est la première source de déperditions d’une maison : jusqu’à 30 % de la chaleur s’échappe par là. Dans des combles aménagés, l’isolant se pose entre et sous les chevrons, en une ou deux couches croisées, avec une membrane d’étanchéité à l’air côté intérieur. Résultat : une température stable toute l’année et des factures qui baissent dès le premier hiver.</p>
+        <p>Avant de poser le moindre isolant, nous vérifions l’état de la couverture et de la charpente — isoler sous un toit qui fuit n’a aucun sens. Si des tuiles sont à reprendre, nos <a href="/travaux-de-couverture/">travaux de couverture dans l’Essonne</a> se planifient dans la même intervention, avec un seul interlocuteur.</p>
+        <a class="btn btn--rouge media-split__cta" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+      <div class="media-split__media">
+        <img src="/photo-isolation-rampants-pose.webp" width="900" height="675" alt="Pose d'isolant entre chevrons dans des combles aménagés dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Quel isolant pour vos rampants ?</h2>
+        <p>Le choix se fait selon la hauteur disponible sous les chevrons, la performance visée (résistance thermique R) et votre budget.</p>
+      </div>
+      <table class="tableau">
+        <thead>
+          <tr><th>Isolant</th><th>Points forts</th><th>Épaisseur indicative pour R ≥ 6</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Laine de verre</td><td>Le meilleur rapport performance/prix, incombustible.</td><td>24 à 28 cm en deux couches croisées</td></tr>
+          <tr><td>Laine de roche</td><td>Bon affaiblissement acoustique, forte densité.</td><td>25 à 28 cm</td></tr>
+          <tr><td>Fibre de bois</td><td>Excellent confort d’été grâce à son déphasage thermique.</td><td>24 à 26 cm</td></tr>
+          <tr><td>Isolants minces multicouches</td><td>En complément uniquement — insuffisants seuls pour les aides.</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <p>La pièce gagne aussi à être mieux éclairée : profitez du chantier pour ajouter une <a href="/installateur-de-velux-91/">fenêtre de toit Velux posée par un installateur RGE</a> — l’habillage intérieur se fait dans la continuité de l’isolation, sans reprendre les finitions deux fois.</p>
+    </div>
+  </section>
+
+  <section class="split-feature">
+    <div class="split-feature__inner">
+      <div class="split-feature__left">
+        <h2>L’isolation des rampants, un domaine certifié RGE Qualibat</h2>
+        <p>L’isolation par l’intérieur des murs, rampants et plafonds est l’un des quatre domaines pour lesquels l’entreprise d’Éric Robert est <strong>certifiée RGE Qualibat</strong>. Avec une résistance thermique R ≥ 6 m².K/W, vos travaux peuvent mobiliser :</p>
+        <ul class="split-feature__list">
+          <li class="is-active">MaPrimeRénov’</li>
+          <li>Prime CEE (fournisseurs d’énergie)</li>
+          <li>TVA réduite à 5,5 %</li>
+        </ul>
+      </div>
+      <div class="split-feature__right">
+        <div class="split-feature__card">
+          <span class="split-feature__badge">RGE Qualibat</span>
+          <p>Les aides à la rénovation énergétique sont réservées aux chantiers réalisés par une entreprise RGE : c’est ce qui donne à la certification toute sa valeur. Celle d’Éric Robert est vérifiable en ligne sur l’Annuaire des Entreprises (SIREN 821 136 488).</p>
+          <p>Le montant dépend de vos ressources et de la surface isolée. Au moment du devis, Éric Robert chiffre les aides mobilisables et fournit les attestations du dossier — à déposer avant la signature pour être acceptées.</p>
+        </div>
+        <img class="split-feature__photo" src="/photo-isolation-rge.webp" width="900" height="1204" alt="Combles aménagés isolés par un artisan RGE dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Comment se déroule l’isolation de vos rampants ?</h2>
+        <p>Un chantier type dans des combles aménagés ou en cours d’aménagement.</p>
+      </div>
+      <ol class="prose-etapes">
+        <li><strong>Visite technique gratuite</strong> : contrôle de la couverture, de la charpente et de la ventilation, mesure des hauteurs sous chevrons.</li>
+        <li><strong>Devis détaillé</strong> : isolant retenu, épaisseurs, résistance thermique R atteinte et estimation des aides.</li>
+        <li><strong>Préparation</strong> : dépose des anciens matériaux si nécessaire, traitement des points singuliers (conduits, spots, trappe).</li>
+        <li><strong>Pose de l’isolant</strong> : une ou deux couches croisées entre et sous chevrons, membrane d’étanchéité à l’air, adhésifs aux jonctions.</li>
+        <li><strong>Finitions</strong> : ossature et plaques de plâtre si demandé, chantier laissé propre, attestation remise pour vos aides.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="cta-banner-section">
+    <div class="cta-banner">
+      <div class="cta-banner__media">
+        <img src="/eric-robert-portrait.webp" width="450" height="337" alt="Éric Robert, artisan couvreur RGE dans l'Essonne" />
+      </div>
+      <div class="cta-banner__panel">
+        <h2>Des combles enfin agréables à vivre, été comme hiver</h2>
+        <p>Éric Robert se déplace chez vous, mesure vos rampants et vous remet un devis détaillé avec l’estimation des aides RGE. Sans frais, partout dans l’Essonne.</p>
+        <a class="btn cta-banner__btn" href="/devis-gratuit/">Demander une intervention<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Isolation des rampants dans tout le nord de l’Essonne et au-delà</h2>
+        <p>Depuis Linas, Éric Robert intervient dans tout le département — devis et déplacement gratuits.</p>
+      </div>
+      <div class="liens-proches">
+        <a href="/couvreur-orsay/">Orsay</a>
+        <a href="/couvreur-gif-sur-yvette/">Gif-sur-Yvette</a>
+        <a href="/couvreur-palaiseau/">Palaiseau</a>
+        <a href="/couvreur-igny/">Igny</a>
+        <a href="/couvreur-linas/">Linas</a>
+        <a href="/couvreur-la-ville-du-bois/">La Ville-du-Bois</a>
+        <a href="/couvreur-champlan/">Champlan</a>
+        <a href="/couvreur-wissous/">Wissous</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Prix, épaisseurs, aides : vos questions sur l’isolation des rampants</h2>
+      </div>
+      <div class="faq">
+        <div class="faq__item">
+          <h3>Combien coûte l’isolation des rampants dans l’Essonne ?</h3>
+          <p>À titre indicatif : de 60 à 100 € par m² pose comprise, selon l’isolant, l’épaisseur et l’état du support. Les aides MaPrimeRénov’ et CEE, réservées aux entreprises RGE, réduisent nettement ce coût. Le devis gratuit détaille fourniture et main-d’œuvre.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Quelle épaisseur d’isolant faut-il prévoir ?</h3>
+          <p>Pour atteindre la résistance thermique R ≥ 6 exigée par les aides, comptez 24 à 28 cm selon le matériau, généralement en deux couches croisées. Si la hauteur sous chevrons manque, une ossature déportée permet de gagner l’épaisseur nécessaire.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Mes combles ne sont pas aménagés : est-ce la bonne solution ?</h3>
+          <p>Non — si les combles servent seulement de grenier, l’<a href="/isolation-des-combles/">isolation des combles perdus par soufflage</a> est plus rapide et bien moins chère pour un résultat équivalent sur vos factures. Éric Robert vous oriente vers la solution adaptée lors de la visite.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Peut-on isoler sans toucher aux finitions intérieures ?</h3>
+          <p>Oui, dans un cas : si la couverture doit de toute façon être refaite, l’<a href="/prestations/isolation-de-toiture-91/">isolation de la toiture par l’extérieur (sarking)</a> pose l’isolant au-dessus des chevrons — vos plafonds et vos volumes intérieurs restent intacts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageService>

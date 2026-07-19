@@ -1,0 +1,156 @@
+---
+// Page pilier du silo couverture — porte « couvreur 91 » / « couvreur essonne ».
+// Reçoit ~1648 impressions via les redirections : c'est la page la plus stratégique du site.
+// Inclut la section zinguerie/gouttières (pas de hub dédié).
+export const prerender = true;
+import PageService from '../layouts/PageService.astro';
+import { company } from '../data/site';
+
+const liens = [
+  { label: 'Réparation & recherche de fuite', url: '/reparation-toiture-fuite-91/' },
+  { label: 'Rénovation de toiture', url: '/prestations/renovation-detoiture/' },
+  { label: 'Nettoyage & démoussage', url: '/nettoyage-demoussage-toiture-91/' },
+  { label: 'Isolation de toiture (RGE)', url: '/prestations/isolation-de-toiture-91/' },
+  { label: 'Pose de Velux (RGE)', url: '/installateur-de-velux-91/' },
+  { label: 'Traitement de charpente', url: '/traitement-de-charpente/' },
+];
+---
+<PageService
+  titre="Travaux de couverture dans l'Essonne"
+  h1="Couvreur 91 : tous vos travaux de couverture, de la tuile au zinc"
+  path="/travaux-de-couverture/"
+  description="Éric Robert, artisan couvreur dans l'Essonne : pose et réfection de toiture, tuiles, ardoises, zinguerie et gouttières. Déplacement et devis gratuits dans le 91."
+  photo="/hero-eric-couvreur.webp"
+  photoAlt="Équipe d'Éric Couvreur sur un chantier de couverture dans l'Essonne"
+  liensTitre="Toutes nos prestations autour de votre toiture"
+  liensIntro="Du dépannage ponctuel à la réfection complète, un seul artisan pour tout le toit."
+  liens={liens}
+>
+  <Fragment slot="hero">
+    <p>Une toiture, ça ne pardonne pas l’à-peu-près : une tuile mal posée, un solin approximatif, et c’est l’infiltration quelques mois plus tard. Que vous fassiez construire, que votre toit accuse ses trente ans ou qu’il ait besoin d’une simple remise en état, le bon réflexe est le même : un couvreur de métier, proche de chez vous.</p>
+    <p>Éric Robert exerce comme <strong>couvreur dans l’Essonne</strong> depuis {company.foundingDate}, depuis son atelier de Linas. Pose neuve, réfection, entretien, zinguerie : l’entreprise, certifiée RGE Qualibat, traite la toiture dans son ensemble. Devis et déplacement gratuits dans tout le 91.</p>
+  </Fragment>
+
+  <section class="section">
+    <div class="container media-split media-split--plain">
+      <div class="media-split__text">
+        <h2>Pose et réfection de couverture : tuiles, ardoises, zinc</h2>
+        <p>Le cœur du métier : poser et refaire des <strong>toitures en tuiles mécaniques, tuiles plates et ardoises</strong>, les couvertures que l’on trouve sur la grande majorité des pavillons du département. Dépose, contrôle du support, écran de sous-toiture, liteaunage, pose au cordeau : les étapes qui font une couverture droite, étanche et posée pour durer.</p>
+        <p>Quand le toit entier arrive en fin de vie, la question dépasse la simple couverture — c’est l’objet de notre page <a href="/prestations/renovation-detoiture/">rénovation de toiture dans l’Essonne</a>, qui détaille réfection partielle, réfection complète et les critères pour trancher. Et si la couverture doit être déposée de toute façon, l’<a href="/prestations/isolation-de-toiture-91/">isolation par l’extérieur en sarking</a> permet de traiter l’étanchéité et les déperditions en un seul chantier certifié RGE.</p>
+        <a class="btn btn--rouge media-split__cta" href="/devis-gratuit/">Demander un devis<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+      <div class="media-split__media">
+        <img src="/photo-couverture-tuiles.webp" width="900" height="675" alt="Pose de tuiles mécaniques sur une toiture dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container media-split media-split--reverse">
+      <div class="media-split__text">
+        <h2>Zinguerie : gouttières, noues et chéneaux</h2>
+        <p>L’eau qui tombe sur un toit doit en repartir vite et proprement : c’est le rôle de la <strong>zinguerie</strong>. Gouttières demi-rondes ou carrées, noues, chéneaux, abergements de cheminée, habillages de rives : Éric Robert façonne et pose le zinc qui protège vos façades et vos fondations des écoulements.</p>
+        <p>Une gouttière qui déborde ou une noue percée font des dégâts discrets mais tenaces — auréoles en haut des murs, enduit qui cloque. Au premier signe, une <a href="/reparation-toiture-fuite-91/">réparation de toiture avec recherche de fuite</a> cible le point exact du problème avant que la structure ne trinque.</p>
+        <a class="btn btn--rouge btn--tel media-split__cta" href={company.mobileHref} aria-label={`Appeler le ${company.mobile}`} title={`Appeler le ${company.mobile}`}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 18h.01"/></svg>{company.mobile}</a>
+      </div>
+      <div class="media-split__media">
+        <img src="/photo-gouttieres-1.webp" width="400" height="400" alt="Pose de gouttières et chéneaux en zinc par Éric Couvreur dans l'Essonne" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Quelle couverture pour votre maison ?</h2>
+        <p>Le choix dépend du bâti existant, de la pente du toit et des règles d’urbanisme de votre commune.</p>
+      </div>
+      <table class="tableau">
+        <thead>
+          <tr><th>Matériau</th><th>Points forts</th><th>À savoir</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Tuile mécanique (béton ou terre cuite)</td><td>Économique, pose rapide, grand choix de teintes.</td><td>Le standard des pavillons du 91.</td></tr>
+          <tr><td>Tuile plate</td><td>Aspect traditionnel, adaptée aux fortes pentes.</td><td>Pose plus dense, budget supérieur.</td></tr>
+          <tr><td>Ardoise naturelle</td><td>Tenue dans le temps exceptionnelle, cachet incomparable.</td><td>Exigée par le PLU dans certains secteurs.</td></tr>
+          <tr><td>Zinc (joint debout)</td><td>Idéal sur faibles pentes, toitures contemporaines.</td><td>Travail de zingueur spécialisé.</td></tr>
+        </tbody>
+      </table>
+      <p>Un toit neuf mérite d’être bien éclairé : intégrer une <a href="/installateur-de-velux-91/">pose de Velux par un installateur certifié RGE</a> au moment des travaux évite une seconde intervention et son surcoût de dépose.</p>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Comment se déroulent vos travaux de couverture ?</h2>
+        <p>Le même sérieux, que le chantier dure une journée ou trois semaines.</p>
+      </div>
+      <ol class="prose-etapes">
+        <li><strong>Visite et devis gratuits</strong> : montée sur le toit, photos à l’appui, chiffrage détaillé poste par poste.</li>
+        <li><strong>Préparation</strong> : échafaudage, protection des abords, commande des matériaux aux teintes validées ensemble.</li>
+        <li><strong>Dépose et contrôle</strong> : retrait de l’ancienne couverture, inspection des bois — une pièce douteuse part en <a href="/traitement-de-charpente/">traitement de charpente</a> avant de refermer.</li>
+        <li><strong>Pose</strong> : écran de sous-toiture, liteaux, couverture, zinguerie, points singuliers (cheminée, rives, faîtage).</li>
+        <li><strong>Réception</strong> : contrôle visuel avec vous, évacuation des gravats, garanties et factures remises.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="cta-banner-section">
+    <div class="cta-banner">
+      <div class="cta-banner__media">
+        <img src="/eric-robert-portrait.webp" width="450" height="337" alt="Éric Robert, artisan couvreur dans l'Essonne" />
+      </div>
+      <div class="cta-banner__panel">
+        <h2>Un couvreur du 91, pas une plateforme</h2>
+        <p>Vous parlez directement à l’artisan qui montera sur votre toit. Éric Robert se déplace, examine votre couverture et vous remet un devis clair. Sans frais, dans toute l’Essonne.</p>
+        <a class="btn cta-banner__btn" href="/devis-gratuit/">Demander une intervention<span class="btn-menu__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h11.5M12 6.5l5.5 5.5-5.5 5.5"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Votre couvreur près de chez vous, dans tout le 91</h2>
+        <p>Basé à Linas au bord de la N20, Éric Robert couvre l’ensemble du département — devis et déplacement gratuits.</p>
+      </div>
+      <div class="liens-proches">
+        <a href="/couvreur-linas/">Linas</a>
+        <a href="/couvreur-arpajon/">Arpajon</a>
+        <a href="/couvreur-palaiseau/">Palaiseau</a>
+        <a href="/couvreur-evry/">Évry-Courcouronnes</a>
+        <a href="/couvreur-corbeil-essonnes/">Corbeil-Essonnes</a>
+        <a href="/couvreur-sainte-genevieve-des-bois/">Sainte-Geneviève-des-Bois</a>
+        <a href="/couvreur-etrechy/">Étréchy</a>
+        <a href="/couvreur-gif-sur-yvette/">Gif-sur-Yvette</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gris">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <h2>Prix, délais, garanties : vos questions à un couvreur du 91</h2>
+      </div>
+      <div class="faq">
+        <div class="faq__item">
+          <h3>Combien coûte une couverture neuve dans l’Essonne ?</h3>
+          <p>À titre indicatif : 90 à 140 € par m² en tuile mécanique et 150 à 250 € par m² en ardoise, pose comprise, hors charpente. La zinguerie se chiffre à part (25 à 45 € le mètre linéaire de gouttière posée). Le devis gratuit détaille chaque poste.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Quelles garanties sur les travaux ?</h3>
+          <p>L’entreprise est couverte en assurance décennale pour les travaux de couverture et de zinguerie : dix ans sur l’étanchéité et la solidité de l’ouvrage. Les attestations vous sont remises avec le devis, avant tout début de chantier.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Faut-il une autorisation pour refaire sa toiture ?</h3>
+          <p>Une déclaration préalable en mairie est nécessaire dès que l’aspect change (teinte, matériau, ouvertures). À l’identique, elle reste souvent exigée. Nous vous indiquons les démarches propres à votre commune lors de la visite.</p>
+        </div>
+        <div class="faq__item">
+          <h3>Mon toit est terne mais étanche : faut-il des travaux ?</h3>
+          <p>Pas forcément — si la couverture est saine, un <a href="/nettoyage-demoussage-toiture-91/">nettoyage et démoussage de toiture</a> avec traitement suffit souvent à lui redonner dix ans. C’est l’inspection qui tranche, et elle est gratuite.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageService>
