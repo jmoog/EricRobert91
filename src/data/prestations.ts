@@ -27,7 +27,7 @@ export interface Prestation {
 
 // Les 4 mentions RGE Qualibat d'Éric Couvreur (intitulés officiels).
 export const prestationsRge: Prestation[] = [
-  { titre: 'Fenêtres de toit', desc: 'Pose et remplacement de fenêtres de toit (Velux) : plus de lumière naturelle et une meilleure isolation.', url: '/installateur-de-velux-91/', brand: 'velux', accent: true, feature: true, photo: '/photo-velux.webp' },
+  { titre: 'Fenêtres de toit Velux', desc: 'Pose et remplacement de Velux dans le 91 : plus de lumière naturelle et une meilleure isolation.', url: '/installateur-de-velux-91/', brand: 'velux', accent: true, feature: true, photo: '/photo-velux.webp' },
   { titre: 'Isolation par l’intérieur des murs, rampants de toitures ou plafonds', desc: 'Isolation thermique par l’intérieur, idéale pour les combles aménagés et les rampants de toiture.', url: '/isolation-des-rampants/', brand: 'icon', icon: 'shield', photo: '/photo-isolation-interieur.webp' },
   { titre: 'Isolation des toitures-terrasses ou des toitures par l’extérieur', desc: 'Isolation par l’extérieur (sarking, toiture-terrasse) : performance maximale sans perdre de volume habitable.', url: '/prestations/isolation-de-toiture-91/', brand: 'icon', icon: 'roof', photo: '/photo-sarking.webp' },
   { titre: 'Isolation des combles perdus', desc: 'Isolant posé dans les combles non aménagés : le geste le plus rentable pour réduire vos factures.', url: '/isolation-des-combles/', brand: 'icon', icon: 'layers', photo: '/isolation-combles-perdus.webp' },
