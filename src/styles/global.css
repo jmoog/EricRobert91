@@ -183,6 +183,9 @@ html:has(.nav-toggle:checked) { overflow: hidden; }
   }
   .mobile-cta-bar .btn-menu { flex: 1; justify-content: center; font-size: .75rem; padding: 12px 10px; letter-spacing: .02em; }
   body.scrolled-past .mobile-cta-bar { transform: translateY(0); }
+  /* Le bandeau cookies occupe le même bas d'écran : quand il est visible,
+     la barre CTA s'efface pour éviter la superposition des deux blocs. */
+  body:has(.cookie-banner.is-visible) .mobile-cta-bar { transform: translateY(130%); }
   /* Au-delà de 1000px, le header (logo) se masque */
   body.scrolled-past .site-header { transform: translateY(-100%); }
 }
