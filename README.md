@@ -29,7 +29,8 @@ Le mapping complet et lisible est dans `redirections-mapping.csv`.
 ## À faire avant mise en ligne
 
 - Déposer dans `public/` : `eric-couvreur-logo.png` (carré ≥ 512×512, fond clair),
-  `favicon.png` (48×48), `apple-touch-icon.png`.
+  `apple-touch-icon.png` (180×180) et les favicons **carrés en multiple de 48 px**
+  exigés par Google en SERP : `favicon.ico` (16/32/48) + `favicon-192.png` (192×192).
 - Enrichir le contenu des 21 pages villes prioritaires (contenu local unique).
 - Ajouter progressivement les communes du palier « INDEX » dans `communes.ts`.
 

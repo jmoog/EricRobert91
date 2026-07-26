@@ -65,6 +65,9 @@ const areaServedLd = areaServedVille
 const SITE = 'https://eric-couvreur.fr';
 const canonical = new URL(path, Astro.site ?? SITE).href;
 const logoUrl = `${SITE}/eric-couvreur-logo.png`;
+// Variante aplatie sur blanc : un PNG à fond transparent s'affiche sur fond noir
+// dans une partie des aperçus sociaux (WhatsApp, Slack, X).
+const ogImageUrl = `${SITE}/eric-couvreur-logo-og.png`;
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -169,8 +172,10 @@ const jsonLd = {
     <link rel="canonical" href={canonical} />
     <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
 
-    <link rel="icon" href="/favicon.ico" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
+    <!-- Google n'affiche en SERP qu'un favicon carré de 48 px ou d'un multiple de 48 :
+         le .ico embarque 16/32/48, on déclare donc 48x48 (et pas 32x32). -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="google-site-verification" content="YkbEXhKmWFoJgum0U-9IuBcHgakFaIWk2wZNp1REIS8" />
 
@@ -180,13 +185,13 @@ const jsonLd = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={logoUrl} />
+    <meta property="og:image" content={ogImageUrl} />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="512" />
     <meta property="og:image:height" content="512" />
     <meta property="og:image:alt" content="Logo Éric Couvreur, artisan couvreur RGE dans l’Essonne" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:image" content={logoUrl} />
+    <meta name="twitter:image" content={ogImageUrl} />
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
   </head>

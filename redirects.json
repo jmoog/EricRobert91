@@ -807,5 +807,11 @@
   "/pose-de-velux-a-wissous-91320/": "/couvreur-wissous/",
   "/pose-de-velux-a-yerres-91330/": "/installateur-de-velux-91/",
   "/contact/": "/devis-gratuit/",
-  "/diagnostic-de-charpentes/": "/traitement-de-charpente/"
+  "/diagnostic-de-charpentes/": "/traitement-de-charpente/",
+  "/wp-content/uploads/2020/04/cropped-favicon-32x32.jpg": "/favicon.ico",
+  "/wp-content/uploads/2020/04/cropped-favicon-192x192.jpg": "/favicon-192.png",
+  "/wp-content/uploads/2020/04/cropped-favicon-180x180.jpg": "/apple-touch-icon.png",
+  "/wp-content/uploads/2020/04/cropped-favicon-270x270.jpg": "/favicon-192.png",
+  "/wp-content/uploads/2019/12/eric-couvreur-logo-a.jpg": "/eric-couvreur-logo.png",
+  "/wp-content/uploads/2020/04/eric-couvreur-logo-a.png": "/eric-couvreur-logo.png"
 }
