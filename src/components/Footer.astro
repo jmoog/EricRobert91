@@ -48,6 +48,10 @@ const cookieLink = { label: 'Gérer les cookies', attr: 'data-cookie-settings' }
           {!hideQuoteCta && (
             <a class="btn-menu footer-cta__quote footer-cta__btn" href="/devis-gratuit/">Devis gratuit</a>
           )}
+          <a class="btn-menu footer-cta__btn footer-avis-btn" href="https://local-place.fr/entreprise/eric-robert-couverture/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+            Nos avis sur Local Place
+          </a>
         </div>
       </div>
 
@@ -77,3 +81,8 @@ const cookieLink = { label: 'Gérer les cookies', attr: 'data-cookie-settings' }
     <div class="footer-bottom">{company.name} — Artisan couvreur RGE Qualibat dans l’Essonne (91). Devis gratuit et déplacement offert.</div>
   </div>
 </footer>
+
+<style>
+  /* Bouton vers la fiche Local Place : fond translucide neutre, sans bordure */
+  .footer-avis-btn { background: rgba(255,255,255,.1); }
+</style>
